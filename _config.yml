@@ -1,16 +1,5 @@
-title: 5 Important Coding Scripts for a Research Analysis Project 
-author: Jackson Passey
-email: jxnpass@gmail.com
-LinkedIn: https://www.linkedin.com/in/jackson-passey-4102ba251/
-copyright: JP
-description: "Whether you've invested years into statistics, or just dipping your toes into a future career, coding for research projects can get messy. 
-When it is time to turn work in, there are five scripts that will show  employers, colleagues, or students the amazing contributions in a clean and tangible fashion."
-image: https://mathstat.gsu.edu/files/2020/11/math-stats-research-banner.jpg
-footer_description: "5 Important Coding Scripts"
-url: https://jxnpass.github.io
-baseurl: blog-stat386
+title: Cayman theme
+description: Cayman is a clean, responsive theme for GitHub Pages.
 show_downloads: true
 google_analytics:
-remote_theme: pages-themes/cayman@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+theme: jekyll-theme-cayman
