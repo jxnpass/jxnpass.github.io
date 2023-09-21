@@ -4,6 +4,8 @@ layout: default
 
 [Contact Me](./contact-jp.html)
 
+STILL WORKING ON THIS! UNDER DEVELOPMENT AS OF 9/21/23
+
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 There should be whitespace between paragraphs.
