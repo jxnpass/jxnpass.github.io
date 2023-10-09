@@ -4,7 +4,20 @@ layout: default
 
 [Contact Me](./contact-jp.html)
 
-STILL WORKING ON THIS! UNDER DEVELOPMENT AS OF 9/21/23
+STILL WORKING ON THIS! UNDER DEVELOPMENT AS OF 10/9/23
+
+You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and every file you have, much less an employer from your company of interest. Here’s how they can be guided to enjoy your ingenuity – from most to least effective. 
+
+## Use a README.md file and Create a Blog
+
+Creating reports on statistics and findings reveals to employers that you know more than just coding and math. The ability to generate digestable reports that are sequentially easy to follow and get to the point is an well-valued quality of data scientists. In addition, you can choose what to cover in your report: are you most proud of your graphics and visualizations, your experiment's discoveries, or the machine learning algorithms implemented? On GitHub, you have full jurisdiction over what to brag about and the ability to present it on silver platters.
+
+### README.md 
+
+
+
+
+
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
