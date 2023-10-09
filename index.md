@@ -6,17 +6,25 @@ layout: default
 
 STILL WORKING ON THIS! UNDER DEVELOPMENT AS OF 10/9/23
 
-You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and every file you have, much less an employer from your company of interest. Here’s how they can be guided to enjoy your ingenuity – from most to least effective. 
+You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and file you have, much less an employer from your company of interest. Here’s how they can be guided to enjoy your ingenuity – from most to least effective. 
 
-## Use a README.md file and Create a Blog
+## Use a README.md file and a GitHub Page
 
 Creating reports on statistics and findings reveals to employers that you know more than just coding and math. The ability to generate digestable reports that are sequentially easy to follow and get to the point is an well-valued quality of data scientists. In addition, you can choose what to cover in your report: are you most proud of your graphics and visualizations, your experiment's discoveries, or the machine learning algorithms implemented? On GitHub, you have full jurisdiction over what to brag about and the ability to present it on silver platters.
 
 ### README.md 
 
+Adding a README.md is simple. On GitHub navigate to your repository. When you see your files you can find a button that says "Add README.MD"
 
+![pic1](/before_readme.png)
 
+When you select it, a new markdown file will open up. When you finish writing, click "commit changes" and write in your commit message. When you finish, your repository should now have a new "README.md" file and look something like this:
 
+![pic2](/after_readme.png)
+
+GitHub automatically adds the entire README.md file at the bottom of your repo. This is great for employers, because now all information about your project's file system can be summarized in a very convenient spot! 
+
+### 
 
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
