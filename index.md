@@ -4,7 +4,14 @@ layout: default
 
 [Contact Me](./contact-jp.html)
 
-You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and file you have, much less an employer from your company of interest. Here’s how they can be led to enjoy your ingenuity.
+You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and file you have, much less an employer from your company of interest. Here are a few practices you can do to easily lead recruitiers to your ingenuity.
+
+- [1: Use a README.md file and a GitHub Page](#1-use-a-readmemd-file-and-a-github-page)
+- [2: Present Your Data Project as a Linear Process](#2-present-your-data-project-as-a-linear-process)
+- [3: Pin Your Repository On Your GitHub Profile](#3-pin-your-repository-on-your-github-profile)
+- [4: Selecting Topics](#4-selecting-topics)
+- [5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV](#5-link-your-profile-and-repositories-to-your-linkedin-profile-and-your-resumecv)
+- [Conclusion](#conclusion)
 
 ## 1: Use a README.md file and a GitHub Page
 
@@ -20,7 +27,7 @@ When you select it, a new markdown file will open up. When you finish writing, c
 
 ![pic2](/pics/after_readme.png)
 
-GitHub automatically adds the entire README.md file at the bottom of your repo. This is great for employers, because now all information about your project's file system can be summarized in a very convenient spot! 
+GitHub automatically adds the entire README.md file at the bottom of your repo. This is great for employers, because now all information about your project can be summarized in a very convenient spot! 
 
 For more best practices on configuring your README.md file, I recommend using this [link](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/).
 
@@ -36,7 +43,7 @@ Then, click on "Source" and select "GitHub Actions."
 
 You will have two options to choose from: GitHub Pages Jekyll or Static HTML. You can then select one of them, and GitHub will navigate you to a new file with a name depending on which one you select. Then press "commit changes." This will add a hidden file with folder .github/workflows with a new .yml file added. You don't have to do anything with this file. 
 
-Navigate to your repository's settings, revisit "Pages" and a link should now pop on. 
+Navigate to your repository's settings, revisit "Pages" and a link should now pop up. 
 
 ![pic5](/pics/blog-step3.png)
 
@@ -44,11 +51,7 @@ If you click on the link, it will take you to your README.md file as its own web
 
 ![pic6](/pics/blog-step4.png)
 
-Final step! You can add your link to your repository's about section, found on the right of your main file structure. 
-
-![pic7](/pics/blog-step5.png)
-
-Click on the box and GitHub will automatically find your blog's link. You can also add a brief description/abstract and related topics as well (more on that later).  
+Final step! You can add your link to your repository's "about" section (on the Gear icon), found on the right of your main file structure. Then, click on the box and GitHub will automatically find your blog's link. 
 
 The information I provided just scratches the surface of setting up a personal website for your repositories. For more information on setting up a blog, I recommend visiting the following sites:
 
@@ -64,7 +67,7 @@ The information I provided just scratches the surface of setting up a personal w
 
 ## 2: Present Your Data Project as a Linear Process
 
-Data analysis can be especially tricky, as data projects -- especially those involved in research -- are based on purely investigative developments involving lots of trial and error. If you are like me, then you likely have very complex file structures for your projects, and while it makes perfect sense to you, odds are it appears incoherent to viewers. For the entire length of your project, you can easily find yourself diverging into various paths and directions, leading you to dead ends or breakthroughs. 
+Data analysis can be especially tricky, as data projects -- especially those involved in research -- are based on purely investigative developments involving lots of trial and error. If you are like me, then you likely had a non-stop growing file structure for your projects, and while it makes perfect sense to you, odds are it appears incoherent to viewers. For the entire length of your project, you can easily find yourself diverging into various paths and directions, leading you to dead ends or breakthroughs. 
 
 As important as failure is to personal development, employers mainly care about breakthroughs. In addition, data science employers want to know if you have the skills to follow through on the entire process of a data science project. It's best to align the description of your project as following this process, or in other words, as conveying a set of steps that led you to your ultimate findings and discoveries. 
 
@@ -158,15 +161,11 @@ Many job applications are also offered through LinkedIn, and if you choose to ap
 
 ![pic11](/pics/linkedin-step1.png)
 
-Click on "Add Section", and circulate through the dropdown arrows until you find where it says "Add Projects."
-
-![pic12](/pics/linkedin-step2.png)
-
-You can then add a title and description for your project. After filling in your details, click on "Add Media."
+Click on "Add Section", and circulate through the dropdown arrows until you find where it says "Add Projects." You can then add a title and description for your project. After filling in your details, click on "Add Media."
 
 ![pic13](/pics/linkedin-step3.png)
 
-It will navigate you to where you can choose to reference a link or a folder. Since your project is on GitHub, you will want to cite a link. 
+It will give you the option whether to reference a link or a folder. Since your project is on GitHub, you will want to cite a link. 
 
 ![pic14](/pics/linkedin-step4.png)
 
