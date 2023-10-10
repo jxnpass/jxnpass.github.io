@@ -122,8 +122,28 @@ You can choose up to six repositories and projects show up when employers access
 
 ![pic9](/pics/customizepins.png)
 
-This is important to do, especially towards tailoring what kind of projects you showcase. You'll notice that your projects can be read by GitHub and detect the kind of programming languages you used -- a nice feature for you to show what languages you use and employers to have quick access to hard evidence of your skills. 
+This is important to do, especially when tailoring what kind of projects you desire to showcase. You'll notice that your projects are read by GitHub and detect the names of programming languages -- a nice feature for you to share with employers the hard evidence of your coding skills. 
 
+A more in depth guide:
+
+[Pinning Items to Your Pofile](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)
+
+## 4: Selecting Topics
+
+Topics are helpful for classifying the contents of your project. Topics mainly have specific usage for enhancing other GitHub search results and finding specialized projects that suit their interests (see [Classifying Your Repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) for more uses). However, they have special benefits for employers.
+
+Your repository can be classified in such a way that employers can see what kind of work you did, all in a quick summary. For example, did you use a deep learning algorithm to fit your data? Did you tap into a database using SQL? Did your project involve using Python packages in statistics? Did you dive into topics in aviation, finance, psychology, engineering, or any other industry? Whatever you decide to do, simplify it enough for others to know what was involved generally in your data project.   
+
+My Advice on Configuring Topics:
+* Keep the number of topics you list minimal. While it widens the depth by which it pops up on a search feed, it complicates the about section of your repo. Know those annoying social media posts with 30 hashtags? Don't be one of those people.
+* Best way to maximize the topics section is to have one each listing the programming language(s), project topic/industry, main modelling technique(s), and one read simply as "data-science" or "data-analysis."
+* Check out GitHub's [Trending](https://github.com/trending) and [Popular Topics](https://github.com/topics) to see what kind of projects people are most excited about. Your recruiter will be impressed if your work is matching trends within the coding community.  
+
+## 5: Link Your Repository to Your LinkedIn Profile and Your Resume
+
+When you've put in all this work on your GitHub before applying for job/internship applications, it is important to make sure that employers know **you have** a GitHub profile. At this point, having just one or two strong repositories in your project 
+
+## Conclusion
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
