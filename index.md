@@ -66,15 +66,16 @@ The information I provided just scratches the surface of setting up a personal w
 
 ## 2: Present Your Data Project as a Linear Process
 
-Data analysis can be especially tricky, as data projects -- especially those involved in research -- are based on purely investigative developments involving lots of trial and error. If you are like me in research, then you likely had a very messy file structure in your repo, and odds are it appears incoherent to viewers. You can find yourself diverging into various paths and directions, leading you to dead ends or breakthroughs. 
+Data analysis can be especially tricky, as data projects -- especially those involved in research -- are based on purely investigative developments involving lots of trial and error. If you are like me, then you likely have very complex file structures for your projects, and while it makes perfect sense to you, odds are it appears incoherent to viewers. For the entire length of your project, you can easily find yourself diverging into various paths and directions, leading you to dead ends or breakthroughs. 
 
-As important as failure is to personal development, employers mainly care about breakthroughs. In addition, data science employers want to know if you have the skills to follow through on the entire process of analysis. It's best to align your project as following this process under your own perspective, or in other words, as conveying a set of steps that led you to your ultimate findings and discoveries. 
+As important as failure is to personal development, employers mainly care about breakthroughs. In addition, data science employers want to know if you have the skills to follow through on the entire process of a data science project. It's best to align the description of your project as following this process, or in other words, as conveying a set of steps that led you to your ultimate findings and discoveries. 
 
 ![pic8](/pics/datasciprocess.jpeg)
 
 In your README.md, GitHub Page, or any other form of presentation, consider following these steps in discussing your data project. 
 1. Introduction
   * What is the project about?
+  * What were your hypotheses?
 2. Data collection
   * Where is your data from?
   * How was it collected?
@@ -84,12 +85,41 @@ In your README.md, GitHub Page, or any other form of presentation, consider foll
   * What did you do to the data to prepare it for analysis?
 4. Exploratory Data Analysis (EDA)
   * What trends were discovered?
-  * What graphs were most interesting? Consider even embedding these graphics into your README. 
+  * What graphs tell interesting narratives?
 5. Model Deployment (and Evaluation)
-  * What findings were most significant, and how do they impact our knowledge about the world?
-  * 
+  * What findings were most significant, and how did they impact the hypotheses?
+  * What types of models were implemented into the project?
+  * What led you to make your final decisions?
 
-If you use Git's branching plus version control systems, then you can easily 
+Additional Tips:
+* Pictures tell a thousands words -- embed graphs into the blog/README file to augment your report
+* Consider adding information about the file structure. For those employers who want to look at your coding scripts, you can link your coding scripts directly to the page/README.md 
+* You can showcase code chunks you feel are most impressive/important. This is especially beneficial to show off your ability to code up a modeling technique in a quick view.
+
+```py
+# Import the model we are using
+from sklearn.ensemble import RandomForestRegressor
+
+# Initiate Random Forest Model
+rf = RandomForestRegressor(n_estimators = 1000, random_state = 42)
+# Train the model on training data, generate predictions
+rf.fit(train_features, train_labels)
+predictions = rf.predict(test_features)
+```
+
+You can find other views on describing your data project/profile here:
+
+[Building a Data Science Portfolio](https://www.knowledgehut.com/blog/data-science/data-science-portfolio)
+
+[4 Data Science Portfolio Projects You Need to Create](https://builtin.com/data-science/data-science-portfolio-projects)
+
+[Top 10 Data Science Project for 2023](https://365datascience.com/career-advice/top-10-data-science-project-ideas/)
+
+
+## 3: Pin Your Repository on Your Profile
+
+
+
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
