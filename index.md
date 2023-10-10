@@ -163,11 +163,7 @@ Many job applications are also offered through LinkedIn, and if you choose to ap
 
 Click on "Add Section", and circulate through the dropdown arrows until you find where it says "Add Projects." You can then add a title and description for your project. After filling in your details, click on "Add Media."
 
-![pic13](/pics/linkedin-step3.png)
-
-It will give you the option whether to reference a link or a folder. Since your project is on GitHub, you will want to cite a link. 
-
-![pic14](/pics/linkedin-step4.png)
+LinkedIn will give you the option whether to reference a link or a folder. Since your project is on GitHub, you will want to cite a link. 
 
 The details ask you for a description of what the link leads to. You can also select a thumbnail. 
 GitHub uses an interesting feature. When you use the link to the root file path of your repository, it will automatically fill in the details with the name, description, and a thumbnail showing some GitHub collaborative statistics.  
@@ -175,7 +171,7 @@ I recommend citing at least two links per project:
 * The source to your repository (github.com/username/name-of-repo/)
 * The source to your page/README if applicable (github.io/username/name-of-repo/)
 
-Your finished product would look something like this on your LinkedIn. 
+Your finished product could look something like this, found directly on your LinkedIn profile. 
 
 ![pic15](/pics/linkedin-step5.png)
 
