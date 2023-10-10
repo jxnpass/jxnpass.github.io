@@ -4,9 +4,9 @@ layout: default
 
 [Contact Me](./contact-jp.html)
 
-STILL WORKING ON THIS! UNDER DEVELOPMENT AS OF 10/9/23
+STILL WORKING ON THIS! UNDER DEVELOPMENT AS OF 10/10/23
 
-You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and file you have, much less an employer from your company of interest. Here’s how they can be guided to enjoy your ingenuity – from most to least effective, and all this can be done in less than 5 minutes. 
+You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and file you have, much less an employer from your company of interest. Here’s how they can be led to enjoy your ingenuity.
 
 ## 1: Use a README.md file and a GitHub Page
 
@@ -139,17 +139,52 @@ My Advice on Configuring Topics:
 * Best way to maximize the efficiency of the topics section is to have one each listing the programming language(s), project topic/industry, main modelling technique(s), and one read simply as "data-science" or "data-analysis."
 * Check out GitHub's [Trending](https://github.com/trending) and [Popular Topics](https://github.com/topics) to see what kind of projects people are most excited about. Your recruiter will be impressed if your work is matching trends within the coding community.  
 
-## 5: Link Your Repository to Your LinkedIn Profile and Your Resume
+## 5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV
 
 When you've put in all this work on your GitHub before applying for job/internship applications, it is important to make sure that employers know **you have** a GitHub profile. At this point, having just one or two refined repositories can strengthen your profile tremendously. 
 
-### Resume
+### Resume/CV
+Your resume is like your "elevator pitch" for a recruiter, meaning that the space on your resume is valuable. Typically, applicants include their GitHub profile on the header of their resume, seen below as an example. 
+
+![pic10](/pics/resumeheader.png)
+
+There are plenty of options to consider:
+* Link your repositories/projects under the Projects section of your resume
+* List GitHub skills in your application or cover letter
+* Mention GitHub as a bullet point in your work experience
+
+Ultimately, your resume has to persuade the recruiter to consider your projects on GitHub as an important part of your introduction. Consider the possibility that you get a job interview. The interviewer will likely reference your resume. If you feasibly reference your GitHub on your resume and prepare your profile/repos for a quick read, then you increase your chances of nailing your interview.  
 
 ### LinkedIn
+Many job applications are also offered through LinkedIn, and if you choose to apply using your LinkedIn, then implementing your GitHub projects can really improve your application. To add your projects to your LinkedIn profile, navigate to your personal profile.
 
+![pic11](/pics/linkedin-step1.png)
 
+Click on "Add Section", and circulate through the dropdown arrows until you find where it says "Add Projects."
+
+![pic12](/pics/linkedin-step2.png)
+
+You can then add a title and description for your project. After filling in your details, click on "Add Media."
+
+![pic13](/pics/linkedin-step3.png)
+
+It will navigate you to where you can choose to reference a link or a folder. Since your project is on GitHub, you will want to cite a link. 
+
+![pic14](/pics/linkedin-step4.png)
+
+The details ask you for a description of what the link leads to. You can also select a thumbnail. 
+GitHub uses an interesting feature. When you use the link to the root file path of your repository, it will automatically fill in the details with the name, description, and a thumbnail showing some GitHub collaborative statistics.  
+I recommend citing at least two links per project:
+* The source to your repository (github.com/username/name-of-repo/)
+* The source to your page/README if applicable (github.io/username/name-of-repo/)
+
+Your finished product would like something like this on your LinkedIn. 
+
+![pic15](/pics/linkedin-step5.png)
 
 ## Conclusion
+
+
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
