@@ -14,7 +14,7 @@ You’ve created your first repository to hold all your work on your new data pr
 - [Step 2: Present Your Data Project as a Linear Process](#step-2-present-your-data-project-as-a-linear-process)
 - [Step 3: Pin Your Repository On Your GitHub Profile](#step-3-pin-your-repository-on-your-github-profile)
 - [Step 4: Selecting Topics](#step-4-selecting-topics)
-- [Step 5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV](#step-5-link-your-profile-and-repositories-to-your-linkedin-profile-and-your-resumecv)
+- [Step 5: Link GitHub to Your LinkedIn Profile and Resume/CV](#step-5-link-github-to-your-linkedin-profile-and-resumecv)
 - [Conclusion](#conclusion)
 
 ## Step 1: Use a README.md file and a GitHub Page
@@ -144,7 +144,7 @@ My Advice on Configuring Topics:
 * Best way to maximize the efficiency of the topics section is to have one each listing the programming language(s), project topic/industry, main modelling technique(s), and one read simply as "data-science" or "data-analysis."
 * Check out GitHub's [Trending](https://github.com/trending) and [Popular Topics](https://github.com/topics) to see what kind of projects people are most excited about. Your recruiter will be impressed if your work is matching trends within the coding community.  
 
-## Step 5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV
+## Step 5: Link GitHub to Your LinkedIn Profile and Resume/CV
 
 When you've put in all this work on your GitHub before applying for job/internship applications, it is important to make sure that employers know **you have** a GitHub profile. At this point, having just one or two refined repositories can strengthen your profile tremendously. 
 
