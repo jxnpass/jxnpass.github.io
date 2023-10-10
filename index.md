@@ -10,11 +10,11 @@ You’ve created your first repository to hold all your work on your new data pr
 
 ## Table of Contents
 
-- [Step 1: Use a README.md file and a GitHub Page](#1-use-a-readmemd-file-and-a-github-page)
-- [Step 2: Present Your Data Project as a Linear Process](#2-present-your-data-project-as-a-linear-process)
-- [Step 3: Pin Your Repository On Your GitHub Profile](#3-pin-your-repository-on-your-github-profile)
-- [Step 4: Selecting Topics](#4-selecting-topics)
-- [Step 5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV](#5-link-your-profile-and-repositories-to-your-linkedin-profile-and-your-resumecv)
+- [Step 1: Use a README.md file and a GitHub Page](#step-1-use-a-readmemd-file-and-a-github-page)
+- [Step 2: Present Your Data Project as a Linear Process](#step-2-present-your-data-project-as-a-linear-process)
+- [Step 3: Pin Your Repository On Your GitHub Profile](#step-3-pin-your-repository-on-your-github-profile)
+- [Step 4: Selecting Topics](#step-4-selecting-topics)
+- [Step 5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV](#step-5-link-your-profile-and-repositories-to-your-linkedin-profile-and-your-resumecv)
 - [Conclusion](#conclusion)
 
 ## Step 1: Use a README.md file and a GitHub Page
