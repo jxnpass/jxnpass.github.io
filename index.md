@@ -4,13 +4,17 @@ layout: default
 
 [Contact Me](./contact-jp.html)
 
+## Introduction
+
 You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and file you have, much less an employer from your company of interest. Here are a few practices you can do to easily lead recruitiers to your ingenuity.
 
-- [1: Use a README.md file and a GitHub Page](#1-use-a-readmemd-file-and-a-github-page)
-- [2: Present Your Data Project as a Linear Process](#2-present-your-data-project-as-a-linear-process)
-- [3: Pin Your Repository On Your GitHub Profile](#3-pin-your-repository-on-your-github-profile)
-- [4: Selecting Topics](#4-selecting-topics)
-- [5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV](#5-link-your-profile-and-repositories-to-your-linkedin-profile-and-your-resumecv)
+## Table of Contents
+
+- [Step 1: Use a README.md file and a GitHub Page](#1-use-a-readmemd-file-and-a-github-page)
+- [Step 2: Present Your Data Project as a Linear Process](#2-present-your-data-project-as-a-linear-process)
+- [Step 3: Pin Your Repository On Your GitHub Profile](#3-pin-your-repository-on-your-github-profile)
+- [Step 4: Selecting Topics](#4-selecting-topics)
+- [Step 5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV](#5-link-your-profile-and-repositories-to-your-linkedin-profile-and-your-resumecv)
 - [Conclusion](#conclusion)
 
 ## 1: Use a README.md file and a GitHub Page
