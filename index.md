@@ -6,11 +6,11 @@ layout: default
 
 STILL WORKING ON THIS! UNDER DEVELOPMENT AS OF 10/9/23
 
-You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and file you have, much less an employer from your company of interest. Here’s how they can be guided to enjoy your ingenuity – from most to least effective. 
+You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and file you have, much less an employer from your company of interest. Here’s how they can be guided to enjoy your ingenuity – from most to least effective, and all this can be done in less than 5 minutes. 
 
 ## Use a README.md file and a GitHub Page
 
-Creating reports on statistics and findings reveals to employers that you know more than just coding and math. The ability to generate digestable reports that are sequentially easy to follow and get to the point is an well-valued quality of data scientists. In addition, you can choose what to cover in your report: are you most proud of your graphics and visualizations, your experiment's discoveries, or the machine learning algorithms implemented? On GitHub, you have full jurisdiction over what to brag about and the ability to present it on silver platters.
+Creating reports on statistics and findings reveals to employers that you know more than just coding and math. The ability to generate digestable reports that are logically follow the process and get to the point is a valued quality of data scientists. In addition, you can choose what to cover in your report: are you most proud of your graphics and visualizations, your experiment's discoveries, or the machine learning algorithms implemented? On GitHub, you have full jurisdiction over what to brag about and the ability to present it on silver platters.
 
 ### README.md 
 
@@ -28,18 +28,37 @@ For more best practices on configuring your README.md file, I recommend using th
 
 ### GitHub Page
 
-Using the default GitHub page is also very simple and takes a few minutes. After writing your README.md, find your repository settings and click on "Pages."
+Your README.md file can be read as its own website as well. After writing your README.md, find your repository settings and click on "Pages."
 
 ![pic3](/blog-step1.png)
 
+Then, click on "Source" and select "GitHub Actions."
+
 ![pic4](/blog-step2.png)
+
+You will have two options to choose from: GitHub Pages Jekyll or Static HTML. You can then select one of them, and GitHub will navigate you to a new file with a name depending on which one you select. Then press "commit changes." This will add a hidden file with folder .github/workflows with a new .yml file added. You don't have to do anything with this file. 
+
+Navigate to your repository's settings, revisit "Pages" and a link should now pop on. 
 
 ![pic5](/blog-step3.png)
 
+If you click on the link, it will take you to your README.md file as its own website.
+
 ![pic6](/blog-step4.png)
 
-Go to your repo and 
+Final step! You can add your link to your repository's about section, found on the right of your main file structure. 
 
+![pic7](/blog-step5.png)
+
+Click on the box and GitHub will automatically find your blog's link. You can also add a brief description/abstract and related topics as well (more on that later).  
+
+The information I provided just scratches the surface of setting up a personal website for your repositories. For more information on setting up a blog, I recommend visiting the following sites:
+
+[Creating a GitHub Pages Site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site)
+[Configuring a Publishing Source for GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+[Adding a theme to your GitHub Pages site using Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)
+[Video: Create an Awesome GitHub Profile Page](https://www.youtube.com/watch?v=9c5xweuO2DA)
+[Build A Blog With Jekyll And GitHub Pages](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/)
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
