@@ -116,9 +116,13 @@ You can find other views on describing your data project/profile here:
 [Top 10 Data Science Project for 2023](https://365datascience.com/career-advice/top-10-data-science-project-ideas/)
 
 
-## 3: Pin Your Repository on Your Profile
+## 3: Pin Your Repository on Your GitHub Profile
 
+You can choose up to six repositories and projects show up when employers access your profile. When you access your main profile page on GitHub, you should see a place on the right of your screen that says "popular repositores" -- the default if you haven't customized your pins. Click "customize your pins" and select which projects you wish to be pinned on your profile. When you are done, your pinned public repositories will be shown on your profile like so...
 
+![pic9](/pics/customizepins.png)
+
+This is important to do, especially towards tailoring what kind of projects you showcase. You'll notice that your projects can be read by GitHub and detect the kind of programming languages you used -- a nice feature for you to show what languages you use and employers to have quick access to hard evidence of your skills. 
 
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
