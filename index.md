@@ -153,10 +153,10 @@ Your resume is like your "elevator pitch" for a recruiter, meaning that the spac
 
 ![pic10](/pics/resumeheader.png)
 
-There are plenty of options to consider:
+There are plenty of other options to consider:
 * Link your repositories/projects under the Projects section of your resume
 * List GitHub skills in your application or cover letter
-* Mention GitHub as a bullet point in your work experience
+* Mention a GitHub repo as a bullet point for a related work experience
 
 Ultimately, your resume has to persuade the recruiter to consider your projects on GitHub as an important part of your introduction. Consider the possibility that you get a job interview. The interviewer will likely reference your resume. If you feasibly reference your GitHub on your resume and prepare your profile/repos for a quick read, then you increase your chances of nailing your interview.  
 
