@@ -17,7 +17,7 @@ You’ve created your first repository to hold all your work on your new data pr
 - [Step 5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV](#5-link-your-profile-and-repositories-to-your-linkedin-profile-and-your-resumecv)
 - [Conclusion](#conclusion)
 
-## 1: Use a README.md file and a GitHub Page
+## Step 1: Use a README.md file and a GitHub Page
 
 Creating reports on statistics and findings reveals to employers that you know more than just coding and math. The ability to generate digestable reports that are logically follow the process and get to the point is a valued quality of data scientists. In addition, you can choose what to cover in your report: are you most proud of your graphics and visualizations, your experiment's discoveries, or the machine learning algorithms implemented? On GitHub, you have full jurisdiction over what to brag about and the ability to present it on silver platters.
 
@@ -69,7 +69,7 @@ The information I provided just scratches the surface of setting up a personal w
 
 [Build A Blog With Jekyll And GitHub Pages](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/)
 
-## 2: Present Your Data Project as a Linear Process
+## Step 2: Present Your Data Project as a Linear Process
 
 Data analysis can be especially tricky, as data projects -- especially those involved in research -- are based on purely investigative developments involving lots of trial and error. If you are like me, then you likely had a non-stop growing file structure for your projects, and while it makes perfect sense to you, odds are it appears incoherent to viewers. For the entire length of your project, you can easily find yourself diverging into various paths and directions, leading you to dead ends or breakthroughs. 
 
@@ -121,7 +121,7 @@ You can find other views on describing your data project/profile here:
 [Top 10 Data Science Project for 2023](https://365datascience.com/career-advice/top-10-data-science-project-ideas/)
 
 
-## 3: Pin Your Repository on Your GitHub Profile
+## Step 3: Pin Your Repository on Your GitHub Profile
 
 You can choose up to six repositories and projects show up when employers access your profile. When you access your main profile page on GitHub, you should see a place on the right of your screen that says "popular repositores" -- the default if you haven't customized your pins. Click "customize your pins" and select which projects you wish to be pinned on your profile. When you are done, your pinned public repositories will be shown on your profile like so...
 
@@ -133,7 +133,7 @@ A more in depth guide:
 
 [Pinning Items to Your Pofile](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)
 
-## 4: Selecting Topics
+## Step 4: Selecting Topics
 
 Topics are helpful for classifying the contents of your project. Topics mainly have specific usage for enhancing other GitHub search results and finding specialized projects that suit their interests (see [Classifying Your Repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) for more uses). However, they have special benefits for employers.
 
@@ -144,7 +144,7 @@ My Advice on Configuring Topics:
 * Best way to maximize the efficiency of the topics section is to have one each listing the programming language(s), project topic/industry, main modelling technique(s), and one read simply as "data-science" or "data-analysis."
 * Check out GitHub's [Trending](https://github.com/trending) and [Popular Topics](https://github.com/topics) to see what kind of projects people are most excited about. Your recruiter will be impressed if your work is matching trends within the coding community.  
 
-## 5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV
+## Step 5: Link Your Profile and Repositories to Your LinkedIn Profile and Your Resume/CV
 
 When you've put in all this work on your GitHub before applying for job/internship applications, it is important to make sure that employers know **you have** a GitHub profile. At this point, having just one or two refined repositories can strengthen your profile tremendously. 
 
