@@ -18,13 +18,27 @@ Adding a README.md is simple. On GitHub navigate to your repository. When you se
 
 ![pic1](/before_readme.png)
 
-When you select it, a new markdown file will open up. When you finish writing, click "commit changes" and write in your commit message. When you finish, your repository should now have a new "README.md" file and look something like this:
+When you select it, a new markdown file will open up. When you finish writing, click "commit changes" and write in your commit message. When you finish, your repository should now have a new README.md file and look something like this:
 
 ![pic2](/after_readme.png)
 
 GitHub automatically adds the entire README.md file at the bottom of your repo. This is great for employers, because now all information about your project's file system can be summarized in a very convenient spot! 
 
-### 
+For more best practices on configuring your README.md file, I recommend using this [link](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/).
+
+### GitHub Page
+
+Using the default GitHub page is also very simple and takes a few minutes. After writing your README.md, find your repository settings and click on "Pages."
+
+![pic3](/blog-step1.png)
+
+![pic4](/blog-step2.png)
+
+![pic5](/blog-step3.png)
+
+![pic6](/blog-step4.png)
+
+Go to your repo and 
 
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
