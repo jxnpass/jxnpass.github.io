@@ -1,7 +1,7 @@
 ---
 layout: default
 title: About Me
-description: 
+description: Check me out!
 ---
 
 Email: jxnpass@gmail.com 
