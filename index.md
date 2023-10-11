@@ -2,7 +2,7 @@
 layout: default
 ---
 
-[Contact Me](./contact-jp.html)
+[About Me](./contact-jp.html)
 
 ## Introduction
 
@@ -165,4 +165,6 @@ Your finished product could look something like this, found directly under your 
 ![pic15](/pics/linkedin-step5.png)
 
 ## Conclusion
-GitHub is a remarkable tool to easily showcase your work and enhance your opportunities to land a job. Keeping content concise, digestable, and on-topic is essential for your online pitch to recruitiers. Running through your GitHub profile is completely optional for a recruiter, but convincing one that your GitHub profile provides valuable information about your data science skills can persuade an interview appointment. Finally, embedding your resume and LinkedIn profile with projects can aid in the interview process, providing quick references to an easy to read description and proof of coding and statistical skills. 
+GitHub is a remarkable tool to easily showcase your work and enhance your opportunities to land a job. Keeping content concise, digestable, and on-topic is essential for your pitch to recruitiers. Running through your GitHub profile is completely optional for a recruiter, but convincing one that your GitHub profile provides valuable information about your data science skills can persuade one to set up interview appointment. Finally, embedding your resume and LinkedIn profile with projects can aid in the interview process, providing quick references to an easy to read description and proof of coding and statistical skills. 
+
+You can complete these four steps under your own form of creativity and personal needs, but applying the principles taught will accelerate you further into data science industries. For those aspiring data science students new to GitHub, try and follow these four steps. To those who are more experienced, consider ways to creatively flex your work, and feel free to send me some tips!

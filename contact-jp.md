@@ -1,11 +1,14 @@
 ---
 layout: default
-title: Contact Me
+title: About Me
+description: 
 ---
 
 Email: jxnpass@gmail.com 
 
 [LinkedIn](https://www.linkedin.com/in/jackson-passey-4102ba251/) 
+
+[Facebook](https://www.facebook.com/jackson.passey/)
 
 [GitHub](https://github.com/jxnpass) 
 
