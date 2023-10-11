@@ -11,10 +11,9 @@ You’ve created your first repository to hold all your work on your new data pr
 ## Table of Contents
 
 - [Step 1: Use a README.md file and a GitHub Page](#step-1-use-a-readmemd-file-and-a-github-page)
-- [Step 2: Present Your Data Project as a Linear Process](#step-2-present-your-data-project-as-a-linear-process)
-- [Step 3: Pin Your Repository On Your GitHub Profile](#step-3-pin-your-repository-on-your-github-profile)
-- [Step 4: Selecting Topics](#step-4-selecting-topics)
-- [Step 5: Link GitHub to Your LinkedIn Profile and Resume/CV](#step-5-link-github-to-your-linkedin-profile-and-resumecv)
+- [Step 2: Pin Your Repository On Your GitHub Profile](#step-2-pin-your-repository-on-your-github-profile)
+- [Step 3: Selecting Topics](#step-2-selecting-topics)
+- [Step 4: Link GitHub to Your LinkedIn Profile and Resume/CV](#step-4-link-github-to-your-linkedin-profile-and-resumecv)
 - [Conclusion](#conclusion)
 
 ## Step 1: Use a README.md file and a GitHub Page
@@ -53,8 +52,6 @@ Navigate to your repository's settings, revisit "Pages" and a link should now po
 
 If you click on the link, it will take you to your README.md file as its own website.
 
-![pic6](/pics/blog-step4.png)
-
 Final step! You can add your link to your repository's "about" section, found on the right from your repository's contents. Click on the gear icon, then the box next to "use your GitHub Pages Website." 
 
 The information I provided just scratches the surface of setting up a personal website for your repositories. For more information on setting up a blog, I recommend visiting the following sites:
@@ -69,15 +66,12 @@ The information I provided just scratches the surface of setting up a personal w
 
 [Build A Blog With Jekyll And GitHub Pages](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/)
 
-## Step 2: Present Your Data Project as a Linear Process
+### What to Write
 
-Data analysis can be especially tricky, as data projects -- especially those involved in research -- are based on purely investigative developments involving lots of trial and error. If you are like me, then you likely had a non-stop growing file structure for your projects, and while it makes perfect sense to you, odds are it appears incoherent to viewers. For the entire length of your project, you can easily find yourself diverging into various paths and directions, leading you to dead ends or breakthroughs. 
+Data science employers want to know if you have the skills to follow through on the entire process of a data science project. It’s best to align the description of your project as following this process, or in other words, as conveying a set of steps that led you to your ultimate findings and discoveries.In your README.md, GitHub Page, or any other form of presentation, consider discussing your data project under this format.
 
-As important as failure is to personal development, employers mainly care about breakthroughs. In addition, data science employers want to know if you have the skills to follow through on the entire process of a data science project. It's best to align the description of your project as following this process, or in other words, as conveying a set of steps that led you to your ultimate findings and discoveries. 
+![pic8](/pics/datasciprocess.png)
 
-![pic8](/pics/datasciprocess.jpeg)
-
-In your README.md, GitHub Page, or any other form of presentation, consider following these steps in discussing your data project. 
 1. Introduction
   * What is the project about?
   * What were your hypotheses?
@@ -99,7 +93,7 @@ In your README.md, GitHub Page, or any other form of presentation, consider foll
 Additional Tips:
 * Pictures tell a thousands words -- embed graphs into the blog/README file to augment your report
 * Consider adding information about the file structure. For those employers who want to look at your coding scripts, you can link your coding scripts directly to the page/README.md 
-* You can showcase code chunks you feel are most impressive/important. This is especially beneficial to show off your ability to code up a modeling technique in a quick view
+* You can showcase code chunks you feel are most impressive/important. This is especially beneficial to show off your ability to code up a modeling technique in a quick view. Example:
 
 ```py
 # Import the model we are using
@@ -112,16 +106,7 @@ rf.fit(train_features, train_labels)
 predictions = rf.predict(test_features)
 ```
 
-You can find other views on describing your data project/profile here:
-
-[Building a Data Science Portfolio](https://www.knowledgehut.com/blog/data-science/data-science-portfolio)
-
-[4 Data Science Portfolio Projects You Need to Create](https://builtin.com/data-science/data-science-portfolio-projects)
-
-[Top 10 Data Science Project for 2023](https://365datascience.com/career-advice/top-10-data-science-project-ideas/)
-
-
-## Step 3: Pin Your Repository on Your GitHub Profile
+## Step 2: Pin Your Repository on Your GitHub Profile
 
 You can choose up to six repositories and projects show up when employers access your profile. When you access your main profile page on GitHub, you should see a place on the right of your screen that says "popular repositores" -- the default if you haven't customized your pins. Click "customize your pins" and select which projects you wish to be pinned on your profile. When you are done, your pinned public repositories will be shown on your profile like so...
 
@@ -133,7 +118,7 @@ A more in depth guide:
 
 [Pinning Items to Your Pofile](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)
 
-## Step 4: Selecting Topics
+## Step 3: Selecting Topics
 
 Topics are helpful for classifying the contents of your project. Topics mainly have specific usage for enhancing other GitHub search results and finding specialized projects that suit their interests (see [Classifying Your Repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) for more uses). However, they have special benefits for employers.
 
@@ -144,7 +129,7 @@ My Advice on Configuring Topics:
 * Best way to maximize the efficiency of the topics section is to have one each listing the programming language(s), project topic/industry, main modelling technique(s), and one read simply as "data-science" or "data-analysis"
 * Check out GitHub's [Trending](https://github.com/trending) and [Popular Topics](https://github.com/topics) to see what kind of projects people are most excited about. Your recruiter will be impressed if your work is matching trends within the coding community
 
-## Step 5: Link GitHub to Your LinkedIn Profile and Resume/CV
+## Step 4: Link GitHub to Your LinkedIn Profile and Resume/CV
 
 When you've put in all this work on your GitHub before applying for job/internship applications, it is important to make sure that employers know **you have** a GitHub profile. At this point, having just one or two refined repositories can strengthen your profile tremendously. 
 
