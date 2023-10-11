@@ -55,7 +55,7 @@ If you click on the link, it will take you to your README.md file as its own web
 
 ![pic6](/pics/blog-step4.png)
 
-Final step! You can add your link to your repository's "about" section (on the Gear icon), found on the right of your main file structure. Then, click on the box and GitHub will automatically find your blog's link. 
+Final step! You can add your link to your repository's "about" section, found on the right from your repository's contents. Click on the gear icon, then the box next to "use your GitHub Pages Website." 
 
 The information I provided just scratches the surface of setting up a personal website for your repositories. For more information on setting up a blog, I recommend visiting the following sites:
 
@@ -99,7 +99,7 @@ In your README.md, GitHub Page, or any other form of presentation, consider foll
 Additional Tips:
 * Pictures tell a thousands words -- embed graphs into the blog/README file to augment your report
 * Consider adding information about the file structure. For those employers who want to look at your coding scripts, you can link your coding scripts directly to the page/README.md 
-* You can showcase code chunks you feel are most impressive/important. This is especially beneficial to show off your ability to code up a modeling technique in a quick view.
+* You can showcase code chunks you feel are most impressive/important. This is especially beneficial to show off your ability to code up a modeling technique in a quick view
 
 ```py
 # Import the model we are using
@@ -140,9 +140,9 @@ Topics are helpful for classifying the contents of your project. Topics mainly h
 Your repository can be classified in such a way that employers can see what kind of work you did, all in a quick summary. For example, did you use a deep learning algorithm to fit your data? Did you tap into a database using SQL? Did your project involve using Python packages in statistics? Did you dive into topics in aviation, finance, psychology, engineering, or any other industry? Whatever you decide to do, simplify it enough for others to know what was involved generally in your data project.   
 
 My Advice on Configuring Topics:
-* Keep the number of topics you list minimal. While it widens the depth by which it pops up on a search feed, it complicates the about section of your repo. Know those annoying social media posts with 30 hashtags? Don't be one of those people.
-* Best way to maximize the efficiency of the topics section is to have one each listing the programming language(s), project topic/industry, main modelling technique(s), and one read simply as "data-science" or "data-analysis."
-* Check out GitHub's [Trending](https://github.com/trending) and [Popular Topics](https://github.com/topics) to see what kind of projects people are most excited about. Your recruiter will be impressed if your work is matching trends within the coding community.  
+* Keep the number of topics you list minimal. While it widens the depth by which it pops up on a search feed, it complicates the about section of your repo. Know those annoying social media posts with 30+ hashtags? Don't be one of those people
+* Best way to maximize the efficiency of the topics section is to have one each listing the programming language(s), project topic/industry, main modelling technique(s), and one read simply as "data-science" or "data-analysis"
+* Check out GitHub's [Trending](https://github.com/trending) and [Popular Topics](https://github.com/topics) to see what kind of projects people are most excited about. Your recruiter will be impressed if your work is matching trends within the coding community
 
 ## Step 5: Link GitHub to Your LinkedIn Profile and Resume/CV
 
@@ -158,10 +158,10 @@ There are plenty of other options to consider:
 * List GitHub skills in your application or cover letter
 * Mention a GitHub repo as a bullet point for a related work experience
 
-Ultimately, your resume has to persuade the recruiter to consider your projects on GitHub as an important part of your introduction. Consider the possibility that you get a job interview. The interviewer will likely reference your resume. If you feasibly reference your GitHub on your resume and prepare your profile/repos for a quick read, then you increase your chances of nailing your interview.  
+Ultimately, your resume has to persuade the recruiter to consider your projects on GitHub as an important part of assessing your skillset. Consider the possibility that you get a job interview. The interviewer will likely read over your resume before or during the interview. If you reference your GitHub on your resume and prepare your profile/repos for a quick read, as well as prepare some verbal statements about each project, then you increase your chances of nailing your interview.  
 
 ### LinkedIn
-Many job applications are also offered through LinkedIn, and if you choose to apply using your LinkedIn, then implementing your GitHub projects can really improve your application. To add your projects to your LinkedIn profile, navigate to your personal profile.
+Many jobs are also offered through LinkedIn, and if you choose to apply using your LinkedIn, then implementing your GitHub projects can improve your application. To add your projects to your LinkedIn profile, navigate to your personal profile.
 
 ![pic11](/pics/linkedin-step1.png)
 
@@ -169,13 +169,13 @@ Click on "Add Section", and circulate through the dropdown arrows until you find
 
 LinkedIn will give you the option whether to reference a link or a folder. Since your project is on GitHub, you will want to cite a link. 
 
-The details ask you for a description of what the link leads to. You can also select a thumbnail. 
-GitHub uses an interesting feature. When you use the link to the root file path of your repository, it will automatically fill in the details with the name, description, and a thumbnail showing some GitHub collaborative statistics.  
-I recommend citing at least two links per project:
+The prompts ask you for a description of what the link leads to. You can also select a thumbnail. 
+LinkedIn uses a unique feature when citing GitHub. When you use the link to the root file path of your repository, it will automatically fill in the details with the name, description, and a thumbnail showing some GitHub collaborative statistics.  
+Ultimately, I recommend citing at least two links for your project:
 * The source to your repository (github.com/username/name-of-repo/)
-* The source to your page/README if applicable (github.io/username/name-of-repo/)
+* The source to your page/README, if applicable (github.io/username/name-of-repo/)
 
-Your finished product could look something like this, found directly on your LinkedIn profile. 
+Your finished product could look something like this, found directly under your LinkedIn profile. 
 
 ![pic15](/pics/linkedin-step5.png)
 
