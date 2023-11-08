@@ -1,5 +1,8 @@
 title: Statistics and Data Science Projects
 description: Organized summaries of Jackson Passey's projects 
 show_downloads: true
+github:
+  is_project_page: true
+  repository_url: hi
 google_analytics:
 theme: jekyll-theme-cayman
