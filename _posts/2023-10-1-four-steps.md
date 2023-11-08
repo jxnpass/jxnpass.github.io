@@ -25,11 +25,11 @@ Creating reports on statistics and findings reveals to employers that you know m
 
 Adding a README.md is simple. On GitHub navigate to your repository. When you see your files you can find a button that says "Add README.MD"
 
-![pic1](/_posts/4-steps-pics/before_readme.png)
-
+![pic1](./4-steps-pics/before_readme.png)
+_posts/4-steps-pics/before_readme.png
 When you select it, a new markdown file will open up. When you finish writing, click "commit changes" and write in your commit message. When you finish, your repository should now have a new README.md file and look something like this:
 
-![pic2](/_posts/4-steps-pics/after_readme.png)
+![pic2](./4-steps-pics/after_readme.png)
 
 GitHub automatically adds the entire README.md file at the bottom of your repo. This is great for employers, because now all information about your project can be summarized in a very convenient spot! 
 
@@ -39,17 +39,17 @@ For more best practices on configuring your README.md file, I recommend using th
 
 Your README.md file can be read as its own website as well. After writing your README.md, find your repository settings and click on "Pages."
 
-![pic3](/_posts/4-steps-pics/blog-step1.png)
+![pic3](./4-steps-pics/blog-step1.png)
 
 Then, click on "Source" and select "GitHub Actions."
 
-![pic4](/_posts/4-steps-pics/blog-step2.png)
+![pic4](./4-steps-pics/blog-step2.png)
 
 You will have two options to choose from: GitHub Pages Jekyll or Static HTML. You can then select one of them, and GitHub will navigate you to a new file with a name depending on which one you select. Then press "commit changes." This will add a hidden file with folder .github/workflows with a new .yml file added. You don't have to do anything with this file. 
 
 Navigate to your repository's settings, revisit "Pages" and a link should now pop up. 
 
-![pic5](/_posts/4-steps-pics/blog-step3.png)
+![pic5](./4-steps-pics/blog-step3.png)
 
 If you click on the link, it will take you to your README.md file as its own website.
 
@@ -71,7 +71,7 @@ The information I provided just scratches the surface of setting up a personal w
 
 Data science employers want to know if you have the skills to follow through on the entire process of a data science project. It’s best to align the description of your project as following this process, or in other words, as conveying a set of steps that led you to your ultimate findings and discoveries.In your README.md, GitHub Page, or any other form of presentation, consider discussing your data project under this format.
 
-![pic8](/_posts/4-steps-pics/datasciprocess.png)
+![pic8](./4-steps-pics/datasciprocess.png)
 
 1. Introduction
   * What is the project about?
@@ -111,7 +111,7 @@ predictions = rf.predict(test_features)
 
 You can choose up to six repositories and projects show up when employers access your profile. When you access your main profile page on GitHub, you should see a place on the right of your screen that says "popular repositores" -- the default if you haven't customized your pins. Click "customize your pins" and select which projects you wish to be pinned on your profile. When you are done, your pinned public repositories will be shown on your profile like so...
 
-![pic9](/_posts/4-steps-pics/customizepins.png)
+![pic9](./4-steps-pics/customizepins.png)
 
 This is important to do, especially when tailoring what kind of projects you desire to showcase. You'll notice that your projects are read by GitHub and detect the names of programming languages -- a nice feature for you to share with employers the hard evidence of your coding skills. 
 
@@ -137,7 +137,7 @@ When you've put in all this work on your GitHub before applying for job/internsh
 ### Resume/CV
 Your resume is like your "elevator pitch" for a recruiter, meaning that the space on your resume is valuable. Typically, applicants include their GitHub profile on the header of their resume, seen below as an example. 
 
-![pic10](/_posts/4-steps-pics/resumeheader.png)
+![pic10](./4-steps-pics/resumeheader.png)
 
 There are plenty of other options to consider:
 * Link your repositories/projects under the Projects section of your resume
@@ -149,7 +149,7 @@ Ultimately, your resume has to persuade the recruiter to consider your projects 
 ### LinkedIn
 Many jobs are also offered through LinkedIn, and if you choose to apply using your LinkedIn, then implementing your GitHub projects can improve your application. To add your projects to your LinkedIn profile, navigate to your personal profile.
 
-![pic11](/_posts/4-steps-pics/linkedin-step1.png)
+![pic11](./4-steps-pics/linkedin-step1.png)
 
 Click on "Add Section", and circulate through the dropdown arrows until you find where it says "Add Projects." You can then add a title and description for your project. After filling in your details, click on "Add Media."
 
@@ -163,7 +163,7 @@ Ultimately, I recommend citing at least two links for your project:
 
 Your finished product could look something like this, found directly under your LinkedIn profile. 
 
-![pic15](/_posts/4-steps-pics/linkedin-step5.png)
+![pic15](./4-steps-pics/linkedin-step5.png)
 
 ## Conclusion
 GitHub is a remarkable tool to easily showcase your work and enhance your opportunities to land a job. Keeping content concise, digestable, and on-topic is essential for your pitch to recruitiers. Running through your GitHub profile is completely optional for a recruiter, but convincing one that your GitHub profile provides valuable information about your data science skills can persuade one to set up interview appointment. Finally, embedding your resume and LinkedIn profile with projects can aid in the interview process, providing quick references to an easy to read description and proof of coding and statistical skills. 
