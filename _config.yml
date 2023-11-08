@@ -1,8 +1,11 @@
 title: Statistics and Data Science Projects
 description: Organized summaries of Jackson Passey's projects 
-show_downloads: true
+email: jxnpass@gmail.com
+
 github:
   is_project_page: true
-  repository_url: hi
+  owner_url: https://github.com/jxnpass
+  owner_name: Jackson Passey
+
 google_analytics:
 theme: jekyll-theme-cayman
