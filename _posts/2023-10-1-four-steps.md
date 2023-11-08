@@ -26,7 +26,7 @@ Creating reports on statistics and findings reveals to employers that you know m
 Adding a README.md is simple. On GitHub navigate to your repository. When you see your files you can find a button that says "Add README.MD"
 
 ![pic1](4-steps-pics/before_readme.png)
-_posts/4-steps-pics/before_readme.png
+
 When you select it, a new markdown file will open up. When you finish writing, click "commit changes" and write in your commit message. When you finish, your repository should now have a new README.md file and look something like this:
 
 ![pic2](4-steps-pics/after_readme.png)
