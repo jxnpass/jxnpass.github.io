@@ -1,0 +1,15 @@
+---
+layout: default
+title: About Me
+image: assets/site-pics/me.jpg
+---
+
+## Biography
+
+## Contact Me
+
+Email: jxnpass@gmail.com 
+
+[LinkedIn](https://www.linkedin.com/in/jackson-passey-4102ba251/) 
+
+[Facebook](https://www.facebook.com/jackson.passey/)
