@@ -1,9 +1,7 @@
 ---
-layout: post
+layout: default
 title: About Me
-description: Check me out!
-image: /site-pics/me.jpg
-date: 2023-10-7 17:50:00
+image: assets/site-pics/me.jpg
 ---
 
 ## Biography
@@ -15,6 +13,4 @@ Email: jxnpass@gmail.com
 [LinkedIn](https://www.linkedin.com/in/jackson-passey-4102ba251/) 
 
 [Facebook](https://www.facebook.com/jackson.passey/)
-
-[GitHub](https://github.com/jxnpass) 
 
