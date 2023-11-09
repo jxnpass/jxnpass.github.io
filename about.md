@@ -1,10 +1,11 @@
 ---
 layout: default
 title: About Me
-image: assets/site-pics/me.jpg
 ---
 
 ## Biography
+
+
 
 ## Contact Me
 
