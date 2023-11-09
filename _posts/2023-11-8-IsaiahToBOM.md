@@ -6,7 +6,7 @@ layout: post
 github:
     is_project_page: true
     repository_name: Isaiah-to-BOM
-    respository_url: https://github.com/jxnpass/Isaiah-to-BoM
+    repository_url: https://github.com/jxnpass/Isaiah-to-BoM
 
 date: 2023-11-8 17:50:00
 ---
