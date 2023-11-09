@@ -20,7 +20,7 @@
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       <a href="https://jxnpass.github.io" class="btn"> Home</a>
       {% if site.github.is_project_page %}
-        <a href="{{ page.github.repository_url | default: site.github.repository_url }}" class="btn">View on GitHub</a>
+        <a href="{{ page.github.repository_url }}" class="btn">View on GitHub</a>
       {% endif %}
       {% if site.show_downloads %}
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
@@ -33,13 +33,14 @@
       {{ content }}
 
       <footer class="site-footer">
-        {% if site.github.is_project_page %}
-          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></span>
-        {% endif %}
 
         <a href="https://github.com/jxnpass"><img src="/assets/social-icons/github.svg" alt="GitHub"></a>
         <a href="https://www.facebook.com/jackson.passey/"><img src="/assets/social-icons/facebook.svg" alt="Facebook"></a>
         <a href="https://www.linkedin.com/in/jackson-passey-4102ba251/"><img src="/assets/social-icons/linkedin.svg" alt="LinkedIn"></a> <br>
+
+        {% if site.github.is_project_page %}
+          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></span>
+        {% endif %}
 
         &copy; 2023 Jackson Passey
       </footer>

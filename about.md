@@ -1,16 +1,9 @@
 ---
 layout: default
 title: About Me
+description: A description about my journey, interests, and other fun things. 
 ---
 
 ## Biography
 
 
-
-## Contact Me
-
-Email: jxnpass@gmail.com 
-
-[LinkedIn](https://www.linkedin.com/in/jackson-passey-4102ba251/) 
-
-[Facebook](https://www.facebook.com/jackson.passey/)
