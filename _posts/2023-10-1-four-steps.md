@@ -3,6 +3,10 @@ title: 4 Steps to Increase Visibility for Your Data Project
 description: Whether you have invested years into statistics, or are just getting started, presenting research projects on GitHub can be intimidating. Here are some tips that can get your work out there and in front of recruiters.
 layout: post
 date: 2023-10-1 17:50:00
+
+github:
+    is_project_page: false
+
 ---
 
 ## Introduction
