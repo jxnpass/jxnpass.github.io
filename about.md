@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: aboutme
 title: About Me
 description: A description about my journey, interests, and other fun quirks. 
 ---
