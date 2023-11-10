@@ -16,28 +16,30 @@ date: 2023-11-8 17:50:00
 - [Introduction](#introduction)
 - [Data Collection](#data-collection)
 - [Data Processing](#data-processing)
-- [Acknowledgements](#acknowledgements)
+- [Visuals](#visuals)
+- [Acknowledgements](#acknowledgements-and-ethical-considerations)
 
 ## Introduction
 
-The Holy Bible is one of the most revered and consistently read texts in the entire world. The complexities of biblical histories, from religious themes and worship, languages, and to major societal events, fascinate scholars today. However, what is commonly overlooked is the connections between the Bible and the Book of Mormon. In the beginning of the Book of Mormon, the record opens with a family commanded by God to leave their home in Jerusalem, escape the incoming Babylonian Exile, and start a new civilization in the modern-day Americas. One of the belongings of this family was a record written on brass plates, in which the biblical prophets and narratives from the five books of Moses and the records of the Jews up and to the prophet Jeremiah. One of the most commonly referenced prophets made by Book of Mormon characters is Isaiah, in which his words, themes, and doctrines are mentioned 780 times (according to LDS scholars).
+The Holy Bible is one of the most revered and consistently read texts in the entire world. The complexities of biblical histories, from religious themes and worship, languages, and to major societal events, fascinate scholars today. However, what is commonly overlooked is the connections between the Bible and the Book of Mormon. In the narrative beginning of the Book of Mormon, the record opens with a family commanded by God to leave their home in Jerusalem, escape the impending doom of the Babylonian Exile, and start a new civilization in the modern-day Americas. One of the belongings of this family was a record written on brass plates, in which the biblical prophets and narratives from the five books of Moses and the words of the Old Testament prophets up to Jeremiah. One of the most commonly referenced prophets made by Book of Mormon characters is Isaiah, in which his words, themes, and doctrines are referenced 780 times (cite ref).
 
-The words of Isaiah are some the most revered (and confusing) that Book of Mormon writers regularly recite. However, modern scholars have stated that the authorship of the book of Isaiah is not solely written by the prophet: arguments have circulated stating that Isaiah's disciples had written the second half of the book, and Isaiah himself had no contribution. This claim is valid since the second half of the book was written after the Babylonian Exile from 597 to 538 BCE, over a hundred years after Isaiah had passed on. The Book of Mormon family left Jerusalem in 600 BCE. This leads to the following question: how could Book of Mormon civilizations have the entire account of Isaiah in the brass plates if the latter half of the Book of Isaiah wasn't written after 538 BCE? 
+The prophet Isaiah is heavily revered for Book of Mormon peoples, and their writers and preachers regularly recite from the 66 chapters we have today. However, modern scholars have stated that the authorship of the book of Isaiah is not solely written by the prophet: numerous arguments cirulated stating that Isaiah's disciples had written chapters 40-66, and Isaiah himself had only contributed chapters 1-39. This claim has validity since the second half is written after the Babylonian Exile (597 to 538 BCE), which was over a hundred years after Isaiah had passed on. The Book of Mormon family left Jerusalem in 600 BCE. This leads to the following question: how could Book of Mormon civilizations have the entire account of Isaiah in the brass plates if the latter half of the Book of Isaiah wasn't written after 538 BCE? 
 
 Multiple scholarly interpretations have debated these concerns. One assertion is that the book of Isaiah was written wholly by the prophet himself, and disciples later edited it to be in its current format. Others speculate the possibility of divine intervention as the writings of Isaiah and the Book of Mormon went through translations. 
 
-The aim of this post is not directed to discuss this concern in great detail, but to illuminate the breadth of Isaiah's writing using visualization and statistics, accounting for these common scholarly perspectives. We will also look into cross reference levels of similarities, subdivisions of Isaiah using [Bernhard Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah), presence of biblical terms, and summaries of word, verse, and chapters between authors. This project intends to promote a detailed understanding of the scriptures by visualizing complexities that are otherwise incomprehensible. 
+The aim of this post is not directed to discuss this concern in great detail, but to illuminate the breadth of Isaiah's writing using visualization and statistics, accounting for these common scholarly perspectives. We will also look into cross reference levels of similarities, subdivisions of Isaiah using [Bernhard Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah), presence of biblical terms, and summaries of words, verses, and chapters between authors. This project intends to promote a detailed understanding of the scriptures by visualizing complexities that are otherwise incomprehensible. 
 
 ## Data Collection
 
 Finding the right cross reference data was difficult, so I had to pull information from uncanny sources. Data was downloaded and scraped from three locations:
-1. [creationismonline.com](http://www.creationismonline.com/Mormons/Mormons.html)
-2. [LDS Documentation Project lds-scriptures.xlsx](https://github.com/mormon-documentation-project/lds-scriptures/blob/master/lds-scriptures.xlsx)
+1. [Linguistics Study in the Book of Mormon](http://www.creationismonline.com/Mormons/Mormons.html)
+2. [LDS Documentation Project](https://github.com/mormon-documentation-project/lds-scriptures/blob/master/lds-scriptures.xlsx)
 3. [Church of Jesus Christ of Latter-day Saints Bible Dictionary](https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng)
+
+### Dataset One: Scraping PDF links
 
 The first location is a static html file that links viewers to numerous pdf files, articles, and websites highlighting differing attributes of LDS doctrine and policy. I was only interested in gathering the data from the [KJV_order.pdf](http://www.creationismonline.com/Mormons/KJV_Order.pdf), which contains the cross references of all bible verses to all Book of Mormon verses, normally listed as footnotes in the Latter-day Saint version of the KJV Bible. Since this was a pdf file listed on the main site, I wanted to extract the website links using webscraping and download the pdf of interest in Python:
 
-### Dataset One: Scraping PDF links
 
 ``` py
 
@@ -76,7 +78,7 @@ with pdfplumber.open(local_file_path) as pdf:
 
 ```
 
-Now instead of a vector of strings, I want to write a dataframe that has two columns: one for the Isaiah chapter, and one for the Book of Mormon chapter. However, this extracted the entire line of text instead of the two columns. I will need to initialize a new dataframe and write two new for loops that 1: limits the data into two columns and 2: cleans the string objects.
+Now instead of a vector of strings, I want to write a dataframe ```cr2``` that has two columns: one for the Isaiah chapter, and one for the Book of Mormon chapter. However, this extracted the entire line of text instead of the two columns. I will need to initialize a new dataframe and write two new for loops that one, limits the data into two columns and two, cleans the string objects.
 
 ``` py
 
@@ -119,16 +121,54 @@ Then I export my simple cross reference data to a csv file using ```cr2.to_csv(f
 
 ### Dataset Two: Downloading Spreadsheet Data from the LDS Documentation Project
 
-Thanks to the [LDS Documentation Project](https://scriptures.nephi.org/) for their [Mormon Documentation Repository](https://github.com/mormon-documentation-project/lds-scriptures) for making life very easy and providing an extensive list of the book title, chapter number, verse number, and verse text for every single LDS scripture, This allowed the pairing of sciptural text between Isaiah and the Book of Mormon to be a very robust process. More on this process in [Data Processing](#data-processing)
+Thanks to the [LDS Documentation Project](https://scriptures.nephi.org/) for their [Mormon Documentation Repository](https://github.com/mormon-documentation-project/lds-scriptures) for making life very easy and providing an extensive list of the book title, chapter number, verse number, and verse text for every single LDS scripture, This allowed the pairing of sciptural text between Isaiah and the Book of Mormon to be a very feasible process. More on this process in [Data Processing](#data-processing)
 
 ### Dataset Three: Scraping Bible Dictionary Terms from [churchofjesuschrist.org](churchofjesuschrist.org)
 
+In my third dataset, I scraped the list of words from the [LDS Bible Dictionary](https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng). Using Python to extract the words was a much more intuitive process. In simple terms, I initialized a new vector, scraped each word using Python's BeautifulSoup, and appended the cleaned text to the vector. The vector was then rewritten as a one-column dataframe titled ```bd_df``` and written using ```bd_df.to_csv(file_path)```.
 
+``` py
+
+# webscraping from LDS bible dictionary terms
+bd_df = []
+
+bd_url = 'https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng'
+r2 = requests.get(bd_url)
+soup = BeautifulSoup(r2.text, 'html.parser')
+bd_terms = soup.find_all(class_ = 'title')
+bd_terms = bd_terms[2:]
+for term in bd_terms:
+    bd_df.append(term.text)
+
+bd_df = pd.DataFrame(bd_df)
+bd_df.columns = ["Term"]
+
+```
 
 ## Data Processing
 
+I wanted to have data that fulfilled multiple components of the project. I wanted data that evaluated the entire Book of Mormon, Isaiah, and the cross references between the two by verse and by chapter. I aimed to calculate language similarities between referenced verses, and oragnize them in both a numerical and categorical view. I also wanted data that detected the presence of biblical terms within verses. Finally, I wanted columns that calculated the number of words within verses and number of verses within each chapter. Ultimately, I wanted to turn my three collected datasets and transform them into four new datasets. I recognized that my goals were lofty, and required some creativity to achieve what I wanted. 
 
+To better lay out my process, I accomplished my goals in these steps. 
+1. Combine cross reference verse IDs with the verse text
+2. Evaluate text similarities between verses
+3. Count number of words in each verse
+4. Detect if verse contains bible term. 
+5. Use Duhm's classification chapters
+6. Build summary data for Isaiah and the Book of Mormon
+7. Build summary data for cross referenced chapters. 
 
-## Acknowledgements
+If you want to learn more about the details of how I accomplished this, you can check out [my repository](https://github.com/jxnpass/Isaiah-to-BoM). 
+
+Side note: because of the breadth of this page I might break this project up into multiple pages. 
+
+## Visuals
+
+### Network Visuals
+[By Chapter](/assets/Isaiah-to-BOM/network-visuals/by_chapter.html)
+
+[By Verse](/assets/Isaiah-to-BOM/network-visuals/by_verse.html)
+
+## Acknowledgements and Ethical Considerations
 
 The inspiration for this project came from the [OpenBible.info](http://www.openbible.info/labs/cross-references/) and [Medium](https://medium.com/swlh/analyzing-references-in-bibles-verses-using-complex-networks-with-pandas-and-gephi-8a4edc52e7ab). Data was downloaded from the [LDS Documentation Project](https://scriptures.nephi.org/), a research organization providing public domain data files on LDS scriptures. 
