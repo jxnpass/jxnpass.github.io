@@ -8,7 +8,7 @@ github:
     repository_name: Isaiah-to-BOM
     repository_url: https://github.com/jxnpass/Isaiah-to-BoM
 
-date: 2023-11-8 17:50:00
+date: 2023-11-10 17:50:00
 ---
 
 ## Table of Contents
