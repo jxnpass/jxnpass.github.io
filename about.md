@@ -25,6 +25,6 @@ function changeSlide() {
 	idx = (idx + 1) % slides.length;
 	slides[idx].style.display = 'block';
 }
-setInterval(changeSlide, 3000);
+setInterval(changeSlide, 5000);
 </script>
 </body>
