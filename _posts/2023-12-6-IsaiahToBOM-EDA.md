@@ -8,13 +8,13 @@ github:
     repository_name: Isaiah-to-BOM
     repository_url: https://github.com/jxnpass/Isaiah-to-BoM
 
-date: 2023-12-5 17:50:00
+date: 2023-12-6 17:50:00
 ---
 
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Graphics](#graphics)
+- [Static Graphics](#static-graphics)
 - [Networks](#visuals)
 - [Dashboard](#dashboard)
 - [Acknowledgements](#acknowledgements-and-ethical-considerations)
@@ -29,8 +29,32 @@ Multiple scholarly interpretations have debated these concerns. One assertion is
 
 The aim of this post is not directed to discuss this concern in great detail, but to illuminate the breadth of Isaiah's writing using visualization and statistics, accounting for these common scholarly perspectives. We will also look into cross reference levels of similarities, subdivisions of Isaiah using [Bernhard Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah), presence of biblical terms, and summaries of words, verses, and chapters between authors. This project intends to promote a detailed understanding of the scriptures by visualizing complexities that are otherwise incomprehensible. 
 
-## Graphics
+## Static Graphics
 
+<!-- WordClouds   -->
+
+![Proto-Isaiah-WordCloud](../assets/Isaiah-to-BOM/graphics/wordcloud_Proto.png)
+![Deuetero-Isaiah-WordCloud](../assets/Isaiah-to-BOM/graphics/wordcloud_Deutero.png)
+![Trito-Isaiah-WordCloud](../assets/Isaiah-to-BOM/graphics/wordcloud_Trito.png)
+
+![BOM-WordCloud](../assets/Isaiah-to-BOM/graphics/wordcloud_BOM.png)
+
+<!-- Isaiah Summary  -->
+
+![Isaiah-References](../assets/Isaiah-to-BOM/graphics/ref_count_ISH.png)
+
+![Duhms-References](../assets/Isaiah-to-BOM/graphics/ref_count_DUHMS.png)
+
+![Duhms-BibleDictionary](../assets/Isaiah-to-BOM/graphics/bd_DUHMS.png)
+
+<!-- Book of Mormon Summary  -->
+
+![BoM-References](../assets/Isaiah-to-BOM/graphics/ref_count_BOM.png)
+![BoM-BibleDictionary](../assets/Isaiah-to-BOM/graphics/bd_BOM.png)
+
+<!-- Comparison -->
+
+![BoM-ISH-BibleDictionary](../assets/Isaiah-to-BOM/graphics/bd_comp.png)
 
 
 ## Networks
