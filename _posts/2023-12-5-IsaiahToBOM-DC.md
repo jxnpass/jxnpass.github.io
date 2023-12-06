@@ -1,6 +1,6 @@
 ---
 title: Exploring Isaiah's Legacy in the Book of Mormon - Data Collection
-description: The words of the biblical prophet Isaiah are referenced in the Book of Mormon over 700 times! My project explores the connections in terminology, themes, and historical contexts. 
+description: The words of the biblical prophet Isaiah influenced over 35% of the Book of Mormon! This post illustrates how to generate data that identifies these cross refeerences, measures textual similarities, and draws from Bible terminology. 
 layout: post
 
 github:
@@ -13,21 +13,20 @@ date: 2023-12-5 17:50:00
 
 ## Table of Contents
 
-- [Introduction](#introduction)
+- [Synopsis](#synopsis)
 - [Data Collection](#data-collection)
 - [Data Processing](#data-processing)
-- [Visuals](#visuals)
 - [Acknowledgements](#acknowledgements-and-ethical-considerations)
 
-## Introduction
+## Synopsis
 
-The Holy Bible is one of the most revered and consistently read texts in the entire world. The complexities of biblical histories, from religious themes and worship, languages, and to major societal events, fascinate scholars today. However, what is commonly overlooked is the connections between the Bible and the Book of Mormon. In the narrative beginning of the Book of Mormon, the record opens with a family commanded by God to leave their home in Jerusalem, escape the impending doom of the Babylonian Exile, and start a new civilization in the modern-day Americas. One of the belongings of this family was a record written on brass plates, which contains the biblical prophets and narratives from the five books of Moses and the words of the Old Testament prophets up to Jeremiah. One of the most commonly referenced prophets made by Book of Mormon characters is Isaiah, in which his words, themes, and doctrines are referenced 780 times (cite ref).
+The Holy Bible is one of the most revered and consistently read texts in the entire world. The complexities of biblical histories, from religious themes and worship, languages, and to major societal events, fascinate scholars today. However, what is commonly overlooked is the connections between the Bible and the Book of Mormon. In the narrative beginning of the Book of Mormon, the record opens with a family commanded by God to leave their home in Jerusalem, escape the impending doom of the Babylonian Exile, and start a new civilization in the modern-day Americas. One of the belongings of this family was a record written on brass plates, which contains the biblical prophets and narratives from the five books of Moses and the words of the Old Testament prophets up to Jeremiah. One of the most commonly referenced prophets made by Book of Mormon characters is Isaiah, in which his words, themes, and doctrines [consist about 35% of the Book of Mormon](https://www.churchofjesuschrist.org/study/manual/old-testament-student-manual-kings-malachi/enrichment-e?lang=eng).
 
 The prophet Isaiah is heavily revered for Book of Mormon peoples, and their writers and preachers regularly recite from the 66 chapters we have today. However, modern scholars have stated that the authorship of the book of Isaiah is not solely written by the prophet: numerous arguments cirulated stating that Isaiah's disciples had written chapters 40-66, and Isaiah himself had only contributed chapters 1-39. This claim has validity since the second half is written after the Babylonian Exile (597 to 538 BCE), which was over a hundred years after Isaiah had passed on. The Book of Mormon family left Jerusalem in 600 BCE. This leads to the following question: how could Book of Mormon civilizations have the entire account of Isaiah in the brass plates if the latter half of the Book of Isaiah wasn't written after 538 BCE? 
 
 Multiple scholarly interpretations have debated these concerns. One assertion is that the book of Isaiah was written wholly by the prophet himself, and disciples later edited it to be in its current format. Others speculate the possibility of divine intervention as the writings of Isaiah and the Book of Mormon went through translations. 
 
-The aim of this post is not directed to discuss this concern in great detail, but to illuminate the breadth of Isaiah's writing using visualization and statistics, accounting for these common scholarly perspectives. We will also look into cross reference levels of similarities, subdivisions of Isaiah using [Bernhard Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah), presence of biblical terms, and summaries of words, verses, and chapters between authors. This project intends to promote a detailed understanding of the scriptures by visualizing complexities that are otherwise incomprehensible. 
+The aim of this post and the [EDA post](/_posts/2023-12-6-IsaiahToBOM-EDA.md) is not directed to discuss this concern in great detail, but to illuminate the breadth of Isaiah's writing using visualization and statistics, accounting for these common scholarly perspectives. We will also look into cross reference levels of similarities, subdivisions of Isaiah using [Bernhard Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah), presence of biblical terms, and summaries of words, verses, and chapters between authors. This project intends to promote a detailed understanding of the scriptures by visualizing complexities that are otherwise incomprehensible. 
 
 ## Data Collection
 
@@ -74,7 +73,7 @@ with pdfplumber.open(local_file_path) as pdf:
                 cr.append(line)
 ```
 
-Now instead of a vector of strings, I want to write a dataframe ```cr2``` that has two columns: one for the Isaiah chapter, and one for the Book of Mormon chapter. However, this extracted the entire line of text instead of the two columns. I will need to initialize a new dataframe and write two new for loops that one, limits the data into two columns and two, cleans the string objects.
+Now instead of a vector of strings, I want to write a dataframe ```cr2``` that has two columns: one for the Isaiah chapter, and one for the Book of Mormon chapter. However, this extracted the entire line of text instead of the two columns. I will need to initialize a new dataframe and write two new 'for' loops that first, limits the data into two columns and second, cleans the string objects.
 
 ``` py
 # setting up dataframes
