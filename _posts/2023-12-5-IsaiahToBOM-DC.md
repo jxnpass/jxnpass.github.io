@@ -1,5 +1,5 @@
 ---
-title: Exploring Isaiah's Legacy in the Book of Mormon
+title: Exploring Isaiah's Legacy in the Book of Mormon - Data Collection
 description: The words of the biblical prophet Isaiah are referenced in the Book of Mormon over 700 times! My project explores the connections in terminology, themes, and historical contexts. 
 layout: post
 
@@ -8,10 +8,8 @@ github:
     repository_name: Isaiah-to-BOM
     repository_url: https://github.com/jxnpass/Isaiah-to-BoM
 
-date: 2023-11-10 17:50:00
+date: 2023-12-5 17:50:00
 ---
-
-Bear with me, I am still writing this!
 
 ## Table of Contents
 
@@ -44,7 +42,6 @@ The first location is a static html file that links viewers to numerous pdf file
 
 
 ``` py
-
 # Import libraries
 import pandas as pd
 import requests
@@ -60,13 +57,11 @@ local_file_path = "../DirtyData/cross_reference.pdf"
 cr_link =  requests.get(links[9].get('href'))
 with open(local_file_path, "wb") as pdf_file:
         pdf_file.write(cr_link.content)
-
 ```
 
 My newly downloaded pdf file was then extracted using ```pdfplumber```. I filtered the lines to extract only those that had "Isaiah" in the row and appended it to vector ```cr```.
 
 ``` py
-
 cr = []
 
 with pdfplumber.open(local_file_path) as pdf:
@@ -77,13 +72,11 @@ with pdfplumber.open(local_file_path) as pdf:
         for line in lines:
             if "Isaiah" in line:
                 cr.append(line)
-
 ```
 
 Now instead of a vector of strings, I want to write a dataframe ```cr2``` that has two columns: one for the Isaiah chapter, and one for the Book of Mormon chapter. However, this extracted the entire line of text instead of the two columns. I will need to initialize a new dataframe and write two new for loops that one, limits the data into two columns and two, cleans the string objects.
 
 ``` py
-
 # setting up dataframes
 
 cr2 = pd.DataFrame()
@@ -101,7 +94,6 @@ for row in cr:
         cr2.loc[len(cr2)] = new_row
 
 # 2: cleaning string values (separates numbers from name)
-
 cr2['Isaiah_chapter'] = cr2['Isaiah_chapter'].str.replace(r'(\d+)', r' \1', 1)
 
 nrs = []
@@ -116,7 +108,6 @@ for row in cr2['BoM_chapter']:
         nrs.append(nr)
 
 cr2['BoM_chapter'] = nrs
-
 ```
 
 Then I export my simple cross reference data to a csv file using ```cr2.to_csv(file_path)```.
@@ -130,7 +121,6 @@ Thanks to the [LDS Documentation Project](https://scriptures.nephi.org/) for the
 In my third dataset, I scraped the list of words from the [LDS Bible Dictionary](https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng). Using Python to extract the words was a much more intuitive process. In simple terms, I initialized a new vector, scraped each word using Python's BeautifulSoup, and appended the cleaned text to the vector. The vector was then rewritten as a one-column dataframe titled ```bd_df``` and written using ```bd_df.to_csv(file_path)```.
 
 ``` py
-
 # webscraping from LDS bible dictionary terms
 bd_df = []
 
@@ -144,7 +134,6 @@ for term in bd_terms:
 
 bd_df = pd.DataFrame(bd_df)
 bd_df.columns = ["Term"]
-
 ```
 
 ## Data Processing
@@ -162,15 +151,6 @@ To better lay out my process, I accomplished my goals in these steps.
 
 If you want to learn more about the details of how I accomplished this, you can check out [my repository](https://github.com/jxnpass/Isaiah-to-BoM). 
 
-Side note: because of the breadth of this page I might break this project up into multiple pages. 
-
-## Visuals
-
-### Network Visuals
-[By Chapter](/assets/Isaiah-to-BOM/network-visuals/by_chapter.html)
-
-[By Verse](/assets/Isaiah-to-BOM/network-visuals/by_verse.html)
-
 ## Acknowledgements and Ethical Considerations
 
-The inspiration for this project came from the [OpenBible.info](http://www.openbible.info/labs/cross-references/) and [Medium](https://medium.com/swlh/analyzing-references-in-bibles-verses-using-complex-networks-with-pandas-and-gephi-8a4edc52e7ab). Part of the data was downloaded from the [LDS Documentation Project](https://scriptures.nephi.org/), a research organization providing public domain data files on LDS scriptures. Rest of the raw data was scraped from [Linguistics Study in the Book of Mormon](http://www.creationismonline.com/Mormons/Mormons.html) and [The Church of Jesus Christ of Latter-day Saints](https://www.churchofjesuschrist.org/).
+All data used was made publicly available. The inspiration for this project came from the [OpenBible.info](http://www.openbible.info/labs/cross-references/) and [Medium](https://medium.com/swlh/analyzing-references-in-bibles-verses-using-complex-networks-with-pandas-and-gephi-8a4edc52e7ab). Part of the data was downloaded from the [LDS Documentation Project](https://scriptures.nephi.org/), a research organization providing public domain data files on LDS scriptures. Rest of the raw data was scraped from [Linguistics Study in the Book of Mormon](http://www.creationismonline.com/Mormons/Mormons.html) and [The Church of Jesus Christ of Latter-day Saints](https://www.churchofjesuschrist.org/).
