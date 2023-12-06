@@ -32,11 +32,11 @@ The aim of this post is not directed to discuss this concern in great detail, bu
 ## Static Graphics
 
 <!-- WordClouds   -->
-
-<img src="/assets/Isaiah-to-BOM/graphics/wordcloud_Proto.png" alt="Proto-Isaiah-WordCloud" width="200px" height: auto/>
-<img src="/assets/Isaiah-to-BOM/graphics/wordcloud_Deutero.png" alt="Deutero-Isaiah-WordCloud" width="200px" height: auto/>
-<img src="/assets/Isaiah-to-BOM/graphics/wordcloud_Trito.png" alt="Trito-Isaiah-WordCloud" width="200px" height: auto/>
-
+<body>
+    <img src="/assets/Isaiah-to-BOM/graphics/wordcloud_Proto.png" alt="Proto-Isaiah-WordCloud" width="200px" height: auto/>
+    <img src="/assets/Isaiah-to-BOM/graphics/wordcloud_Deutero.png" alt="Deutero-Isaiah-WordCloud" width="200px" height: auto/>
+    <img src="/assets/Isaiah-to-BOM/graphics/wordcloud_Trito.png" alt="Trito-Isaiah-WordCloud" width="200px" height: auto/>
+</body>
 
 ![Proto-Isaiah-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_Proto.png)
 ![Deuetero-Isaiah-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_Deutero.png)
