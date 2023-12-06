@@ -47,27 +47,35 @@ Duhms Category: [Bernhard Duhm](https://en.wikipedia.org/wiki/Book_of_Isaiah) us
 - Deutero-Isaiah lists chapters 40-55 (597-538 BCE). This is believed to originate from the work of an anonymous 6th-century acolyte of Isaiah, written during the time of the Babylonian exile. 
 - Proto-Isaiah lists chapters 56-66 (after 538 BCE). This was mainly composed after the Exile and the Jews' return to Jerusalem.
 
-Reference Type: I used a language processing library from python to calculate text similarities between the determined references. The scores calculated ranged from 0 to 1. I categorized it based on the score:
-- Direct Quote: .75 to 1
-- Shared Language: .25 to .75
-- Similar Theme: 0 to .25
-
-
-
+Reference Type: I used a language processing library from python to calculate text similarities between the determined references. The scores calculated ranged from 0 to 1. I categorized it based on the score as follows:
+- Direct Quote = .75 to 1
+- Shared Language = .25 to .75
+- Similar Theme = 0 to .25
 
 ### Locations in Isaiah
 
 A viable method to chart cross references throughout Isaiah is by utilizing a bar chart. The following graph counts the number of times a verse from the chapter is used in the Book of Mormon, whether that be a verses that directly quotes, shares language, or has a similar theme to Isaiah.  
 
-![Isaiah-References](/assets/Isaiah-to-BOM/graphics/ref_count_ISH.png)
+<p align="center">
+    <img src="/assets/Isaiah-to-BOM/graphics/ref_count_ISH.png" alt="image" width="150%" height="auto">
+</p>
 
-And a simplified version looking at the Duhm's category. 
+Ultimately, we see that Isaiah 2-14 and 48-55 are heavily quoted, but Isaiannic language and themes are pulled from throughout the text. It is important to note, however, that based on the [linguistic data](http://www.creationismonline.com/Mormons/KJV_Order.pdf) I scraped, a reference does not mean that the Book of Mormon author meant to directly pull doctrine or words from Isaiah, rather, modern-day scholars found a thematic or language connection between them. 
+
+A simplified version applied the Duhms categories to illustrate where cross referencing occurs. 
 
 ![Duhms-References](/assets/Isaiah-to-BOM/graphics/ref_count_DUHMS.png)
 
-Ultimately, we see that Isaiah 2-14 and 48-55 are heavily quoted, but Isaiannic language and themes are pulled from throughout the text. It is important to note, however, that based on the [linguistic data](http://www.creationismonline.com/Mormons/KJV_Verses.pdf) I scraped, a reference does not mean that the Book of Mormon author meant to directly pull doctrine or words from Isaiah, rather, modern-day scholars found a thematic or language connection between them. 
+We see that a lot of quoting from Isaiah comes from chapters 1 through 39 (Proto), and a few from 40 through 55 (Deutero). Again, regular connections between language and themes are found throughout all three sections. 
 
 ### Locations in the Book of Mormon
+
+We can also chart how the Book of Mormon references Isaiah. The following graph facets bar charts by author and then provides a **proportion** of how much of the specified chapter references Isaiah. 
+
+<p align="center">
+    <img src="/assets/Isaiah-to-BOM/graphics/ref_count_BOM.png" alt="image" width="150%" height="auto">
+</p>
+
 
 
 
@@ -108,7 +116,6 @@ Since we've seen so many bar charts, I figured I'd switch it up and use some wor
 
 <!-- Book of Mormon Summary  -->
 
-![BoM-References](/assets/Isaiah-to-BOM/graphics/ref_count_BOM.png)
 ![BoM-BibleDictionary](/assets/Isaiah-to-BOM/graphics/bd_BOM.png)
 
 <!-- Comparison -->
