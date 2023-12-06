@@ -57,7 +57,7 @@ Reference Type: I used a language processing library from python to calculate te
 A viable method to chart cross references throughout Isaiah is by utilizing a bar chart. The following graph counts the number of times a verse from the chapter is used in the Book of Mormon, whether that be a verses that directly quotes, shares language, or has a similar theme to Isaiah.  
 
 <p align="center">
-    <img src="/assets/Isaiah-to-BOM/graphics/ref_count_ISH.png" alt="image" width="150%" height="auto">
+    <img src="/assets/Isaiah-to-BOM/graphics/ref_count_ISH.png" alt="image" width="250%" height="auto">
 </p>
 
 Ultimately, we see that Isaiah 2-14 and 48-55 are heavily quoted, but Isaiannic language and themes are pulled from throughout the text. It is important to note, however, that based on the [linguistic data](http://www.creationismonline.com/Mormons/KJV_Order.pdf) I scraped, a reference does not mean that the Book of Mormon author meant to directly pull doctrine or words from Isaiah, rather, modern-day scholars found a thematic or language connection between them. 
@@ -73,13 +73,16 @@ We see that a lot of quoting from Isaiah comes from chapters 1 through 39 (Proto
 We can also chart how the Book of Mormon references Isaiah. The following graph facets bar charts by author and then provides a **proportion** of how much of the specified chapter references Isaiah. 
 
 <p align="center">
-    <img src="/assets/Isaiah-to-BOM/graphics/ref_count_BOM.png" alt="image" width="150%" height="auto">
+    <img src="/assets/Isaiah-to-BOM/graphics/ref_count_BOM.png" alt="image" width="250%" height="auto">
 </p>
 
+We find that of the chapters that seem to quote Isaiah are 1 Nephi 20-21, 2 Nephi 6-8, 12-24, and Mosiah 14-15, and 3 Nephi 20-22. Alma and Helaman seem to pull regular themes and language, but no direct quotations. 
 
+There is a key indicator for when the author intends to quote Isaiah directly. 1 Nephi 19:24 declares to an audience to "hear ye the words of the prophet," before 1 Nephi 20-21 is issued (which are direct pulls from Isaiah 48-49). In 2 Nephi 25:5, Nephi claims that his "soul delighteth in the words of Isaiah," after exhaustively quoting Isaiah 2-14. In 3 Nephi 23:1, the Ressurected Christ states his approval for the author, and giving "a commandment" to "search... diligently; for great are the words of Isaiah," wherein 3 Nephi 22 quotes all of Isaiah 54. Hence there are plenty of "Direct Quotes" found in neighboring chapters. 
 
+Mosiah 14-15 tell a different story. In his argument against Noah's wicked priests, Abinadi pulls Isaiah 53 for Mosiah 14, starting with the phrase "did not the prophet Isaiah say." After his recitation, he then references other verses, particularly Isaiah 52:7, all in different contexts.  
 
-
+Ultimately, there are many prophets who find Isaiah very useful in teaching about Jesus Christ, the House of Israel, the Abrahmic Covenant, and other biblical themes. Throughout the Book of Mormon, prophets utilize differing styles in teaching; Isaiah's teachings likely impacted the prophets learning differently, and thus influencd their own teaching techniques. 
 
 ### Biblical Language
 
