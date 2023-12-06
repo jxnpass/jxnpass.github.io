@@ -35,7 +35,9 @@ The aim of this post is not directed to discuss this concern in great detail, bu
 
 ![ISH-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_DUHMS.png)
 
-![BOM-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_BOM.png)
+<img src="/assets/Isaiah-to-BOM/graphics/wordcloud_BOM.png" alt="image" width="40%" height="auto">
+
+<!-- ![BOM-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_BOM.png) -->
 
 <!-- Isaiah Summary  -->
 
