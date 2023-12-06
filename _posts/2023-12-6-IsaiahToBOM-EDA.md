@@ -15,7 +15,7 @@ date: 2023-12-5 17:50:00
 
 - [Introduction](#introduction)
 - [Static Graphics](#static-graphics)
-- [Networks](#visuals)
+- [Networks](#cross-reference-networks)
 - [Dashboard](#dashboard)
 - [Acknowledgements](#acknowledgements-and-ethical-considerations)
 
@@ -32,15 +32,8 @@ The aim of this post is not directed to discuss this concern in great detail, bu
 ## Static Graphics
 
 <!-- WordClouds   -->
-<body>
-    <img src="/assets/Isaiah-to-BOM/graphics/wordcloud_Proto.png" alt="Proto-Isaiah-WordCloud" width="200px" height: auto/>
-    <img src="/assets/Isaiah-to-BOM/graphics/wordcloud_Deutero.png" alt="Deutero-Isaiah-WordCloud" width="200px" height: auto/>
-    <img src="/assets/Isaiah-to-BOM/graphics/wordcloud_Trito.png" alt="Trito-Isaiah-WordCloud" width="200px" height: auto/>
-</body>
 
-![Proto-Isaiah-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_Proto.png)
-![Deuetero-Isaiah-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_Deutero.png)
-![Trito-Isaiah-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_Trito.png)
+![ISH-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_DUHMS.png)
 
 ![BOM-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_BOM.png)
 
@@ -62,7 +55,7 @@ The aim of this post is not directed to discuss this concern in great detail, bu
 ![BoM-ISH-BibleDictionary](/assets/Isaiah-to-BOM/graphics/bd_comp.png)
 
 
-## Networks
+## Cross Reference Networks
 
 [By Chapter](/assets/Isaiah-to-BOM/network-visuals/by_chapter.html)
 
