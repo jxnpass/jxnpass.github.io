@@ -31,30 +31,7 @@ The aim of this post is not directed to discuss this concern in great detail, bu
 
 ## Static Graphics
 
-<!-- WordClouds   -->
 
-![Proto-Isaiah-WordCloud](../assets/Isaiah-to-BOM/graphics/wordcloud_Proto.png)
-![Deuetero-Isaiah-WordCloud](../assets/Isaiah-to-BOM/graphics/wordcloud_Deutero.png)
-![Trito-Isaiah-WordCloud](../assets/Isaiah-to-BOM/graphics/wordcloud_Trito.png)
-
-![BOM-WordCloud](../assets/Isaiah-to-BOM/graphics/wordcloud_BOM.png)
-
-<!-- Isaiah Summary  -->
-
-![Isaiah-References](../assets/Isaiah-to-BOM/graphics/ref_count_ISH.png)
-
-![Duhms-References](../assets/Isaiah-to-BOM/graphics/ref_count_DUHMS.png)
-
-![Duhms-BibleDictionary](../assets/Isaiah-to-BOM/graphics/bd_DUHMS.png)
-
-<!-- Book of Mormon Summary  -->
-
-![BoM-References](../assets/Isaiah-to-BOM/graphics/ref_count_BOM.png)
-![BoM-BibleDictionary](../assets/Isaiah-to-BOM/graphics/bd_BOM.png)
-
-<!-- Comparison -->
-
-![BoM-ISH-BibleDictionary](../assets/Isaiah-to-BOM/graphics/bd_comp.png)
 
 
 ## Networks
