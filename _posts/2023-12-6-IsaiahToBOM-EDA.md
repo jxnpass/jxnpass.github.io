@@ -37,7 +37,7 @@ The aim of this post and the [data collection post](/_posts/2023-12-5-IsaiahToBO
 
 ## EDA
 
-There are three areas whereby we can scope our exploration:
+There are four areas whereby we can scope our exploration:
 1. Where in Isaiah does the Book of Mormon most refer to?
 2. Where in the Book of Mormon is Isaiah heavily referenced?
 3. How much is biblical language utilized in Isaiah and the Book of Mormon?
@@ -50,7 +50,7 @@ More info about the data can be found on [data collection post](/_posts/2023-12-
 Duhms Category: [Bernhard Duhm](https://en.wikipedia.org/wiki/Book_of_Isaiah) uses varying structures and models to break up and explain the chronological and thematic differences in Isaiah. In this project, we used the threefold structure to identify them:
 - Proto-Isaiah lists chapters 1-39 (742-687 BCE). It encompasses the stories and words of Isaiah in 8th-century BCE, where he narrates certain events like his call to prophethood, the Syro-Ephramite war, and the rise of the rightoeus king Hezekiah.
 - Deutero-Isaiah lists chapters 40-55 (597-538 BCE). This is believed to originate from the work of an anonymous 6th-century acolyte of Isaiah, written during the time of the Babylonian exile. 
-- Proto-Isaiah lists chapters 56-66 (after 538 BCE). This was mainly composed after the Exile and the Jews' return to Jerusalem.
+- Trito-Isaiah lists chapters 56-66 (after 538 BCE). This was mainly composed after the Exile and the Jews' return to Jerusalem.
 
 Reference Type: I used `nltk` and `textdistance` in Python to calculate text similarities between the determined references. The scores calculated ranged from 0 to 1, 1 being word-for-word alike. I categorized it based on the score as follows:
 - Direct Quote = .75 to 1

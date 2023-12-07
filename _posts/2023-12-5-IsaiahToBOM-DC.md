@@ -16,6 +16,7 @@ date: 2023-12-5 17:50:00
 - [Synopsis](#synopsis)
 - [Data Collection](#data-collection)
 - [Data Processing](#data-processing)
+- [Data Building](#data-building)
 - [Acknowledgements](#acknowledgements-and-ethical-considerations)
 
 ## Synopsis
@@ -35,7 +36,7 @@ Finding the right cross reference data was difficult, so I had to pull informati
 2. [LDS Documentation Project](https://github.com/mormon-documentation-project/lds-scriptures/blob/master/lds-scriptures.xlsx)
 3. [Church of Jesus Christ of Latter-day Saints Bible Dictionary](https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng)
 
-### Dataset One: Scraping PDF links
+### 1. Scraping PDF links for Cross Reference Data
 
 The first location is a static html file that links viewers to numerous pdf files, articles, and websites highlighting differing attributes of LDS doctrine and policy. I was only interested in gathering the data from the [KJV_order.pdf](http://www.creationismonline.com/Mormons/KJV_Order.pdf), which contains the cross references of all bible verses to all Book of Mormon verses, normally listed as footnotes in the Latter-day Saint version of the KJV Bible. Since this was a pdf file listed on the main site, I wanted to extract the website links using webscraping and download the pdf of interest in Python:
 
@@ -111,11 +112,11 @@ cr2['BoM_chapter'] = nrs
 
 Then I export my simple cross reference data to a csv file using ```cr2.to_csv(file_path)```.
 
-### Dataset Two: Downloading Spreadsheet Data from the LDS Documentation Project
+### 2. Downloading Textual Data from the LDS Documentation Project
 
 Thanks to the [LDS Documentation Project](https://scriptures.nephi.org/) for their [Mormon Documentation Repository](https://github.com/mormon-documentation-project/lds-scriptures) for making life very easy and providing an extensive list of the book title, chapter number, verse number, and verse text for every single LDS scripture, This allowed the pairing of sciptural text between Isaiah and the Book of Mormon to be a very feasible process. More on this process in [Data Processing](#data-processing)
 
-### Dataset Three: Scraping Bible Dictionary Terms from [churchofjesuschrist.org](churchofjesuschrist.org)
+### 3. Scraping Bible Dictionary Terms from [churchofjesuschrist.org](churchofjesuschrist.org)
 
 In my third dataset, I scraped the list of words from the [LDS Bible Dictionary](https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng). Using Python to extract the words was a much more intuitive process. In simple terms, I initialized a new vector, scraped each word using Python's BeautifulSoup, and appended the cleaned text to the vector. The vector was then rewritten as a one-column dataframe titled ```bd_df``` and written using ```bd_df.to_csv(file_path)```.
 
@@ -139,16 +140,153 @@ bd_df.columns = ["Term"]
 
 I wanted to have data that fulfilled multiple components of the project. I wanted data that evaluated the entire Book of Mormon, Isaiah, and the cross references between the two by verse and by chapter. I aimed to calculate language similarities between referenced verses, and oragnize them in both a numerical and categorical view. I also wanted data that detected the presence of biblical terms within verses. Finally, I wanted columns that calculated the number of words within verses and number of verses within each chapter. Ultimately, I wanted to turn my three collected datasets and transform them into four new datasets. I recognized that my goals were lofty, and required some creativity to achieve what I wanted. 
 
-To better lay out my process, I accomplished my goals in these steps. 
-1. Combine cross reference verse IDs with the verse text
-2. Evaluate text similarities between verses
-3. Count number of words in each verse
-4. Detect if verse contains bible term. 
-5. Use Duhm's classification chapters
-6. Build summary data for Isaiah and the Book of Mormon
-7. Build summary data for cross referenced chapters. 
+I accomplished my goal to combine the data into three steps:
+### 1. Filter the scripture dataset to include only Isaiah and the Book of Mormon
 
-If you want to learn more about the details of how I accomplished this, you can check out [my repository](https://github.com/jxnpass/Isaiah-to-BoM). 
+This code takes the data downloaded from the [LDS Documentation Project](https://scriptures.nephi.org/) and filters it to Isaiah and the Book of Mormon.
+
+``` py
+# scripts contains all scripture data. I just want Isaiah and the BoM.
+filtered_scripts = scripts[(scripts['book_title'] == "Isaiah") | (scripts['volume_short_title'] == "BoM")]
+# selecting columns I want
+filtered_scripts = filtered_scripts[['verse_title', 'book_title', 'chapter_number', 'verse_number', 'scripture_text']]
+```
+
+### 2. Take the scripture data and structure it like the cross reference data
+
+This step took a little creativity. I took the filtered scripture data and merged it twice, the first time to the Isaiah chapters, and the second time the Book of Mormon chapters. 
+
+``` py
+# Merge references with scripture texts
+ISH = pd.merge(filtered_scripts[filtered_scripts['book_title'] == "Isaiah"], cr, how = 'left', left_on='verse_title' right_on='Isaiah_chapter')
+full_cr = pd.merge(ISH, filtered_scripts, how = 'left', left_on='BoM_chapter', right_on='verse_title', suffixes=['_ISH','_BOM'])
+full_cr = full_cr.drop(['Isaiah_chapter','BoM_chapter'], axis = 1)
+```
+I also dropped some columns and added suffixes to the columns I already had. This will help me specify which verse and chapter is the scripture. 
+
+### 3. Add in Book of Mormon text that was not cross referenced
+
+I want to keep my data fully comprehensive, so I included all the Book of Mormon verses that weren't directly referenced. 
+
+``` py
+# I also want the BOM chapters that were not referenced in my dataset
+unref_BOM = scripts[(~scripts['verse_title'].isin(full_cr['verse_title_BOM'])) & (scripts['volume_title'] == "Book of Mormon")]
+# Keeping columns I want and adding suffixes
+unref_BOM = unref_BOM[['verse_title', 'book_title', 'chapter_number', 'verse_number', 'scripture_text']]
+unref_BOM = unref_BOM.add_suffix('_BOM')
+# Merging to reference data
+full_cr = pd.merge(full_cr, unref_BOM, how="outer")
+```
+
+The final output looks something like this. 
+
+![CrossRef](/assets/Isaiah-to-BOM/data-collection/1-cross-ref-head.png)
+
+However, I am still missing some very important information that wasn't available from the web. This step required a bit of creativity and research in order to expand the exploration.
+
+## Data Building
+The data was very limited as far as what information was available, so I consulted multiple sources to find meaningful variables that would supplement the research question. I wanted information regarding textual similarities, scholarly views (e.g. [Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah)), and bible term influences. I also wanted statistics on verse count per chapter and word count per verse.
+In particular, none of the datasets had any variable representing textual similarities, so I expanded the data I had now to provide meaningful statistics.
+
+### 1. Evaluate text similarities between verses
+
+Python libraries ```nltk``` and ```textdistance``` provide great resources to be able to process and compare text. Since my dataframe is already organized in a way that it knows which verse in Isaiah cross references the verse in the Book of Mormon, a simple for loop can run through each row and compare the text.
+
+I will not dive too deeply into the process of how text language comparison is done, but I suggest consulting different guides on how to [clean and process language](https://realpython.com/nltk-nlp-python/) and [calculate text similarities](https://www.newscatcherapi.com/blog/ultimate-guide-to-text-similarity-with-python).
+
+I used ```nltk``` stopwords to remove certain words like 'I','and', or 'to', from the text, and ```textdistance``` to calculate text similarities. I went with the cosine method to calculate similarity scores as it is [generally preferred when working with text](https://www.newscatcherapi.com/blog/ultimate-guide-to-text-similarity-with-python).
+
+``` py
+# calculating similarities between words in verses
+cosine_sim_dist = textdistance.cosine(ISH_words, BOM_words)
+```
+
+### 2. Detect if verse contains a bible term and list it 
+
+Now it is time to find where biblical themes occur throughout both authors. Using the [LDS Bible Dictionary](https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng), I created a lemmatizer from `nltk` and ran through each verse to see if a Bible Dictionary term was used within the verse. A lemmatizer is a tool that, in simple terms, detects multiple forms that a word can take. As an example, the word 'idol' may be quoted as 'idols' or 'idolatry'. More about lemmatizers can be found [here](https://www.datacamp.com/tutorial/stemming-lemmatization-python).
+
+A simplified version of the code I used is found here
+
+``` py
+# initialize vectors
+bd_found = []
+bd_list = []
+
+# initialize the lemmatizer
+lemmatizer = WordNetLemmatizer()
+
+# run through each verse
+for verse in full_cr['scripture_text_ISH']:
+    verse_words = verse.split()
+    found_word = False
+
+    for word in verse_words:
+        lemma = lemmatizer.lemmatize(word, 'n')
+        
+        if lemma in bd['term'].values:
+            bd_list.append(lemma)
+            found_word = True
+            break  
+
+    if found_word:
+        bd_found.append(True)
+
+    else:
+        bd_found.append(False)
+        bd_list.append('')
+
+```
+
+### 3. Categorize Isaiah using Duhm's classifications for the chapters
+
+[Bernhard Duhm](https://en.wikipedia.org/wiki/Book_of_Isaiah) uses varying structures and models to break up and explain the chronological and thematic differences in Isaiah. In this project, we used the threefold structure to identify them:
+- Proto-Isaiah lists chapters 1-39 (742-687 BCE). It encompasses the stories and words of Isaiah in 8th-century BCE, where he narrates certain events like his call to prophethood, the Syro-Ephramite war, and the rise of the rightoeus king Hezekiah.
+- Deutero-Isaiah lists chapters 40-55 (597-538 BCE). This is believed to originate from the work of an anonymous 6th-century acolyte of Isaiah, written during the time of the Babylonian exile. 
+- Trito-Isaiah lists chapters 56-66 (after 538 BCE). This was mainly composed after the Exile and the Jews' return to Jerusalem.
+
+Retrieving this variable and incorprating it into the data was very simple. All it took was a function that looked into the chapter number and listed the Duhm classification. 
+
+``` py
+import math
+
+def Duhms_Classification(ch_num):
+    if math.isnan(ch_num):
+        return np.nan
+    else:    
+        if (ch_num >=1) & (ch_num <= 39):
+            return 'Proto'
+        elif (ch_num >= 40) & (ch_num <= 55):
+            return 'Deutero'
+        elif (ch_num >= 56) & (ch_num <= 66):
+            return 'Trito'
+    
+Duhms_division = []
+
+for ch_num in final_cr['chapter_number_ISH']:
+    Duhms_division.append(Duhms_Classification(ch_num))
+
+final_cr['Duhms_Class'] = Duhms_division
+```
+
+### Final Output
+
+After building the ascribed variables to analyze scripture data in greater detail, the dataset looks as follows:
+
+![CrossRef2](/assets/Isaiah-to-BOM/data-collection/2-cross-ref-head.png)
+
+If you want to learn more about the details on how I accomplished building the data, you can check out [my repository](https://github.com/jxnpass/Isaiah-to-BoM). 
+
+## Conclusion
+
+The preparation involved for constructing this dataset is extensive and carefully completed, such that scriptural information is not misrepresented or misinterpreted. I expanded my research outlook by consulting other resources where I can better relate Isaiah to the Book of Mormon.
+
+There are four areas whereby we can scope our exploration:
+1. Where in Isaiah does the Book of Mormon most refer to?
+2. Where in the Book of Mormon is Isaiah heavily referenced?
+3. How much is biblical language utilized in Isaiah and the Book of Mormon?
+4. Where do textual differences occur between Duhm's Classifications and the Book of Mormon?
+
+I answer these questions in my next blog post [*Exploring Isaiah's Legacy in the Book of Mormon - EDA and Dashboard*](https://jxnpass.github.io/2023/12/05/IsaiahToBOM-EDA.html).
 
 ## Acknowledgements and Ethical Considerations
 
