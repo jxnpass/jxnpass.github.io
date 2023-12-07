@@ -11,6 +11,8 @@ github:
 date: 2023-12-5 17:50:00
 ---
 
+<base target="_blank">
+
 ## Table of Contents
 
 - [Synopsis](#synopsis)
