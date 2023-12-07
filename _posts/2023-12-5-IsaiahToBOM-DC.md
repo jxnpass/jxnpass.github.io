@@ -275,7 +275,7 @@ After building the ascribed variables to analyze scripture data in greater detai
 ![CrossRef2](/assets/Isaiah-to-BOM/data-collection/2-cross-ref-head.png)
 ![CrossRef3](/assets/Isaiah-to-BOM/data-collection/3-cross-ref-head.png)
 
-If you want to learn more about the details on how I accomplished building the data, you can check out [my repository](https://github.com/jxnpass/Isaiah-to-BoM). 
+If you want to learn more about the details on how I accomplished building the data, you can check out [my repository](https://github.com/jxnpass/Isaiah-to-BoM). You can also download the spreadsheet of the [cross reference verse data from GitHub](https://github.com/jxnpass/Isaiah-to-BoM/blob/main/CleanData/by_verse_cross_ref.xlsx).
 
 ## Conclusion
 
