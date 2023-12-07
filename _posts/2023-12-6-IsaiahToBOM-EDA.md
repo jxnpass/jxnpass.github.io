@@ -33,7 +33,7 @@ The prophet Isaiah is heavily revered for Book of Mormon peoples, and their writ
 
 Multiple scholarly interpretations have debated these concerns. One assertion is that the book of Isaiah was written wholly by the prophet himself, and disciples later edited it to be in its current format. Others speculate the possibility of divine intervention as the writings of Isaiah and the Book of Mormon went through translations. 
 
-The aim of this post and the [data collection post](/_posts/2023-12-5-IsaiahToBOM-DC.md) is not directed to discuss this concern in great detail, but to illuminate the breadth of Isaiah's writing using visualization and statistics, accounting for these common scholarly perspectives. We will also explore cross reference levels of similarities, subdivisions of Isaiah using [Bernhard Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah), presence of biblical terms, and textual summaries of words, verses, and chapters between authors. This project intends to promote a detailed understanding of the scriptures by visualizing complexities that are otherwise incomprehensible. 
+The aim of this post and the [data collection post](https://jxnpass.github.io/2023/12/05/IsaiahToBOM-DC.html) is not directed to discuss this concern in great detail, but to illuminate the breadth of Isaiah's writing using visualization and statistics, accounting for these common scholarly perspectives. We will also explore cross reference levels of similarities, subdivisions of Isaiah using [Bernhard Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah), presence of biblical terms, and textual summaries of words, verses, and chapters between authors. This project intends to promote a detailed understanding of the scriptures by visualizing complexities that are otherwise incomprehensible. 
 
 ## EDA
 
@@ -45,7 +45,7 @@ There are four areas whereby we can scope our exploration:
 
 ### Dataset Description
 
-More info about the data can be found on [data collection post](/_posts/2023-12-5-IsaiahToBOM-DC.md), but here is a brief description to get started:
+More info about the data can be found on [data collection post](https://jxnpass.github.io/2023/12/05/IsaiahToBOM-DC.html), but here is a brief description to get started:
 
 Duhms Category: [Bernhard Duhm](https://en.wikipedia.org/wiki/Book_of_Isaiah) uses varying structures and models to break up and explain the chronological and thematic differences in Isaiah. In this project, we used the threefold structure to identify them:
 - Proto-Isaiah lists chapters 1-39 (742-687 BCE). It encompasses the stories and words of Isaiah in 8th-century BCE, where he narrates certain events like his call to prophethood, the Syro-Ephramite war, and the rise of the rightoeus king Hezekiah.
