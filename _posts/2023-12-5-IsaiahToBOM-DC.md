@@ -273,6 +273,7 @@ final_cr['Duhms_Class'] = Duhms_division
 After building the ascribed variables to analyze scripture data in greater detail, the dataset looks as follows:
 
 ![CrossRef2](/assets/Isaiah-to-BOM/data-collection/2-cross-ref-head.png)
+![CrossRef3](/assets/Isaiah-to-BOM/data-collection/3-cross-ref-head.png)
 
 If you want to learn more about the details on how I accomplished building the data, you can check out [my repository](https://github.com/jxnpass/Isaiah-to-BoM). 
 
