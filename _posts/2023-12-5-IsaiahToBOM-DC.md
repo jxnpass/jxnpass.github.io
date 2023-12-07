@@ -78,7 +78,6 @@ Now instead of a vector of strings, I want to write a dataframe ```cr2``` that h
 
 ``` py
 # setting up dataframes
-
 cr2 = pd.DataFrame()
 cr2['Isaiah_chapter'] = []
 cr2['BoM_chapter'] = []
@@ -138,23 +137,16 @@ bd_df.columns = ["Term"]
 
 ## Data Processing
 
-I wanted to have data that fulfilled multiple components of the project. I wanted data that evaluated the entire Book of Mormon, Isaiah, and the cross references between the two by verse and by chapter. I aimed to calculate language similarities between referenced verses, and oragnize them in both a numerical and categorical view. I also wanted data that detected the presence of biblical terms within verses. Finally, I wanted columns that calculated the number of words within verses and number of verses within each chapter. Ultimately, I wanted to turn my three collected datasets and transform them into four new datasets. I recognized that my goals were lofty, and required some creativity to achieve what I wanted. 
+I desired to have data that fulfilled multiple components of the project. I wanted it to be able to evaluate the entire Book of Mormon, Isaiah, and the cross references between them by verse and by chapter. I aimed to calculate language similarities between referenced verses, and oragnize them in both a numerical and categorical view. I also wanted data that detected the presence of biblical terms within verses. Finally, I wanted columns that calculated the number of words within verses and number of verses within each chapter. I recognized that my goals were lofty, and required some creativity to achieve what I wanted. 
 
 I accomplished my goal to combine the data into three steps:
 ### 1. Filter the scripture dataset to include only Isaiah and the Book of Mormon
 
-This code takes the data downloaded from the [LDS Documentation Project](https://scriptures.nephi.org/) and filters it to Isaiah and the Book of Mormon.
-
-``` py
-# scripts contains all scripture data. I just want Isaiah and the BoM.
-filtered_scripts = scripts[(scripts['book_title'] == "Isaiah") | (scripts['volume_short_title'] == "BoM")]
-# selecting columns I want
-filtered_scripts = filtered_scripts[['verse_title', 'book_title', 'chapter_number', 'verse_number', 'scripture_text']]
-```
+Using pandas, I coded the data downloaded from the [LDS Documentation Project](https://scriptures.nephi.org/) and filtered it to only contain verses from Isaiah and the Book of Mormon.
 
 ### 2. Take the scripture data and structure it like the cross reference data
 
-This step took a little creativity. I took the filtered scripture data and merged it twice, the first time to the Isaiah chapters, and the second time the Book of Mormon chapters. 
+This step took a little creativity. I took the filtered scripture data and merged it twice, the first time to the Isaiah chapters, and the second time to the Book of Mormon chapters. I also dropped some columns and added suffixes to the columns I already had. This will help me specify which verse and chapter is the scripture. 
 
 ``` py
 # Merge references with scripture texts
@@ -162,21 +154,10 @@ ISH = pd.merge(filtered_scripts[filtered_scripts['book_title'] == "Isaiah"], cr,
 full_cr = pd.merge(ISH, filtered_scripts, how = 'left', left_on='BoM_chapter', right_on='verse_title', suffixes=['_ISH','_BOM'])
 full_cr = full_cr.drop(['Isaiah_chapter','BoM_chapter'], axis = 1)
 ```
-I also dropped some columns and added suffixes to the columns I already had. This will help me specify which verse and chapter is the scripture. 
 
 ### 3. Add in Book of Mormon text that was not cross referenced
 
-I want to keep my data fully comprehensive, so I included all the Book of Mormon verses that weren't directly referenced. 
-
-``` py
-# I also want the BOM chapters that were not referenced in my dataset
-unref_BOM = scripts[(~scripts['verse_title'].isin(full_cr['verse_title_BOM'])) & (scripts['volume_title'] == "Book of Mormon")]
-# Keeping columns I want and adding suffixes
-unref_BOM = unref_BOM[['verse_title', 'book_title', 'chapter_number', 'verse_number', 'scripture_text']]
-unref_BOM = unref_BOM.add_suffix('_BOM')
-# Merging to reference data
-full_cr = pd.merge(full_cr, unref_BOM, how="outer")
-```
+Finally, I wanted the data to be fully comprehensive, meaning that all verse data for the Book of Mormon and Isaiah were included. So, I added all the Book of Mormon verses that weren't directly referenced into the data.
 
 The final output looks something like this. 
 
@@ -185,8 +166,7 @@ The final output looks something like this.
 However, I am still missing some very important information that wasn't available from the web. This step required a bit of creativity and research in order to expand the exploration.
 
 ## Data Building
-The data was very limited as far as what information was available, so I consulted multiple sources to find meaningful variables that would supplement the research question. I wanted information regarding textual similarities, scholarly views (e.g. [Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah)), and bible term influences. I also wanted statistics on verse count per chapter and word count per verse.
-In particular, none of the datasets had any variable representing textual similarities, so I expanded the data I had now to provide meaningful statistics.
+The data was very limited as far as what information was available, so I consulted multiple sources to find what meaningful variables that would supplement the research question. I decided to include information regarding textual similarities, scholarly views (e.g. [Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah)), and bible term usage. I also wanted statistics on verse count per chapter and word count per verse, which was not provided previously. 
 
 ### 1. Evaluate text similarities between verses
 
@@ -203,9 +183,8 @@ cosine_sim_dist = textdistance.cosine(ISH_words, BOM_words)
 
 ### 2. Detect if verse contains a bible term and list it 
 
-Now it is time to find where biblical themes occur throughout both authors. Using the [LDS Bible Dictionary](https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng), I created a lemmatizer from `nltk` and ran through each verse to see if a Bible Dictionary term was used within the verse. A lemmatizer is a tool that, in simple terms, detects multiple forms that a word can take. As an example, the word 'idol' may be quoted as 'idols' or 'idolatry'. More about lemmatizers can be found [here](https://www.datacamp.com/tutorial/stemming-lemmatization-python).
+Now it is time to find where biblical themes occur throughout both authors. Using the [LDS Bible Dictionary](https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng), I created a lemmatizer from `nltk` and ran through each verse to see if a Bible Dictionary term was used within the verse. A lemmatizer is a tool that, in simple terms, detects multiple forms that a word can take. As an example, the word 'idol' may be quoted as 'idols' or 'idolatry'. More about lemmatizers can be found [here](https://www.datacamp.com/tutorial/stemming-lemmatization-python). I also created a column in the data that not only determined whether a bible dictionary term was found, but what the first bible dictionary term was. 
 
-A simplified version of the code I used is found here
 
 ``` py
 # initialize vectors
@@ -244,29 +223,7 @@ for verse in full_cr['scripture_text_ISH']:
 - Deutero-Isaiah lists chapters 40-55 (597-538 BCE). This is believed to originate from the work of an anonymous 6th-century acolyte of Isaiah, written during the time of the Babylonian exile. 
 - Trito-Isaiah lists chapters 56-66 (after 538 BCE). This was mainly composed after the Exile and the Jews' return to Jerusalem.
 
-Retrieving this variable and incorprating it into the data was very simple. All it took was a function that looked into the chapter number and listed the Duhm classification. 
-
-``` py
-import math
-
-def Duhms_Classification(ch_num):
-    if math.isnan(ch_num):
-        return np.nan
-    else:    
-        if (ch_num >=1) & (ch_num <= 39):
-            return 'Proto'
-        elif (ch_num >= 40) & (ch_num <= 55):
-            return 'Deutero'
-        elif (ch_num >= 56) & (ch_num <= 66):
-            return 'Trito'
-    
-Duhms_division = []
-
-for ch_num in final_cr['chapter_number_ISH']:
-    Duhms_division.append(Duhms_Classification(ch_num))
-
-final_cr['Duhms_Class'] = Duhms_division
-```
+Retrieving this variable and incorprating it into the data was very simple. All it took was a function that looked into the chapter number and assigned the Duhm classification to the row in the data.
 
 ### Final Output
 
