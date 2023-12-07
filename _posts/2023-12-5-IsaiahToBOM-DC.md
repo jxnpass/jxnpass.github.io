@@ -287,7 +287,7 @@ There are four areas whereby we can scope our exploration:
 3. How much is biblical language utilized in Isaiah and the Book of Mormon?
 4. Where do textual differences occur between Duhm's Classifications and the Book of Mormon?
 
-I answer these questions in my next blog post [*Exploring Isaiah's Legacy in the Book of Mormon - EDA and Dashboard*](https://jxnpass.github.io/2023/12/05/IsaiahToBOM-EDA.html).
+I answer these questions in my next blog post [*Exploring Isaiah's Legacy in the Book of Mormon - EDA and Dashboard*](https://jxnpass.github.io/2023/12/06/IsaiahToBOM-EDA.html).
 
 ## Acknowledgements and Ethical Considerations
 
