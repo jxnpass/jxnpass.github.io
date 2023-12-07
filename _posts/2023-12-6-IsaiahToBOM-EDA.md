@@ -15,20 +15,25 @@ date: 2023-12-5 17:50:00
 
 - [Synopsis](#synopsis)
 - [EDA](#eda)
-- [Graphical Evaluation](#graphical-evaluation)
-- [Networks](#cross-reference-networks)
-- [Dashboard](#dashboard)
+    - [Dataset Description](#dataset-description)
+    - [Locations in Isaiah](#locations-in-isaiah)
+    - [Locations in the Book of Mormon](#locations-in-the-book-of-mormon)
+    - [Biblical Language](#biblical-language)
+    - [Textual Differences](#textual-differences)
+    - [Cross Reference Networks](#cross-reference-networks)
+    - [Dashboard](#dashboard)
+- [Conclusion](#conclusion)
 - [Acknowledgements](#acknowledgements-and-ethical-considerations)
 
 ## Synopsis
 
-The Holy Bible is one of the most revered and consistently read texts in the entire world. The complexities of biblical histories, from religious themes and worship, languages, and to major societal events, fascinate scholars today. However, what is commonly overlooked is the connections between the Bible and the Book of Mormon. In the narrative beginning of the Book of Mormon, the record opens with a family commanded by God to leave their home in Jerusalem, escape the impending doom of the Babylonian Exile, and start a new civilization in the modern-day Americas. One of the belongings of this family was a record written on brass plates, which contains the biblical prophets and narratives from the five books of Moses and the words of the Old Testament prophets up to Jeremiah. One of the most commonly referenced prophets made by Book of Mormon characters is Isaiah, in which his words, themes, and doctrines [consist about 35% of the Book of Mormon](https://www.churchofjesuschrist.org/study/manual/old-testament-student-manual-kings-malachi/enrichment-e?lang=eng).
+The Holy Bible is one of the most revered and consistently read texts in the entire world. The complexities of biblical histories, from religious themes and worship, languages, and to major societal events, fascinate scholars today. However, what is commonly overlooked is the connections between the Bible and the Book of Mormon. In the narrative beginning of the Book of Mormon, the record opens with a family commanded by God to leave their home in Jerusalem, escape the impending doom of the Babylonian Exile, and start a new civilization in the modern-day Americas. One of the belongings of this family was a record written on brass plates, which contains the biblical prophets and narratives from the five books of Moses and the words of the Old Testament prophets up to Jeremiah. One of the most commonly referenced authors made by Book of Mormon prophets is Isaiah, in which his words, themes, and doctrines [are in 35% of the Book of Mormon](https://www.churchofjesuschrist.org/study/manual/old-testament-student-manual-kings-malachi/enrichment-e?lang=eng).
 
 The prophet Isaiah is heavily revered for Book of Mormon peoples, and their writers and preachers regularly recite from the 66 chapters we have today. However, modern scholars have stated that the authorship of the book of Isaiah is not solely written by the prophet: numerous arguments cirulated stating that Isaiah's disciples had written chapters 40-66, and Isaiah himself had only contributed chapters 1-39. This claim has validity since the second half is written after the Babylonian Exile (597 to 538 BCE), which was over a hundred years after Isaiah had passed on. The Book of Mormon family left Jerusalem around 600 BCE. This leads to the following question: how could Book of Mormon civilizations have the entire account of Isaiah in the brass plates if the latter half of the Book of Isaiah wasn't written until after 597 BCE? 
 
 Multiple scholarly interpretations have debated these concerns. One assertion is that the book of Isaiah was written wholly by the prophet himself, and disciples later edited it to be in its current format. Others speculate the possibility of divine intervention as the writings of Isaiah and the Book of Mormon went through translations. 
 
-The aim of this post and the [data collection post](/_posts/2023-12-5-IsaiahToBOM-DC.md) is not directed to discuss this concern in great detail, but to illuminate the breadth of Isaiah's writing using visualization and statistics, accounting for these common scholarly perspectives. We will also look into cross reference levels of similarities, subdivisions of Isaiah using [Bernhard Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah), presence of biblical terms, and summaries of words, verses, and chapters between authors. This project intends to promote a detailed understanding of the scriptures by visualizing complexities that are otherwise incomprehensible. 
+The aim of this post and the [data collection post](/_posts/2023-12-5-IsaiahToBOM-DC.md) is not directed to discuss this concern in great detail, but to illuminate the breadth of Isaiah's writing using visualization and statistics, accounting for these common scholarly perspectives. We will also explore cross reference levels of similarities, subdivisions of Isaiah using [Bernhard Duhm's classifications](https://en.wikipedia.org/wiki/Book_of_Isaiah), presence of biblical terms, and textual summaries of words, verses, and chapters between authors. This project intends to promote a detailed understanding of the scriptures by visualizing complexities that are otherwise incomprehensible. 
 
 ## EDA
 
@@ -38,7 +43,7 @@ There are three areas whereby we can scope our exploration:
 3. How much is biblical language utilized in Isaiah and the Book of Mormon?
 4. Where do textual differences occur between Duhm's Classifications and the Book of Mormon?
 
-### Summary Description of the Dataset
+### Dataset Description
 
 More info about the data can be found on [data collection post](/_posts/2023-12-5-IsaiahToBOM-DC.md), but here is a brief description to get started:
 
@@ -47,7 +52,7 @@ Duhms Category: [Bernhard Duhm](https://en.wikipedia.org/wiki/Book_of_Isaiah) us
 - Deutero-Isaiah lists chapters 40-55 (597-538 BCE). This is believed to originate from the work of an anonymous 6th-century acolyte of Isaiah, written during the time of the Babylonian exile. 
 - Proto-Isaiah lists chapters 56-66 (after 538 BCE). This was mainly composed after the Exile and the Jews' return to Jerusalem.
 
-Reference Type: I used a language processing library from python to calculate text similarities between the determined references. The scores calculated ranged from 0 to 1. I categorized it based on the score as follows:
+Reference Type: I used `nltk` and `textdistance` in Python to calculate text similarities between the determined references. The scores calculated ranged from 0 to 1. I categorized it based on the score as follows:
 - Direct Quote = .75 to 1
 - Shared Language = .25 to .75
 - Similar Theme = 0 to .25
@@ -112,7 +117,7 @@ Certain theories provide solutions to justify this chronological discrepancy. Th
 
 Performing the linguistic analyses of the textual differences between the three sections are beyond the scope of this project, as this post aims to illustrate how Isaiah is referenced in the Book of Mormon in general. However, we can look at a glance how the words change generally. 
 
-Since we've seen so many bar charts, I figured I'd switch it up and use some wordclouds! Using python's `WordCloud` package, I displayed text occurances as seen here. Bigger words mean that they are found more often in the scriptures than smaller words. 
+Since we've seen so many bar charts, I figured I'd switch it up and use some wordclouds! Using Python's `WordCloud` package, I displayed text occurances as seen here. Bigger words mean that they are found more often in the scriptures than smaller words. 
 
 ![ISH-WordCloud](/assets/Isaiah-to-BOM/graphics/wordcloud_DUHMS.png)
 
@@ -130,7 +135,7 @@ Duetero-Isaiah has a prevalence of the word "Israel" in its section. Israel is m
 
 ### Cross Reference Networks
 
-I used python's ```pyvis.network``` and ```networkx``` to generate the following network graphics. 
+I used Python's ```pyvis.network``` and ```networkx``` to generate the following network graphics. 
 
 [By Chapter](/assets/Isaiah-to-BOM/network-visuals/by_chapter.html)
 
@@ -143,7 +148,7 @@ I used python's ```pyvis.network``` and ```networkx``` to generate the following
 * Black edges connect direct quotes
 * Dark gray edges connect verses with shared language
 * Light gray edges connect verses with similar themes
-* You'll notice that Isaiah 7:14 is colored gold. I gave it special attneion because this verse is actually matched 55 times, but the network could not handle that many connections. I limited the network to only show those that had a similarity score greater than 0
+* You'll notice that Isaiah 7:14 is colored gold. I gave it attention because this verse is actually matched 55 times, but the network could not handle that many connections. I limited the network to only show those that had a similarity score greater than 0
 
 ### Dashboard
 
@@ -153,9 +158,8 @@ This streamlit dashboard makes it easy to look at cross reference data between b
 
 ## Conclusion
 
-
-
+In conclusion, our exploration on the associations between the Book of Mormon and Isaiah has unearthed fascinating insights that shed light on the intricate tapestry of these scriptures. This comprehensive analysis of scriptural cross references, linguistic patterns, and visualizations can provide a nuanced understanding of how Book of Mormon prophets engaged with Isaiah's profound teachings. As we grapple with the chronological discrepancy, considering theories such as sole-authorship, we recognize the complexity is inherent in reconciling historical timelines. The heavy reliance on specific chapters and verses, as revealed through cross-reference networks and linguistic analyses, attests to the profound influence of Isaiah on the teachings found in the Book of Mormon. The network visualizations, particularly the color-coded and widened edges, became invaluable graphics to unravel the interwoven nature between scriptural references, offering a dynamic perspective on the relationships between chapters and verses. The created Streamlit Dashboard can further enhance the accessibility of scriptural findings, with the intention of inviting readers to delve deeper into the data analytically and interactively. As we conclude, we encourage further exploration into this rich intersection of scriptures, urging both scholars and readers to continue researching textual complexities and contributing to the ongoing discussion about the connections between the Book of Mormon and Isaiah.
 
 ## Acknowledgements and Ethical Considerations
 
-All data used was made publicly available. The inspiration for this project came from the [OpenBible.info](http://www.openbible.info/labs/cross-references/) and [Medium](https://medium.com/swlh/analyzing-references-in-bibles-verses-using-complex-networks-with-pandas-and-gephi-8a4edc52e7ab). Part of the data was downloaded from the [LDS Documentation Project](https://scriptures.nephi.org/), a research organization providing public domain data files on LDS scriptures. Rest of the raw data was scraped from [Linguistics Study in the Book of Mormon](http://www.creationismonline.com/Mormons/Mormons.html) and [The Church of Jesus Christ of Latter-day Saints](https://www.churchofjesuschrist.org/).
+All data used was made publicly available. The inspiration for this project came from the [OpenBible.info](http://www.openbible.info/labs/cross-references/) and [Medium](https://medium.com/swlh/analyzing-references-in-bibles-verses-using-complex-networks-with-pandas-and-gephi-8a4edc52e7ab). Part of the data was downloaded from the [LDS Documentation Project](https://scriptures.nephi.org/), a research organization providing public domain data files on LDS scriptures. Rest of the raw data was scraped from [Linguistics Study in the Book of Mormon](http://www.creationismonline.com/Mormons/Mormons.html) and [The Church of Jesus Christ of Latter-day Saints](https://www.churchofjesuschrist.org/). I am grateful for these sources and their openness to provide available data for me to complete this project. 
