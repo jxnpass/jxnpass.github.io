@@ -9,6 +9,8 @@ github:
 
 ---
 
+<base target="_blank">
+
 ## Introduction
 
 You’ve created your first repository to hold all your work on your new data project on GitHub. Now what? Any typical data science enthusiasts won’t take the time to go through every line of code and file you have, much less an employer from your company of interest. Here are a few practices you can do to inform recruitiers of your genuis.
