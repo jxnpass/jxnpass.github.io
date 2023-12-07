@@ -78,9 +78,9 @@ We can also chart how the Book of Mormon references Isaiah. The following graph 
 
 Note: I created a [streamlit dashboard](https://isaiah-to-bom.streamlit.app/) that makes viewing reference barcharts easier to read and interactive. 
 
-We find that of the chapters that seem to quote Isaiah are 1 Nephi 20-21, 2 Nephi 6-8, 12-24, and Mosiah 14-15, and 3 Nephi 20-22. Alma and Helaman seem to pull regular themes and language, but no direct quotations. 
+We find that the chapters that quote Isaiah are 1 Nephi 20-21, 2 Nephi 6-8, 12-24, and Mosiah 14-15, and 3 Nephi 20-22. Alma and Helaman pull regular themes and language, but abstain from using direct quotations. 
 
-There is a key indicator for when the author intends to quote Isaiah directly. 1 Nephi 19:24 declares to an audience to "hear ye the words of the prophet," before 1 Nephi 20-21 is issued (which are direct pulls from Isaiah 48-49). In 2 Nephi 25:5, Nephi claims that his "soul delighteth in the words of Isaiah," after exhaustively quoting Isaiah 2-14. In 3 Nephi 23:1, the Ressurected Christ states his approval for the author, and giving "a commandment" to "search... diligently; for great are the words of Isaiah," wherein 3 Nephi 22 quotes all of Isaiah 54. Hence there are plenty of "Direct Quotes" found in neighboring chapters. 
+There is a key indicator for when the author intends to quote Isaiah directly within the scriptures. 1 Nephi 19:24 declares to an audience to "hear ye the words of the prophet," before 1 Nephi 20-21 is issued (which are direct pulls from Isaiah 48-49). In 2 Nephi 25:5, Nephi claims that his "soul delighteth in the words of Isaiah," after exhaustively quoting Isaiah 2-14. In 3 Nephi 23:1, the Ressurected Christ states his approval for the author, and giving "a commandment" to "search... diligently; for great are the words of Isaiah," wherein 3 Nephi 22 quotes all of Isaiah 54. Hence there are plenty of "Direct Quotes" found in neighboring chapters. 
 
 Mosiah 14-15 tell a different story. In his argument against Noah's wicked priests, Abinadi pulls Isaiah 53 for Mosiah 14, starting with the phrase "did not the prophet Isaiah say." After his recitation, he then references other verses, particularly Isaiah 52:7, all in different contexts.  
 
