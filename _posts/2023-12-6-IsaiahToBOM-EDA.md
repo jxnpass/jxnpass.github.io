@@ -107,7 +107,7 @@ Proto and Trito-Isaiah seem to use biblical terminology more-so than Duetero-Isa
 
 ![Duhms-BOM-BibleDictionary](/assets/Isaiah-to-BOM/graphics/bd_comp.png)
 
-This violinplot takes in data from Isaiah's cross references and pairs it to where its mentioned in the Book of Mormon. In this case, every reference be it directly or thematically related seems to pair up regarding biblical terminology, except for Deutero-Isaiah. This likely occurred for one of two reasons. Book of Mormon authors when quoting Deutero-Isaiah may liken or relate the words to Jesus Christ and other important biblical themes, in which the LDS Bible Dictionary recognizes biblical terminology within the Book of Mormon verses. In addition, modern scholarship could have recognized where Book of Mormon authors depict Christ as a "servant" that suffers, and references these themes to Deutero-Isaiah. 
+This violinplot takes in data from Isaiah's cross references and pairs it to where its mentioned in the Book of Mormon. In this case, every reference be it directly or thematically related seems to pair up regarding biblical terminology, except for Deutero-Isaiah. This likely occurred for one of two reasons. Book of Mormon authors when quoting Deutero-Isaiah may liken or relate the words to Jesus Christ and other important biblical themes, in which the LDS Bible Dictionary recognizes biblical terminology within the Book of Mormon verses, and less so from Isaiah. In addition, modern scholarship could have recognized where Book of Mormon authors depict Christ as a "servant" that suffers, and references these themes to Deutero-Isaiah. 
 
 ### Textual Differences
 
