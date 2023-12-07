@@ -52,7 +52,7 @@ Duhms Category: [Bernhard Duhm](https://en.wikipedia.org/wiki/Book_of_Isaiah) us
 - Deutero-Isaiah lists chapters 40-55 (597-538 BCE). This is believed to originate from the work of an anonymous 6th-century acolyte of Isaiah, written during the time of the Babylonian exile. 
 - Proto-Isaiah lists chapters 56-66 (after 538 BCE). This was mainly composed after the Exile and the Jews' return to Jerusalem.
 
-Reference Type: I used `nltk` and `textdistance` in Python to calculate text similarities between the determined references. The scores calculated ranged from 0 to 1. I categorized it based on the score as follows:
+Reference Type: I used `nltk` and `textdistance` in Python to calculate text similarities between the determined references. The scores calculated ranged from 0 to 1, 1 being word-for-word alike. I categorized it based on the score as follows:
 - Direct Quote = .75 to 1
 - Shared Language = .25 to .75
 - Similar Theme = 0 to .25
