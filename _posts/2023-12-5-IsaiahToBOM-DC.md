@@ -188,7 +188,7 @@ cosine_sim_dist = textdistance.cosine(ISH_words, BOM_words)
 
 As an example, say verse *v* is written "the Lord loves His children", and verse *w* says "God loves His children." Removing the stopwords would give us one account of each word 'loves', 'His', and 'children.' However, 'Lord' and 'God' would differ. That means both verses *v* and *w* are vectors with five binary elements (i.e. 1s and 0s). Computing *v* and *w* using the equation above would procure a cosine similarity score of .75. 
 
-The similarity scores were then classified to simplify the reference value. 
+The similarity scores were then classified to simplify the verse into a type of reference. 
 - Direct Quote = .75 to 1
 - Shared Language = .25 to .75
 - Similar Theme = 0 to .25  
