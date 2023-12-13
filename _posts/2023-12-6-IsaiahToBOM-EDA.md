@@ -1,6 +1,6 @@
 ---
 title: Exploring Isaiah's Legacy in the Book of Mormon - EDA and Dashboard
-description: The words of the biblical prophet Isaiah influenced over 35% of the Book of Mormon! This post utilizes generated data and illustrates the impact of Isaiah on the Book of Mormon using cross refeerences, textual similarities, and Bible language. 
+description: The words of the biblical prophet Isaiah influenced over 35% of the Book of Mormon! This post utilizes generated data and illustrates the impact of Isaiah on the Book of Mormon using cross references, textual similarities, and Bible language. 
 layout: post
 
 github:
