@@ -182,7 +182,9 @@ cosine_sim_dist = textdistance.cosine(ISH_words, BOM_words)
 
 [Cosine similarity](https://www.sciencedirect.com/topics/computer-science/cosine-similarity#:~:text=Cosine%20similarity%20measures%20the%20similarity,document%20similarity%20in%20text%20analysis.) is a method of comparing text based on the frequency of identical words used between different texts. In this case, I used this method to compare two verses from each other. A similarity score ranges from 0 to 1, where the highest score indicates very alike texts. The formula for finding the similarity score is based on how linear algebra students calculate the angle between two vectors, as the cosine of the angle is calculated as follows:
 
-![Cosine](/assets/Isaiah-to-BOM/data-collection/textdistance.png)
+<p align="center">
+    <img src="/assets/Isaiah-to-BOM/data-collection/textdistance.png" alt="image">
+</p>
 
 As an example, say verse *v* is written "the Lord loves His children", and verse *w* says "God loves His children." Removing the stopwords would give us one account of each word 'loves', 'His', and 'children.' However, 'Lord' and 'God' would differ. That means both verses *v* and *w* are vectors with five binary elements (i.e. 1s and 0s). Computing *v* and *w* using the equation above would procure a cosine similarity score of .75. 
 
