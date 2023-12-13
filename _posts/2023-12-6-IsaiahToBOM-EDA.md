@@ -39,16 +39,16 @@ There are four areas whereby we can scope our exploration between Isaiah and the
 The data I scraped and generated includes a few variables that need some definitions before we dive into the EDA. 
 
 Duhms Category: [Bernhard Duhm](https://en.wikipedia.org/wiki/Book_of_Isaiah) uses varying structures and models to break up and explain the chronological and thematic differences in Isaiah. In this project, we used the threefold structure to identify them:
-- Proto-Isaiah lists chapters 1-39 (742-687 BCE). It encompasses the stories and words of Isaiah in 8th-century BCE, where he narrates certain events like his call to prophethood, the Syro-Ephramite war, and the rise of the rightoeus king Hezekiah.
-- Deutero-Isaiah lists chapters 40-55 (597-538 BCE). This is believed to originate from the work of an anonymous 6th-century acolyte of Isaiah, written during the time of the Babylonian exile. 
-- Trito-Isaiah lists chapters 56-66 (after 538 BCE). This was mainly composed after the Exile and the Jews' return to Jerusalem.
+- **Proto-Isaiah** lists chapters 1-39 (742-687 BCE). It encompasses the stories and words of Isaiah in 8th-century BCE, where he narrates certain events like his call to prophethood, the Syro-Ephramite war, and the rise of the rightoeus king Hezekiah.
+- **Deutero-Isaiah** lists chapters 40-55 (597-538 BCE). This is believed to originate from the work of an anonymous 6th-century acolyte of Isaiah, written during the time of the Babylonian exile. 
+- **Trito-Isaiah** lists chapters 56-66 (after 538 BCE). This was mainly composed after the Exile and the Jews' return to Jerusalem.
 
 Similarity Score and Reference Type: I used `nltk` and `textdistance` in Python to calculate text similarities between the determined references. The similarity scores calculated ranged from 0 to 1, 1 being word-for-word alike. I categorized it based on the score as follows:
 - Direct Quote = .75 to 1
 - Shared Language = .25 to .75
 - Similar Theme = 0 to .25
 
-More info about data creation can be found on [*Exploring Isaiah's Legacy in the Book of Mormon - Data Collection*](https://jxnpass.github.io/2023/12/05/IsaiahToBOM-DC.html).
+More info about the similarity score calculations and data creation can be found on [*Exploring Isaiah's Legacy in the Book of Mormon - Data Collection*](https://jxnpass.github.io/2023/12/05/IsaiahToBOM-DC.html).
 
 ### Isaiah and Popular Chapters
 
@@ -66,7 +66,7 @@ A summarized version applies the Duhms categories to illustrate where cross refe
 
 ![Duhms-References](/assets/Isaiah-to-BOM/graphics/ref_count_DUHMS.png)
 
-We see that a lot of quoting from Isaiah comes from chapters 1 through 39 (Proto), and a few from 40 through 55 (Deutero). Again, regular connections between language and themes are found throughout all three sections. 
+We see that a lot of quoting from Isaiah comes from chapters 1 through 39 (Proto), and a few from 40 through 55 (Deutero). Surprisngly, we find no direct quotations from Trito-Isaiah. But, we do detect regular connections between language and themes from all three sections. 
 
 ### Isaiah in the Book of Mormon
 
@@ -78,17 +78,17 @@ We can also chart how the Book of Mormon references Isaiah. The following graph 
 
 Note: I created a [streamlit dashboard](https://isaiah-to-bom.streamlit.app/) that makes viewing reference barcharts easier to read and interactive. 
 
-We find that the chapters that quote Isaiah are 1 Nephi 20-21, 2 Nephi 6-8, 12-24, and Mosiah 14-15, and 3 Nephi 20-22. Alma and Helaman pull regular themes and language, but abstain from using direct quotations. 
+We find that the chapters that consistently quote Isaiah are 1 Nephi 20-21, 2 Nephi 6-8, 12-24, and Mosiah 14-15, and 3 Nephi 20-22. Alma and Helaman pull regular themes and language, but abstain from using direct quotations. 
 
-There is a key indicator for when the author intends to quote Isaiah directly within the scriptures. 1 Nephi 19:24 declares to an audience to "hear ye the words of the prophet," before 1 Nephi 20-21 is issued (which are direct pulls from Isaiah 48-49). In 2 Nephi 25:5, Nephi claims that his "soul delighteth in the words of Isaiah," after exhaustively quoting Isaiah 2-14. In 3 Nephi 23:1, the Ressurected Christ states his approval for the author, and giving "a commandment" to "search... diligently; for great are the words of Isaiah," wherein 3 Nephi 22 quotes all of Isaiah 54. Hence there are plenty of "Direct Quotes" found in neighboring chapters. 
+A writer has a key indicator for when he intends to quote Isaiah directly. 1 Nephi 19:24 declares to an audience to "hear ye the words of the prophet," before 1 Nephi 20-21 is issued (which are direct pulls from Isaiah 48-49). In 2 Nephi 25:5, Nephi claims that his "soul delighteth in the words of Isaiah," after exhaustively quoting Isaiah 2-14. In 3 Nephi 23:1, the Ressurected Christ states his approval for the author, and giving "a commandment" to "search... diligently; for great are the words of Isaiah," wherein 3 Nephi 22 quotes all of Isaiah 54. Hence, we know that plenty of the "direct quotes" are intentional. 
 
-Mosiah 14-15 tell a different story. In his argument against Noah's wicked priests, Abinadi pulls Isaiah 53 for Mosiah 14, starting with the phrase "did not the prophet Isaiah say." After his recitation, he then references other verses, particularly Isaiah 52:7, all in different contexts.  
+Mosiah 14-15 tell a different story. In his argument against Noah's wicked priests, Abinadi pulls Isaiah 53 for Mosiah 14, starting with the phrase "did not the prophet Isaiah say." After his recitation, he then references another verse, particularly Isaiah 52:7, multiple times, but each with a different twist.  
 
-Ultimately, there are many prophets who find Isaiah's words very useful in teaching about Jesus Christ, the House of Israel, the Abrahmic Covenant, and other biblical themes. Throughout the Book of Mormon, prophets utilize differing styles in teaching; Isaiah's teachings likely impacted the prophets comprehension of gospel topics differently, and thus influencd their own teaching techniques. 
+Ultimately, there are many prophets who find Isaiah's words very useful in teaching about Jesus Christ, the House of Israel, the Abrahmic Covenant, and other biblical themes. Throughout the Book of Mormon, prophets utilize differing styles in teaching; Isaiah's teachings likely impacted the prophets comprehension of gospel topics differently, and thus fostered their enthusiam to reference his words. 
 
 ### Biblical Language
 
-The [LDS Bible Dictionary](https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng) is a useful resource for comprehending certain characters, themes, events, or locations within biblical times. More often are common terms used in both Isaiah and the Book of Mormon to mention doctrine, with words like "Lord" or "God" as the top two most used words. Other terms mentioning locations (or peoples) like Zion, heaven, Israel followed. Certain biblical figures and places like Jerusalem, Moses, and even Isaiah were mentioned but paled in comparison when describing Lord and God. 
+The [LDS Bible Dictionary](https://www.churchofjesuschrist.org/study/scriptures/bd?lang=eng) is a useful resource for comprehending certain characters, themes, events, or locations within biblical times. More often are common terms used in both Isaiah and the Book of Mormon to mention doctrine, with words like "Lord" or "God" as the top two most used words. Other terms mentioning locations (or peoples) like Zion, heaven, Israel followed. Certain biblical figures and places like Jerusalem, Moses, and even Isaiah were mentioned occasionally, but paled in comparison when mentioning Lord and God in text. 
 
 Because of how extensive the LDS Bible Dictionary is, finding some word within a verse that matches isn't too significant. What matters mainly is how much Isaiah uses common biblical themes and terms and if it matches with the Book of Mormon quotations. 
 
