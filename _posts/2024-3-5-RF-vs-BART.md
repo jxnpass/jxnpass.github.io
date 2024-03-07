@@ -14,9 +14,8 @@ date: 2024-3-5 17:50:00
 ## Table of Contents
 - [Abstract](#abstract)
 - [Introduction](#introduction)
-- [Fitting Process](#fitting-process)
-- [Tuning Parameters](#tuning-parameters)
-- [Computation Time](#computation-time)
+- [Random Forest](#random-forest)
+- [BART](#bart)
 - [Examples](#examples)
 - [Conclusion](#conclusion)
 
@@ -28,21 +27,28 @@ Tree-Ensemble Models (including Random Forest and BART) rely on multiple decisio
 
 Random Forest and BART are considered supervised forms of learning. They utilize nonparametric (flexible) approaches to modeling data without requiring the data to follow any particular form. Tree-based ensemble methods can be a reliable friend when your goal is to perform a machine learning task, and you lack the knowledge in (or motivation to research) the topic/data. However, these methods are not recommended for inference-related questions: using numerous trees restricts the interpretability of your data. But, the power from tree-ensemble models are in their ability to estimate predictions individually and combine them. 
 
-Random Forests and BART capitalize on the beauty of utilizing multiple decision tree models to increase predictive accuracy, but have notable differences on how they do so. We will elaborate more on how these two methods generate and fit decision trees on data, how they can each be adjusted using tuning (hyper) parameters, how they relate in computation time, and also how they perform on some different predictive learning tasks. 
+Random Forests and BART capitalize on the beauty of utilizing multiple decision tree models to increase predictive accuracy, but have notable differences on how they do so. While both tree-ensemble methods adjust their trees to reduce the amount of impurity, or error, within a fit, the fitting process for each contain many key differences. We will elaborate more on how these two methods generate and fit decision trees on data, how they can each be adjusted using tuning (hyper) parameters, how they relate in computation time, and also how they perform on some different predictive learning tasks. 
 
-## Fitting Process
+## Random Forest
 
+### Fitting
+Random forests create multiple trees that are meant to cover the entire dataset. Dependent upon the task being classification or regression, each tree makes an independent decision about an observation, which then contribute to an aggregate value. This value is either a chosen class from a tree-majority vote, average probability of being within a certain class, or an average value from all trees.  
 
-### Random Forest
-### BART
+![Rf-ex](/assets/RF-BART/RF-ex.png)
 
-## Tuning Parameters
-### Random Forest 
-### BART
+Random forests employ a technique called bootstrapping to generate an optimal set of trees. Bootstrapping takes random samples of the entire datset and creates each decision tree from that sample. The data not utilized for each tree is then used for calculating the out-of-bag predictions. The random forest model aims to create these trees such they still use the sampled data but minimize the out-of-bag error, as seen in the formula below. This technique also keeps random forests from overfitting. 
 
-## Computation Time
-### Random Forest 
-### BART
+![Rf-mse](/assets/RF-BART/RF-mse.png)
+
+Random forests depend on the branch/leaf structure of each tree to assess how conservative/aggressive the fit is to the training data. A complex tree will feature more splits and more node values to represent possible values. When the number of splits increase, this forces the tree to represent more variations in the data, leading to an overfit. In addition, splits within trees are randomly considered from a subset of ```m``` of  the ```p``` features within the data. The value of ```m``` does not change between each tree in the random forest model, but the variables within those ```m``` do. This is why the method is called "random forest", as each tree randomly uses only a subset of the available features for splitting decisions. 
+
+### Tuning Parameters
+### Computation Time
+
+## BART
+### Fitting
+### Tuning Parameters
+### Computation Time
 
 ## Examples
 ### Example 0: Simple Simulation
