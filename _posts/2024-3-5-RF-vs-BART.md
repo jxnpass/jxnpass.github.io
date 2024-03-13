@@ -38,7 +38,7 @@ Random forests create multiple trees that are meant to cover the entire dataset.
 
 Random forests employ a technique called bootstrapping to generate an optimal set of trees. Bootstrapping takes random samples of the entire datset and creates each decision tree from that sample. The data not utilized for each tree is then used for calculating the out-of-bag predictions. The random forest model aims to create these trees such they still use the sampled data but minimize the out-of-bag error, as seen in the formula below. This technique also keeps random forests from overfitting. 
 
-![Rf-mse](/assets/RF-BART/RF-mse.png)
+![Rf-mse](/assets/RF-BART/RF-MSE.png)
 
 Random forests depend on the branch/leaf structure of each tree to assess how conservative/aggressive the fit is to the training data. A complex tree will feature more splits and more node values to represent possible values. When the number of splits increase, this forces the tree to represent more variations in the data, leading to an overfit. In addition, splits within trees are randomly considered from a subset of ***m*** of  the ***p*** features within the data. The value of ***m*** does not change between each tree in the random forest model, but the variables within those ***m*** do. This is why the method is called "random forest", as each tree randomly uses only a subset of the available features for splitting decisions. 
 
@@ -60,6 +60,9 @@ Compputation time for random forest models vary significantly depending on the c
 The following graph reveals the recorded computation time to fit a random forest model on a dataset of about 60000 rows. As we increase the number of trees, we see that the computation time increases gradually. Computational effort also increases when we lower the minimum nodesize (leaf) of a tree. The interaction between ```ntree``` and ```nodesize``` also exacerbates computation time: because a ```nodesize``` of 1 creates very complex trees, creating more trees therefore requires more time to fit a model then the same high number of trees under a ```nodesize``` of 10, 20, or even higher. Ultimately, this graph reveals how a large number of complex trees forces the computation time to be longer than a few simple trees. 
 
 ## BART
+
+Like random forests, BART also creates multiple trees, but unlike random forests, each tree is heavily constrained to be a weak learner, only meant to cover a particular part of the data. In addition, the ensemble of trees are summed, and not averaged, in regression settings.  
+
 ### Fitting
 ### Tuning Parameters
 ### Computation Time
