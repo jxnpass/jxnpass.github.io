@@ -40,10 +40,24 @@ Random forests employ a technique called bootstrapping to generate an optimal se
 
 ![Rf-mse](/assets/RF-BART/RF-mse.png)
 
-Random forests depend on the branch/leaf structure of each tree to assess how conservative/aggressive the fit is to the training data. A complex tree will feature more splits and more node values to represent possible values. When the number of splits increase, this forces the tree to represent more variations in the data, leading to an overfit. In addition, splits within trees are randomly considered from a subset of ```m``` of  the ```p``` features within the data. The value of ```m``` does not change between each tree in the random forest model, but the variables within those ```m``` do. This is why the method is called "random forest", as each tree randomly uses only a subset of the available features for splitting decisions. 
+Random forests depend on the branch/leaf structure of each tree to assess how conservative/aggressive the fit is to the training data. A complex tree will feature more splits and more node values to represent possible values. When the number of splits increase, this forces the tree to represent more variations in the data, leading to an overfit. In addition, splits within trees are randomly considered from a subset of ***m*** of  the ***p*** features within the data. The value of ***m*** does not change between each tree in the random forest model, but the variables within those ***m*** do. This is why the method is called "random forest", as each tree randomly uses only a subset of the available features for splitting decisions. 
 
 ### Tuning Parameters
+
+The tuning parameters in R that I mainly focus on are called ```ntrees```, ```mtry```, and ```nodesize```. 
+* ```ntrees``` dictate the number of trees in the model, where each tree contributes to the average value or class decision. 
+* ```mtry```determines a random subset of the ***p*** features to fit for each tree. Default sets ```mtry``` to ```p/3``` for numerical targets or ```sqrt(3)``` for categorical targets.
+* ```nodesize``` is the minimum size for a terminal node to be created within a tree. Setting ```nodesize``` higher will create smaller trees. 
+
+For more on the ```RandomForest()``` model in R, see the [following documentation](https://www.rdocumentation.org/packages/randomForest/versions/4.7-1.1/topics/randomForest).
+
 ### Computation Time
+
+Compputation time for random forest models vary significantly depending on the complexity of the target, the dimensions of the training data, and the types of hyperparameters utilized for fitting. Even though random forests prove to be very powerful models, they surprisingly take very little time to generate. 
+
+![Rf-comptime](/assets/RF-BART/RF-comptime.png)
+
+The following graph reveals the recorded computation time to fit a random forest model on a dataset of about 60000 rows. As we increase the number of trees, we see that the computation time increases gradually. Computational effort also increases when we lower the minimum nodesize (leaf) of a tree. The interaction between ```ntree``` and ```nodesize``` also exacerbates computation time: because a ```nodesize``` of 1 creates very complex trees, creating more trees therefore requires more time to fit a model then the same high number of trees under a ```nodesize``` of 10, 20, or even higher. Ultimately, this graph reveals how a large number of complex trees forces the computation time to be longer than a few simple trees. 
 
 ## BART
 ### Fitting
