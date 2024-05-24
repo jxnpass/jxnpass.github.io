@@ -77,9 +77,15 @@ The tuning parameters in BART are quite lengthy, but I will focus on these few:
 * ```base``` prior value parameter determining the likelihood a node/leaf splits. 
 * ```power``` prior value parameter altering probability of split as depth of tree increases.
 * ```k``` prior value parameter that determines the number of standard deviations equal to half the range of the response (i.e. the median of y to the extreme of ```k``` standard deviations) 
-* ```sigquant`` prior value parameter that places more weight on fitting noise in data. 
+* ```sigquant``` prior value parameter that places more weight on fitting noise in data. 
+
+For more on the ```BART``` model in R, see the [following documentation](https://cran.r-project.org/web/packages/BART/BART.pdf).
 
 ### Computation Time
+
+Computation time is significantly longer than for random forests. This is due to the iterative sampling BART employs in order to draw multiple sets of trees from a distribution. Certain parameters, such as ```ntrees```, ```base```, ```power```, can exasperate the fitting time for BART, as they require a large quantity or complexity of trees.  
+
+![BART-comptime](/assets/RF-BART/BART_comptime.png)
 
 ## Examples
 ### Example 0: Simple Simulation
