@@ -95,6 +95,6 @@ According to the table below, subjects perceived the taste for the sugar drink t
 
 We explored the general experimental process for this BYU Nutritional Science study, viewed a simplified version of the coding done to test conditions, and generated visuals of the study results. Overall, no effect was determined from a short-term cognitive standpoint on college students from consuming different generically consumed drinks. While we did not determine any findings from treatments, we did learn that the conditions behaved as expected, generating spikes in subjects' glucose concentrations and having the expected perceived taste and reaction. The mixed model method also aided us in finding a correlative feature between VAT (visceral adipose tissue) and processing speed. 
 
-I am proud to have made this my first exposure to academic research and learned a lot about effective research strategies and conveying results to broader audiences. The study also touched on human-related topics I find great interest in, so it became a great introduction for the field of psychology and behavior. 
+I am proud to have made this my first exposure to academic research and learned a lot about effective research strategies and conveying results to broader audiences. The study also became a great introduction for the field of psychology and behavior, which I have tremendous interest in. 
 
 As of this moment, this paper has undergone months of peer-review from multiple academic journals. I will link the DOI once it is published.
