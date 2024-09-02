@@ -4,7 +4,7 @@ title: About Me
 description: A description about my journey, interests, and other fun quirks. 
 ---
 
-<img style="float: center; width: 50%" src="/assets/aboutme/Jackson.jpg">
+<img style="display: block; width: 50%" src="/assets/aboutme/Jackson.jpg">
 
 ## Biography
 
