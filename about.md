@@ -4,7 +4,9 @@ title: About Me
 description: A description about my journey, interests, and other fun quirks. 
 ---
 
-<img style="display: block; width: 50%" src="/assets/aboutme/Jackson.jpg">
+<p align="center">
+<img style="width: 50%" src="/assets/aboutme/Jackson.jpg" alt="Me">
+</p>
 
 ## Biography
 
@@ -66,7 +68,9 @@ When I was elected president in 2023, I wanted to accomplish two things: I want 
 
 In April 2024, I graduated from BYU with a bachelor's in statistical science and a minor in mathematics. I was able to attain a 4.0 my entire undergraduate college education, and earned multiple academic awards like Dean's List Scholar, Summa Cum Laude alumn, and co-valedictorian (and just feel like I need to mention, they gave that last title to around 20 other students). 
 
-![Image](/assets/aboutme/graduation.jpeg)
+<p align="center">
+<img style="width: 50%" src="/assets/aboutme/graduation.jpeg" alt="Graduation">
+</p>
 
 #### Second Internship - Swire Coca-Cola
 
@@ -82,7 +86,9 @@ The report has 40 pages of very simple and "eye-catching" visuals. It highlights
 
 I mention this project because it is aligned with my field of interest: to have a career that puts itself in the shoes of people, using data to interpret their behavior and views, and decipher trends from the research is in the realm of statistics I hope to work in. 
 
-![Image](/assets/aboutme/utahstats.png)
+<p align="center">
+<img style="width: 50%" src="/assets/aboutme/utahstats.png" alt="UtahStats">
+</p>
 
 
 
