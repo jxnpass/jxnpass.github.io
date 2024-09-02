@@ -4,7 +4,7 @@ title: About Me
 description: A description about my journey, interests, and other fun quirks. 
 ---
 
-![Jackson](/assets/aboutme/Jackson.jpg)
+<img style="float: center; width: 100px" src="/assets/aboutme/Jackson.jpg"
 
 ## Biography
 
@@ -22,7 +22,7 @@ I went to Campo Verde High School located in Gilbert, AZ. I spent a lot of my ti
 
 While I have only a little regret for my decision to not pursue collegiate sports, I believe that trying to excel in academics while balancing sports would have been very difficult to do. But that doesn't mean I still like to talk about it! Below is a picture of me kicking a 51-yard field goal to set a high school record for longest field goal.
 
-![Kicking a 51-yard field goal](/assets/aboutme/fb-1.JPG)
+![Image](/assets/aboutme/fb-1.JPG)
 
 What was absolutely crucial for my introduction to statistics was my AP Statistics class. Because of my move to California, the high school-level math classes from my junior high school time, which was supposed to count for high school credit, did not count because of the move. Therefore, I had to take four years of higher level math classes. I took AP Calculus AB and BC my sophomore and junior years, and then AP Statistics my senior year. I was indifferent about calculus, but I *loved* statistics. To see how statistics applied to so much of the world, like sports, research, business, and virtually any topic, I fell in love immediately. I decided after completing the math course I would study statistics as my major at BYU. 
 
@@ -32,7 +32,7 @@ I then decided to serve a mission for the Church of Jesus Christ of Latter-day S
 
 I learned a lot about how to be an understanding leader, which admittedly was something I struggled to be at first. I learned how to help my peers in multiple ways, whether that was demonstrating how to succeed in finding people to teach, setting plans to achieve goals, or even to be emotionally supportive in times of need. One of the most memorable experiences was that at the end of my mission, my mission president asked me to travel around the entire mission for my last six weeks and instruct other missionaries the tips and tricks I learned to achieve success during my two-year mission. It was a tremendous experience being able to help those missionaries invigorate and inspire them to work hard before I ended my mission.  
 
-![My mission](/assets/aboutme/mission1.jpg)
+![Image](/assets/aboutme/mission1.jpg)
 
 ### 2021-2024
 
@@ -60,13 +60,13 @@ The BYU Statistics club was founded by a group of 10 of us, including me and som
 
 When I was elected president in 2023, I wanted to accomplish two things: I want the students to have plenty of various events to attend, and I want the club leadership to have experiences they can put on their resume. So I led a group of 25 peers to plan events, invite guests, cater food, advertise, take pictures, manage finances, and many other tasks. With lots of help and dedication from this team, we were able to host almost 50 events, half of them were recruiters talking with our students, adding 80+ members to our club, and 1500 total attendnaces for the entire year. Beacuse of the success demonstrated from club leadership in being able to generate such activity, the department transitioned volunteer roles in club leadership to becoming a part-time paid job! I learned a great deal about leadership, communicating with others, and, of course, statistics. 
 
-![Club Leadership Photo](/assets/aboutme/club.jpg)
+![Image](/assets/aboutme/club.jpg)
 
 #### Graduation from BYU
 
 In April 2024, I graduated from BYU with a bachelor's in statistical science and a minor in mathematics. I was able to attain a 4.0 my entire undergraduate college education, and earned multiple academic awards like Dean's List Scholar, Summa Cum Laude alumn, and co-valedictorian (and just feel like I need to mention, they gave that last title to around 20 other students). 
 
-![Club Leadership Photo](/assets/aboutme/graduation.jpeg)
+![Image](/assets/aboutme/graduation.jpeg)
 
 #### Second Internship - Swire Coca-Cola
 
@@ -82,7 +82,7 @@ The report has 40 pages of very simple and "eye-catching" visuals. It highlights
 
 I mention this project because it is aligned with my field of interest: to have a career that puts itself in the shoes of people, using data to interpret their behavior and views, and decipher trends from the research is in the realm of statistics I hope to work in. 
 
-![UtahStats](/assets/aboutme/utahstats.png)
+![Image](/assets/aboutme/utahstats.png)
 
 
 
