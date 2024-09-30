@@ -15,7 +15,7 @@ STILL IN DEV
 
 ## Table of Contents
 - [Introduction](#Introduction)
-- [Preview](#Preview)
+- [Synopsis](#Synopsis)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -25,7 +25,7 @@ As a psychology student at BYU, Jacob Dunn had a desire to explore niche facts a
 
 Participants of the @UtahStats surveys are presented with a broad range of questions, and their responses are recorded and processed using Qualtrics. These questions range from topics such as previous relationships, dating, church and college activity, politics, and other topics unique to the Utah County area.  
 
-## Preview
+## Synopsis
 
 With a sample of 2,101 respondents (and 1,881 had usable data)
 
