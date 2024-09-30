@@ -1,5 +1,5 @@
 ---
-title: "UtahStats Dating Survey"
+title: "UtahStats Dating Survey Report"
 description: I partnered with the Instagram account UtahStats to learn about dating culture in Provo/Orem. Here I share what I learned from the data regarding young adult lifestyle, college, dating, relationships, and other interesting topics, and how the analysis turned into my first ever marketable product.  
 layout: post
 
