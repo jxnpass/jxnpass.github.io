@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
+    <!-- PayHip Call -->
+    <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+    <!-- End PayHip Call -->
     <meta charset="UTF-8">
 
 {% seo %}
@@ -32,6 +35,9 @@
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
       {% endif %}
       <a href="https://jxnpass.github.io/about" class="btn"> About Me</a>
+      {% if site.github.repository_name == "UtahStats" %}
+      <a href="https://payhip.com/b/ujhvs" class="payhip-buy-button" data-theme="none" data-product="ujhvs">Buy Now</a>
+      {% endif %}
     </header>
 
     <main id="content" class="main-content" role="main">
