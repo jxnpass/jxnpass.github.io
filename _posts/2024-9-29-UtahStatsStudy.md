@@ -27,7 +27,44 @@ Participants of the @UtahStats surveys are presented with a broad range of quest
 
 ## Synopsis
 
-With a sample of 2,101 respondents (and 1,881 had usable data)
+With a sample of 2,101 respondents (and 1,881 had usable data). From our quick exploration of the data and the **table 1** below, we understood some of the main characterstics of our sample:
+- While the range of our sample covers ages between 18 and 30, **75% are below 23 years of age.**
+- 75% of survey respondents attend BYU and 14% attend UVU. **This emphasizes a geographical response bias towards BYU/Provo young adults being more regular participants than Orem/UVU.** 
+- 96% of survey respondents are of the LDS faith.
+- 57% of survey respondents served missions (and 54% of missionaries served in foreign missions).
+
+![table1](/assets/UtahStats/table1.png)
+
+The next couple sections discuss some of my personal favorites from the paper as they both present some very intersting findings and gave me the opportunity to tap into statistical and technical skills.
+
+### Ineference on Monthly Dates and Car Ownership
+![f4.7](/assets/UtahStats/figure4.7.png)
+
+### Monte Carlo Simulation on Female’s Minimum Height for Male Partner 
+![f7.3](/assets/UtahStats/figure7.3.png)
+
+```
+# Monte Carlo Simulation: potential height differences and preferences between males and females # 
+n <- 50000 # number of couples to make
+
+sample_female <- female_data[sample(x = 1:nrow(female_data), size = n, replace = T),]
+sample_male <- sample(x = male_data$height, size = n, replace = T)
+height_differences <- sample_male - sample_female$height
+height_requirements <- sample_male - sample_female$height_requirement
+
+# Monte Carlo Insights #
+mean(height_differences < 0)
+sd(sample_diffs < 0) / sqrt(n)
+# 7% of women may find a randomly assigned male partner at least an inch shorter than her
+# MC Error: 0.1%
+
+mean(sample_reqs < 0)
+sd(sample_reqs < 0) / sqrt(n)
+# 20% of women will not find a randomly assigned man that meets their height requirements 
+# MC Error: 0.2%
+```
+
+![f7.4](/assets/UtahStats/figure7.4.png)
 
 ## Conclusion
 
