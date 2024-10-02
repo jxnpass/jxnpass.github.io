@@ -86,7 +86,7 @@ sd(sample_reqs < 0) / sqrt(n)
 # MC Error: 0.2%
 ```
 
-If we assumed that $X_m$ and $X_f$ were normally distributed, we certainly could have calculated expected differences such that $E(X_d) = E(X_m) - E(X_f)$ and $Var(X_d) = Var(X_m) + Var(X_f)$ and gotten the same estimates. However, when calculating probabilities, we would fail to accomodate for the fact that our study can only account for differences in heights in inches, and not any values in between. Also, doing simulations in a paper sounds so much cooler! We then report the following Monte Carlo estimates from the code above.  
+If we assumed that $X_m$ and $X_f$ were normally distributed, we certainly could have calculated expected differences such that $E(X_d) = E(X_m) - E(X_f)$ and $Var(X_d) = Var(X_m) + Var(X_f)$ and gotten the same estimates of the distribution of differences. However, when calculating probabilities, we would fail to accomodate for the fact that our study can only account for differences in heights in inches, and not any values in between. Also, doing simulations in a paper sounds so much cooler! We then report the following Monte Carlo estimates from the code above.  
 
 > Overall, this sounds like the women in our survey have reasonable and logical expectations for the minimum height requirement for men. In this simulation, only 7% of our randomly matchmade couples had the man shorter than the woman, and only 20% of women were paired with someone that did not meet their minimum height requirement. That means that generally, women in the Provo/Orem area hold preferences for men’s heights that are very reasonable to the men available.
 
