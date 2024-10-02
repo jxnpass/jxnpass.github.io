@@ -16,6 +16,8 @@ STILL IN DEV
 ## Table of Contents
 - [Introduction](#Introduction)
 - [Synopsis](#Synopsis)
+    - [Inference on Monthly Dates and Car Ownership](#inference-on-monthly-dates-and-car-ownership)
+    - [Monte Carlo Simulation on Female’s Minimum Height for Male Partner](#monte-carlo-simulation-on-females-minimum-height-for-male-partner)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -37,7 +39,7 @@ With a sample of 2,101 respondents (and 1,881 had usable data). From our quick e
 
 The next couple sections discuss some of my personal favorites from the paper as they both present some very intersting findings and gave me the opportunity to tap into statistical and technical skills.
 
-### Ineference on Monthly Dates and Car Ownership
+### Inference on Monthly Dates and Car Ownership
 
 > In this figure, we see the effect of car ownership on the number of dates per month. What is astonishing is how different gender and age reacts to car ownership and dating. Apparently, females in this sample under 21 go on significantly more dates when they own a vehicle than females that do not own one (p = 0.004). Males 21 and older who own a car go on significantly more dates than those without a car (p = 1.1e-5). 
 
