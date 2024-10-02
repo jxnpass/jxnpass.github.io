@@ -38,7 +38,21 @@ With a sample of 2,101 respondents (and 1,881 had usable data). From our quick e
 The next couple sections discuss some of my personal favorites from the paper as they both present some very intersting findings and gave me the opportunity to tap into statistical and technical skills.
 
 ### Ineference on Monthly Dates and Car Ownership
+
+From the paper, I offered the following analysis and figure:
+> In this figure, we see the effect of car ownership on the number of dates per month. What is astonishing is how different gender and age reacts to car ownership and dating. Apparently, females in this sample under 21 go on significantly more dates when they own a vehicle than females that do not own one (p = 0.004). Males 21 and older who own a car go on significantly more dates than those without a car (p = 1.1e-5). 
+
 ![f4.7](/assets/UtahStats/figure4.7.png)
+
+There are a couple of aspects from this analysis I wish to highlight. First of all, I believe this figure teaches a very interesting and convincing story about males 21+. To say and determine that men 21+ in Provo/Orem and whether they own cars is tied to how many dates they can go on in a month can be a fascinating narrative to share in an entertaining research paper. It has viewer shock value, and it is not an impossible situation. 
+
+However, the results differ when considering different statistical testing scenarios. There were two tests to consider calculating both intervals and p-values: one was a standard t-test for means among filtered these groups, and the other is t-pairwise comparisons (with a Bonferonni p-value adjustment). The latter, which is not as commonly known among general populations, is considered a more robust approach as it evaluates all group combinations simutaneously while adjusting for Type-I error (i.e. false positives). The t-test can only compare two groups at a time and provides only one p-value and one interval; this ultimately decreases the likelihood of procuring a Type-II error (false negative). 
+
+I was left with a difficult decision: if I am interested in reporting potential differences among groups, do I care about reporting false negatives or a false positives? In other scenarios, it depends on the context. For example, if a patient goes in for a cancer screening, a false negative is much more consequential than a false positive, because we would rather administer treatment to someone who does not need care than fail to administer treatment to someone who does. Ultimately, no decision I would be making with this paper would have drastic consequences such as a failed cancer detection test, so I decided to inflate my likelihood of a Type I error (false positive) and utilized two-group t-distribution calculations for this part of the inference. 
+
+I only reported testing from the t-test analysis, but I wanted to also see how each the other test compared. As stated already, the p-value for a t-test comparing monthly dates for 21+ year-old males who do and do not own cars was 1.1e-5, which would be considered significant among most decided alpha values. When computing pairwise t-testing, however, the p-value was 0.124 (or 0.044 without adjustment) for the specific subset comparing 21+ year-old males. 
+
+Ultimately, there are certainly much better ways to analyze this problem than the one I performed. But this part of the inference, particularly the decision-making on what exactly I report, taught me a lot about how versatile statistical reporting can be, as well as, unfortunately, how easily things can be interpreted one way or another. This is one of those unique cases where statistics becomes more of an art than a science.   
 
 ### Monte Carlo Simulation on Female’s Minimum Height for Male Partner 
 ![f7.3](/assets/UtahStats/figure7.3.png)
