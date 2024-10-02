@@ -77,7 +77,9 @@ sd(sample_reqs < 0) / sqrt(n)
 # MC Error: 0.2%
 ```
 
-<img src="/assets/UtahStats/figure7.4.png" alt="f7.4" width="50%"/>
+<div style="text-align: center;">
+  <img src="/assets/UtahStats/figure7.4.png" alt="f7.4" style="width: 70%;">
+</div>
 
 ## Conclusion
 
