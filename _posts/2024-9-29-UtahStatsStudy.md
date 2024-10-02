@@ -11,8 +11,6 @@ github:
 date: 2024-9-29 17:50:00
 ---
 
-STILL IN DEV
-
 ## Table of Contents
 - [Introduction](#Introduction)
 - [Synopsis](#Synopsis)
