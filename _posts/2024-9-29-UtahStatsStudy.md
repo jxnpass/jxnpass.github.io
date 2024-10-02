@@ -59,14 +59,11 @@ Ultimately, there are certainly much better ways to analyze this problem than th
 
 ![f7.3](/assets/UtahStats/figure7.3.png)
 
-The above figure relays how this simulation plays out. Using the 764 women and 708 men who answered questions regarding height, I created 50,000 “couples” and assessed height differences between men and women. A man is, on average, 5.6 inches taller than their female partner (and thus men are about 8.5% taller than woman, on par with the North American average). This measurement is promising since the preference for women is a man that is on average 2.75 inches taller than them.
-
-> Overall, this sounds like the women in our survey have reasonable and logical expectations for the minimum height requirement for men. In this simulation, only 7% of our randomly matchmade couples had the man shorter than the woman, and only 20% of women were paired with someone that did not meet their minimum height requirement. That means that generally, women in the Provo/Orem area hold preferences for men’s heights that are very reasonable to the men available.
+> The above figure relays how this simulation plays out. Using the 764 women and 708 men who answered questions regarding height, I created 50,000 “couples” and assessed height differences between men and women. A man is, on average, 5.6 inches taller than their female partner (and thus men are about 8.5% taller than woman, on par with the North American average). This measurement is promising since the preference for women is a man that is on average 2.75 inches taller than them.
 
 This blog serves for me what the paper's scope cannot take time to cover. This section became my first project using a Monte Carlo simulation. The main premise of Monte Carlo is to take random values within a given distribution $X$, and estimate certain statistics such as the mean and standard deviation from a new distribution created from random values. This particular practice helped me find a new distribution resulting from the expected difference between two other distributions -- the heights of males, and the heights of females -- from the survey. This would then create for me a distribution of heights $X_m - X_f$ that represents the expected difference in randomly paired couples (males - females). And, with the random draws from this created new distribution, I can calculate the probability, or the density, where the new distribution is less than 0 with really simple code. 
 
-In the code snippet below, I resampled 50,000 males and females and estimated not just $X_m - X_f$, but also $X_m - X_{pm}$, which is the preferred male height by women. 
-
+In the code snippet below, I resampled 50,000 males and females and estimated not just $X_m - X_f$, but also $X_m - X_{pm}$, which is the different between men's heights and the preferred men's heights by women. 
 
 ```
 # Monte Carlo Simulation: potential height differences and preferences between males and females # 
@@ -88,6 +85,10 @@ sd(sample_reqs < 0) / sqrt(n)
 # 20% of women will not find a randomly assigned man that meets their height requirements 
 # MC Error: 0.2%
 ```
+
+If we assumed that $X_m$ and $X_f$ were normally distributed, we certainly could have calculated expected differences such that $E(X_d) = E(X_m) - E(X_f)$ and $Var(X_d) = Var(X_m) + Var(X_f)$ and gotten the same estimates. However, when calculating probabilities, we would fail to accomodate for the fact that our study can only account for differences in heights in inches, and not any values in between. Also, doing simulations in a paper sounds so much cooler! We then report the following Monte Carlo estimates from the code above.  
+
+> Overall, this sounds like the women in our survey have reasonable and logical expectations for the minimum height requirement for men. In this simulation, only 7% of our randomly matchmade couples had the man shorter than the woman, and only 20% of women were paired with someone that did not meet their minimum height requirement. That means that generally, women in the Provo/Orem area hold preferences for men’s heights that are very reasonable to the men available.
 
 <div style="text-align: center;">
   <img src="/assets/UtahStats/figure7.4.png" alt="f7.4" style="width: 70%;">
