@@ -86,15 +86,10 @@ sd(sample_reqs < 0) / sqrt(n)
 # MC Error: 0.2%
 ```
 
-If we assumed that $X_m$ and $X_f$ were normally distributed, we certainly could have calculated expected differences such that $E(X_d) = E(X_m) - E(X_f)$ and $Var(X_d) = Var(X_m) + Var(X_f)$ and gotten the same estimates of the distribution of differences. However, when calculating probabilities, we would fail to accomodate for the fact that our study can only account for differences in heights in inches, and not any values in between. Also, doing simulations in a paper sounds so much cooler! We then report the following Monte Carlo estimates from the code above.  
+If we assumed that $X_m$ and $X_f$ were normally distributed, we certainly could have calculated expected differences such that $E(X_d) = E(X_m) - E(X_f)$ and $Var(X_d) = Var(X_m) + Var(X_f)$ and gotten the same estimates of the distribution of differences. However, when calculating probabilities (like $P(X_d > 0)$), we would fail to accomodate for the fact that our study can only account for differences in heights in inches, and not any values in between (i.e. our simulated distribution is discrete, which is what the form of our data is). This would result in different probabilities yielded. Also, doing simulations in a paper sounds so much cooler! We then report the following Monte Carlo estimates from the code above.  
 
 > Overall, this sounds like the women in our survey have reasonable and logical expectations for the minimum height requirement for men. In this simulation, only 7% of our randomly matchmade couples had the man shorter than the woman, and only 20% of women were paired with someone that did not meet their minimum height requirement. That means that generally, women in the Provo/Orem area hold preferences for men’s heights that are very reasonable to the men available.
 
-<div style="text-align: center;">
-  <img src="/assets/UtahStats/figure7.4.png" alt="f7.4" style="width: 70%;">
-</div>
-
 ## Conclusion
 
-I learned a lot about how to report statistical inference with a lot of complications in statistical reasoning in mind, namely survey response biases, imbalanced groups, and reporting findings under the pretense of a generally non-academic audience and doing so **with statistical cautions** in place. I also experienced how to tell a compelling story using visualizations and tables, and explaining to readers what data visualizations can teach them about Utah culture. 
-
+I learned a lot about how to report statistical inference with many complications in statistical reasoning in mind, namely survey response biases, imbalanced groups, and reporting findings under the pretense of a generally non-academic audience and doing so **with statistical cautions** in place. I also explored how different statistical methods have pros and cons, such as how Type I and Type II inflation influences p-values, and how Monte Carlo simulations can be used to expand questions from real-world data. Finally, the experience taught me how to tell a compelling story using visualizations, tables, and modeling in context of young adult dating culture, which is a very unique and interesting topic to report statistics on.  
