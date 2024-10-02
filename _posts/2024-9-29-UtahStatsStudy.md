@@ -14,8 +14,8 @@ date: 2024-9-29 17:50:00
 ## Table of Contents
 - [Introduction](#Introduction)
 - [Synopsis](#Synopsis)
-    - [Inference on Monthly Dates and Car Ownership](#inference-on-monthly-dates-and-car-ownership)
-    - [Monte Carlo Simulation on Female’s Minimum Height for Male Partner](#monte-carlo-simulation-on-females-minimum-height-for-male-partner)
+- [Inference on Monthly Dates and Car Ownership](#inference-on-monthly-dates-and-car-ownership)
+- [Monte Carlo Simulation on Female’s Minimum Height for Male Partner](#monte-carlo-simulation-on-females-minimum-height-for-male-partner)
 - [Conclusion](#conclusion)
 
 ## Introduction
