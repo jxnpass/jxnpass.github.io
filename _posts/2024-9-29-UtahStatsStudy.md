@@ -39,7 +39,6 @@ The next couple sections discuss some of my personal favorites from the paper as
 
 ### Ineference on Monthly Dates and Car Ownership
 
-From the paper, I offered the following analysis and figure:
 > In this figure, we see the effect of car ownership on the number of dates per month. What is astonishing is how different gender and age reacts to car ownership and dating. Apparently, females in this sample under 21 go on significantly more dates when they own a vehicle than females that do not own one (p = 0.004). Males 21 and older who own a car go on significantly more dates than those without a car (p = 1.1e-5). 
 
 ![f4.7](/assets/UtahStats/figure4.7.png)
