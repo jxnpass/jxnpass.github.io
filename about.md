@@ -10,8 +10,6 @@ description: A description about my journey, interests, and other fun quirks.
 
 ## Biography
 
-<p>Current page URL: {{ page.url }}</p>
-
 My name is Jackson Passey and I absolutely love all things research. When I get into a new project, I get very excited, already diving into the data to see what stories are being told, try out new models and visuals, and portray to collaborators what we can learn. I especially enjoy data about people, deciphering their experiences and lifestyles, confirming or debunking stereotypes, and making sense of nonsensical human behvaior. I aim to attain a career that allows me to apply the same passion and desire to study cultural and behavioral trends through data analytics and artificial intelligence. 
 
 My family grew up in Laguna Hills, CA and moved to Gilbert, AZ just before starting high school. My two parents raise my brother with severe autism, who has also been a major motivation for me to succeed in academics and technical skills for a future career. After high school, I served a two year mission for the Church of Jesus Christ of Latter-day Saints in Bismarck, ND, and afterwards enrolling into BYU to major in statistics and minor in mathematics. During my time at BYU, I developed skills in inference, modeling predictions, mathematics, data visualization, feature engineering, and programming softwares like R, Python, SQL, SAS, and Excel. I also was able to work internships and student-level jobs in professor-advised research, Provo Missionary Training Center, and Swire Coca-Cola. 
