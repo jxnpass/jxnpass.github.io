@@ -8,7 +8,7 @@ github:
     repository_name: StrongYouthProject
     repository_url: https://github.com/jxnpass/StrongYouthProject
 
-date: 2024-19-10 17:50:00
+date: 2024-16-10 17:50:00
 ---
 
 ## Table of Contents
