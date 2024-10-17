@@ -1,6 +1,6 @@
 ---
 title: "Strong Youth Project"
-description: 
+description: Not yet written
 layout: post
 
 github:
@@ -8,7 +8,7 @@ github:
     repository_name: StrongYouthProject
     repository_url: https://github.com/jxnpass/StrongYouthProject
 
-date: 2024-16-10 17:50:00
+date: 2024-10-16 17:50:00
 ---
 
 ## Table of Contents
