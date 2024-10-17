@@ -1,0 +1,9 @@
+check_sri: false
+check_cors: false
+ignore_urls:
+  - "https://www.linkedin.com/in/jackson-passey-4102ba251/"
+  - "https://www.sciencedirect.com/topics/computer-science/cosine-similarity"
+  - "https://isaiah-to-bom.streamlit.app/"
+  - "https://cdn.mathjax.org/mathjax/latest/MathJax.js"
+  - "https://payhip.com/payhip.js"
+  - "https://www.googletagmanager.com/gtag/js?id=G-TRX5NY4DMK"
