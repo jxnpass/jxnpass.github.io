@@ -53,13 +53,13 @@ To answer questions about each variable influence amongst each other, I also exp
 
 I promise I am not overstating this when I say that when I showed the correlation matrix to them, they stared and discussed it for 15 minutes. Not that it was confusing, but the first time they've been able to see how kinematics related to each other. They also started discussing theories among three angle connections related to anatomy that are beyond topics that I know, but it was very interesting to see how they connected my data analysis to their field of study so cleanly -- all of it was amazing to sit in and experience. One of these theories that circulated and finding were about the strong 0.70 correlation between knee and ankle angle, specifically how diving down into a deeper stance in your knee also flexes your ankle drive more. In addition, the hip angle with a mild correlation of 0.32 may relate to how deeper hip flexion drives your jump distance a little bit more. 
 
-I share these because sometimes statistical analysis may get data scientists, statisticians, and like-groups excited, but for other backgrounds, they get lost quickly. Using data visualization in research is an important tool to connect audiences to your modeling. 
+I share these because sometimes statistical analysis may get data scientists, statisticians, and like-groups excited, but for other backgrounds, they get lost or bored quickly. Using data visualization to introduce statistical findings is an important tool to excite audiences about the power of using analysis methods. 
 
 ### ANOVA
 
 This section aims to answer how the coaching cues differ with jump distance purely. As noted already, the external group had a 10.4% change in jump distance, which was 8.3% higher than the control group and 7.1% higher than the internal group. 
 
-The ANOVA model determines differences among group means, and as such, determined that treatment indeed was significant (p = 0.005). The ANOVA also considered other variables that we don't discuss fully in this blog, namely sex, the initial jump distance, a treatment-sex interaction term, and a sex:initial jump distance interaction term. The ANOVA component of this code is featured below in R. None of these terms were considered significant, but they do help control for potential bias and answer some of our sub-questions. 
+The ANOVA method determines differences among group means, and as such, determined that treatment indeed was significant (p = 0.005). The ANOVA also considered other variables that we don't discuss fully in this blog, namely sex, the initial jump distance, a treatment-sex interaction term, and a sex-initial jump distance interaction term. The ANOVA component of this code is featured below in R. None of these terms were considered significant, but they do help control for potential bias and answer some of our sub-questions. 
 
 ```
 lm_jump <- lm(JumpDistanceChange ~ Treatment*Sex + Sex*AVGPreJumpDistance, data = syp) 
@@ -74,10 +74,92 @@ In addition, we are interesting in doing pairwise comparisons among treatment gr
 
 ## MANOVA
 
+Like ANOVA, MANOVA is a statistical technique for analyzing differences between groups when there are multiple dependent variables. Conducting separate ANOVAs on multiple dependent variables can increase the chance of false positives (Type I errors). MANOVA simultaneously considers all performance metrics, including the four kinematics variables along with jump distance, how how they collectively respond to the external, internal, and control groups. 
+
+Our analysis using MANOVA concluded an overall significance among jump performance and kinematics for the treatment group (p = 0.004). Like our ANOVA analysis, sex, initial jump distance, treatment-sex interaction term, and the sex-initial jump distance interaction term were all non-significant. 
+
+```
+mva <- manova(cbind(JumpDistanceChange, MaxHipAngleChange, MaxAnkleAngleChange, MaxKneeAngleChange, StanceTimeChange) ~ 
+        Treatment*Sex + Sex*AVGPreJumpDistance, data = syp)
+print(mva) #treatment p = 0.004 
+```
+
+We also found the pairwise comparisons among the multivariate setting, but this is only useful for interpreting group-by-group significance. Accordingly, the external-internal comparison was significant under a Bonferonni adjustment (p = 0.011), but not for external-control (p = 0.071). The internal-control difference was also non-significant (p = 0.395). 
+
 ## LDA
+
+MANOVA, while useful in determining whether there are overall differences among groups, doesn’t specify which individual variables are influenced by each treatment group. Linear Discriminant Analysis (LDA) becomes valuable here because it allows us to identify specific variables and their contributions to group separation. LDA can provide:
+1. A transformation of the data that maximizes group separation by finding linear combinations of predictor (independent) variables (which are interval or ratio) to predict categorical group membership, essentially reversing the ANOVA and MANOVA framework by focusing on predicting group categorization.
+2. Insight into which components of the predictor variables (e.g., kinematics and jump distance) contribute most to the discrimination among treatment groups, making it possible to pinpoint the factors that drive differences.
+3. Quantification of the change associated with each variable, illustrating how much each contributes to distinguishing between groups, which is helpful in understanding relative importance and the nature of variable relationships across groups.
+
+To calculate a discriminant function for this method, we do the following:
+
+To conduct Linear Discriminant Analysis (LDA) using matrices extracted from a MANOVA procedure, we can use the following process:
+
+### Step 1: Extract Matrices $E$ and $H$
+
+Given an input matrix $X$ and a grouping variable $grp$, we calculate the within-group covariance matrix $E$ and the between-group covariance matrix $H$.
+
+1. Calculate the group means for each of the $k$ groups:
+   \[
+   \bar{x}_i = \frac{1}{n_i} \sum_{j \in \text{group } i} X_j
+   \]
+   where $n_i$ is the number of observations in group $i$, and $\bar{x}_i$ is the mean vector for group $i$.
+
+2. Compute the grand mean $\bar{x}_{\text{all}}$ across all groups:
+   \[
+   \bar{x}_{\text{all}} = \frac{1}{n} \sum_{j=1}^{n} X_j
+   \]
+
+3. Calculate the within-group covariance matrix $E$:
+   \[
+   E = \sum_{i=1}^{k} \sum_{j \in \text{group } i} (X_j - \bar{x}_i)(X_j - \bar{x}_i)^T
+   \]
+
+4. Calculate the between-group covariance matrix $H$:
+   \[
+   H = \sum_{i=1}^{k} n_i (\bar{x}_i - \bar{x}_{\text{all}})(\bar{x}_i - \bar{x}_{\text{all}})^T
+   \]
+
+### Step 2: Eigen Decomposition and Discriminant Function
+
+5. Compute $E^{-1/2}$, the inverse square root of $E$:
+   \[
+   E^{-1/2} = \text{solve}(\text{sqrtmat}(E))
+   \]
+
+6. Perform eigen decomposition on $E^{-1/2} H E^{-1/2}$ to obtain eigenvalues and eigenvectors:
+   \[
+   C = \text{eigen}(E^{-1/2} H E^{-1/2})
+   \]
+
+7. Form matrix $D$, the matrix of discriminant function coefficients:
+   \[
+   D = E^{-1/2} C_{\text{vectors}}
+   \]
+
+8. Standardize $D$:
+   \[
+   D^* = \text{diag}(\sqrt{\text{diag}(E)}) \times D
+   \]
+
+### Step 3: Calculate Discriminant Scores
+
+Using $D$, calculate the first and second discriminant scores, $z_1$ and $z_2$, by projecting $X$ onto the columns of $D$:
+\[
+z_1 = X \cdot D[:,1] \quad \text{and} \quad z_2 = X \cdot D[:,2]
+\]
+
+
+
+![LDA](/assets/SYP/DiscAnalysis.png)
 
 ## Conclusion
 
-You can check out more of this project on this [Instagram post](https://www.instagram.com/p/DBkf_LqNh0H/). Academic paper pending. 
+This project was featured in a couple places: 
+- [Article on SYP](https://kutv.com/news/local/byu-professors-launch-strong-youth-project-to-improve-youth-sports-experiences)
+- [Instagram post](https://www.instagram.com/p/DBkf_LqNh0H/) (notice a familiar graphic!) 
+-  Academic paper pending. 
 
 
