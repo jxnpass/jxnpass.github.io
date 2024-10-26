@@ -1,6 +1,6 @@
 ---
 title: "Strong Youth Project"
-description: Not yet written
+description: I highlight my contributions on researching how different coaching cues impact young athletes' performance in a single-leg triple hop test. By comparing control, internal, and external focus cues utilizing experimental analysis techniques, the study found that external cues led to greater improvements in jump distance, showing it as an estimated 10.4% performance booster for enhancing athletic performance and coaching. 
 layout: post
 
 github:
