@@ -95,9 +95,7 @@ MANOVA, while useful in determining whether there are overall differences among 
 
 1. Calculate the group means for each of the $k$ groups:
    $$
-   \begin{align*}
    \bar{x}_i &= \frac{1}{n_i} \sum_{j \in \text{group } i} X_j
-   \end{align*}
    $$
    where $n_i$ is the number of observations in group $i$, and $\bar{x}_i$ is the mean vector for group $i$.
 
