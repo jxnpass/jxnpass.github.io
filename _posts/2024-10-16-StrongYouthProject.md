@@ -93,9 +93,14 @@ MANOVA, while useful in determining whether there are overall differences among 
 2. Insight into which components of the predictor variables (e.g., kinematics and jump distance) contribute most to the discrimination among treatment groups, making it possible to pinpoint the factors that drive differences.
 3. Quantification of the change associated with each variable, illustrating how much each contributes to distinguishing between groups, which is helpful in understanding relative importance and the nature of variable relationships across groups.
 
+Given an input matrix $X$ and a grouping variable, we calculate the within-group covariance matrix $E$ and the between-group covariance matrix $H$.
+
+
 1. Calculate the group means for each of the $k$ groups:
    $$
+   \begin{align*}
    \bar{x}_i &= \frac{1}{n_i} \sum_{j \in \text{group } i} X_j
+   \end{align*}
    $$
    where $n_i$ is the number of observations in group $i$, and $\bar{x}_i$ is the mean vector for group $i$.
 
