@@ -94,73 +94,73 @@ MANOVA, while useful in determining whether there are overall differences among 
 3. Quantification of the change associated with each variable, illustrating how much each contributes to distinguishing between groups, which is helpful in understanding relative importance and the nature of variable relationships across groups.
 
 1. Calculate the group means for each of the $k$ groups:
-   \[
+   $$
    \begin{align*}
    \bar{x}_i &= \frac{1}{n_i} \sum_{j \in \text{group } i} X_j
    \end{align*}
-   \]
+   $$
    where $n_i$ is the number of observations in group $i$, and $\bar{x}_i$ is the mean vector for group $i$.
 
 2. Compute the grand mean $\bar{x}_{\text{all}}$ across all groups:
-   \[
+   $$
    \begin{align*}
    \bar{x}_{\text{all}} &= \frac{1}{n} \sum_{j=1}^{n} X_j
    \end{align*}
-   \]
+   $$
 
 3. Calculate the within-group covariance matrix $E$:
-   \[
+   $$
    \begin{align*}
    E &= \sum_{i=1}^{k} \sum_{j \in \text{group } i} (X_j - \bar{x}_i)(X_j - \bar{x}_i)^T
    \end{align*}
-   \]
+   $$
 
 4. Calculate the between-group covariance matrix $H$:
-   \[
+   $$
    \begin{align*}
    H &= \sum_{i=1}^{k} n_i (\bar{x}_i - \bar{x}_{\text{all}})(\bar{x}_i - \bar{x}_{\text{all}})^T
    \end{align*}
-   \]
+   $$
 
 ### Step 2: Eigen Decomposition and Discriminant Function
 
 5. Compute $E^{-1/2}$, the inverse square root of $E$:
-   \[
+   $$
    \begin{align*}
    E^{-1/2} &= \text{solve}(\text{sqrtmat}(E))
    \end{align*}
-   \]
+   $$
 
 6. Perform eigen decomposition on $E^{-1/2} H E^{-1/2}$ to obtain eigenvalues and eigenvectors:
-   \[
+   $$
    \begin{align*}
    C &= \text{eigen}(E^{-1/2} H E^{-1/2})
    \end{align*}
-   \]
+   $$
 
 7. Form matrix $D$, the matrix of discriminant function coefficients:
-   \[
+   $$
    \begin{align*}
    D &= E^{-1/2} C_{\text{vectors}}
    \end{align*}
-   \]
+   $$
 
 8. Standardize $D$:
-   \[
+   $$
    \begin{align*}
    D^* &= \text{diag}(\sqrt{\text{diag}(E)}) \times D
    \end{align*}
-   \]
+   $$
 
 ### Step 3: Calculate Discriminant Scores
 
 Using $D$, calculate the first and second discriminant scores, $z_1$ and $z_2$, by projecting $X$ onto the columns of $D$:
-\[
+$$
 \begin{align*}
 z_1 &= X \cdot D[:,1] \\
 z_2 &= X \cdot D[:,2]
 \end{align*}
-\]
+$$
 
 
 
