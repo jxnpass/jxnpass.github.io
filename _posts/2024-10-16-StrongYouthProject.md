@@ -102,54 +102,54 @@ To conduct Linear Discriminant Analysis (LDA) using matrices extracted from a MA
 Given an input matrix $X$ and a grouping variable $grp$, we calculate the within-group covariance matrix $E$ and the between-group covariance matrix $H$.
 
 1. Calculate the group means for each of the $k$ groups:
-   $$
+   \[
    \bar{x}_i = \frac{1}{n_i} \sum_{j \in \text{group } i} X_j
-   $$
+   \]
    where $n_i$ is the number of observations in group $i$, and $\bar{x}_i$ is the mean vector for group $i$.
 
 2. Compute the grand mean $\bar{x}_{\text{all}}$ across all groups:
-   $$
+   \[
    \bar{x}_{\text{all}} = \frac{1}{n} \sum_{j=1}^{n} X_j
-   $$
+   \]
 
 3. Calculate the within-group covariance matrix $E$:
-   $$
+   \[
    E = \sum_{i=1}^{k} \sum_{j \in \text{group } i} (X_j - \bar{x}_i)(X_j - \bar{x}_i)^T
-   $$
+   \]
 
 4. Calculate the between-group covariance matrix $H$:
-   $$
+   \[
    H = \sum_{i=1}^{k} n_i (\bar{x}_i - \bar{x}_{\text{all}})(\bar{x}_i - \bar{x}_{\text{all}})^T
-   $$
+   \]
 
 ### Step 2: Eigen Decomposition and Discriminant Function
 
 5. Compute $E^{-1/2}$, the inverse square root of $E$:
-   $$
+   \[
    E^{-1/2} = \text{solve}(\text{sqrtmat}(E))
-   $$
+   \]
 
 6. Perform eigen decomposition on $E^{-1/2} H E^{-1/2}$ to obtain eigenvalues and eigenvectors:
-   $$
+   \[
    C = \text{eigen}(E^{-1/2} H E^{-1/2})
-   $$
+   \]
 
 7. Form matrix $D$, the matrix of discriminant function coefficients:
-   $$
+   \[
    D = E^{-1/2} C_{\text{vectors}}
-   $$
+   \]
 
 8. Standardize $D$:
-   $$
+   \[
    D^* = \text{diag}(\sqrt{\text{diag}(E)}) \times D
-   $$
+   \]
 
 ### Step 3: Calculate Discriminant Scores
 
 Using $D$, calculate the first and second discriminant scores, $z_1$ and $z_2$, by projecting $X$ onto the columns of $D$:
-$$
+\[
 z_1 = X \cdot D[:,1] \quad \text{and} \quad z_2 = X \cdot D[:,2]
-$$
+\]
 
 
 
