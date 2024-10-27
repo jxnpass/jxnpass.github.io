@@ -221,7 +221,7 @@ In conclusion, this project successfully showcased several advanced statistical 
 The full project was featured in a couple places too! 
 - [Article on SYP](https://kutv.com/news/local/byu-professors-launch-strong-youth-project-to-improve-youth-sports-experiences)
 - [Instagram post](https://www.instagram.com/p/DBkf_LqNh0H/) (notice a familiar graphic?) 
-- [Youtube Video](https://www.youtube.com/watch?v=TxF30c76esU) (view 10:30 through 13:20)
+- [Youtube Video](https://youtu.be/TxF30c76esU?feature=shared&t=626) (view 10:30 through 13:20)
 - Academic paper pending. 
 
 
