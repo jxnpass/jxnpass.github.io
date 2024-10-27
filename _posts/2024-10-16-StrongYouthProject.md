@@ -18,7 +18,7 @@ date: 2024-10-16 17:50:00
 - [Conclusion](#Conclusion)
 
 ## Abstract
-This study explored how different coaching cues—specifically, internal (focusing on body movements) and external (focusing on an object beyond their reach)—impact young athletes' performance on a single-leg triple hop test. Thirty-nine athletes, aged 10-17, were divided into three groups: a control group, an internal cue group, and an external cue group.
+This study explored how different coaching cues—specifically, internal (focusing on body movements) and external (focusing on an object beyond their reach)—impact 39 young athletes' performance on a single-leg triple hop test. Thirty-nine athletes, aged 10-17, were divided into three groups: a control group, an internal cue group, and an external cue group. 
 
 Each athlete completed three practice trials before receiving instruction relevant to their group. Those in the internal cue group received coaching emphasizing arm movements, while the external cue group was told to aim beyond a cone. The control group watched a video that was unrelated. Performance was measured by the change in jump distance from before to after receiving the cues, with angles at the hip, knee, and ankle analyzed using motion capture.
 
@@ -127,55 +127,101 @@ Given an input matrix $X$ and a grouping variable, we calculate the within-group
 
 ### Step 2: Eigen Decomposition and Discriminant Function
 
-5. Compute $E^{-1/2}$, the inverse square root of $E$:
-   $$
-   \begin{align*}
-   E^{-1/2} &= \text{solve}(\text{sqrtmat}(E))
-   \end{align*}
-   $$
-
-6. Perform eigen decomposition on $E^{-1/2} H E^{-1/2}$ to obtain eigenvalues and eigenvectors:
+5. Perform eigen decomposition on $E^{-1/2} H E^{-1/2}$ to obtain eigenvalues and eigenvectors:
    $$
    \begin{align*}
    C &= \text{eigen}(E^{-1/2} H E^{-1/2})
    \end{align*}
    $$
 
-7. Form matrix $D$, the matrix of discriminant function coefficients:
+6. Form matrix $D$, the matrix of discriminant function coefficients:
    $$
    \begin{align*}
    D &= E^{-1/2} C_{\text{vectors}}
    \end{align*}
    $$
 
-8. Standardize $D$:
+7. Standardize $D$:
    $$
    \begin{align*}
    D^* &= \text{diag}(\sqrt{\text{diag}(E)}) \times D
    \end{align*}
-   $$
+   $$ 
 
 ### Step 3: Calculate Discriminant Scores
 
-Using $D$, calculate the first and second discriminant scores, $z_1$ and $z_2$, by projecting $X$ onto the columns of $D$:
+Using $D^*$, calculate the first and second discriminant scores, $z_1$ and $z_2$, by projecting $X$ onto the columns of $D$:
 $$
 \begin{align*}
-z_1 &= X \cdot D[:,1] \\
-z_2 &= X \cdot D[:,2]
+Z &= XD \\
 \end{align*}
 $$
 
+The 5x5 $D$ matrix represents the standardized coefficients of the linear discriminant functions. $D^*$ also allows us to understand the relative contributions of each variable to the discriminant functions. Each column of $D^*$ corresponds to a discriminant function, and the elements indicate the strength and direction of each predictor's contribution. Conversely, the 39x5 $Z$ matrix contains the discriminant scores calculated by projecting the original data matrix 
+$X$ onto the discriminant function coefficients in $D$. The scores $z_1$ and $z_2$ provide a way to visualize and interpret the separation of groups based on the linear combinations of the predictor variables. By plotting $Z$, By plotting $Z$, we can visually assess how well the groups are separated in the multivariate space. The closer the points of different groups are to each other, the less separable the groups are, while greater distances indicate better separation. From our MANOVA results, we should see considerable group separation.
 
-
-
+The figure below demonstrates how the treatment groups of external (green), internal (blue), and control (red) are separable in the discriminant space. The interesting insights from this graphic is first noticing the density plots of $z_1$ for each cue (top left). The green external group has more positive $z_1$ scores than red control and blue internal, which are highly populated towards lower scores. Conversely, we see $z_2$ scores separate blue internal from red control (bottom left). Each of the scatter plots (on the top right and bottom left) portray the dimension-reduced clusters of each cue. We note that $z_1$ does the best job separating the treatment groups with the external to the far right (if looking at the bottom left plot), with its eigenvalue determining this as explaining 67% of the Z-space variance. $z_2$ than is separating internal and control in that space with explaining a remaining 27% of variance. 
 
 ![LDA](/assets/SYP/DiscAnalysis.png)
 
+The clustered data visualization makes the discriminant functions $D_1^*$ and $D_2^*$ much more interpretable. When we examine the coefficients of the discriminant functions associated with each variable, they indicate the relative influence of each variable in distinguishing between treatment groups. Values farther from zero signify greater influence; thus, coefficients with larger absolute values contribute more significantly to the discriminative power.
+
+For instance, in the $D_1^*$ function, the jump distance, ankle angle, and knee angle have particularly large magnitudes, suggesting that these variables show significant changes under the external cue condition. Specifically, the coefficients for jump distance (0.85) and ankle angle (0.98) indicate that these variables are more responsive to the external cue compared to the knee angle (−0.71), which also shows notable sensitivity.
+
+$$
+\begin{equation*}
+    \mathbf{D_1^*}
+    =
+    \begin{pmatrix}
+    \text{Jump Distance} \\
+    \text{Hip Angle} \\
+    \text{Ankle Angle} \\
+    \text{Knee Angle} \\
+    \text{Stance Time}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \textbf{0.85} \\
+        -0.11 \\
+        \textbf{0.98} \\
+        \textbf{-0.71} \\
+        -0.17
+    \end{pmatrix}
+\end{equation*}
+$$
+
+The second discriminant function $D_2^*$ indicates that hip angle (.52) and knee angle (.95) have greater discriminatory power for the internal group compared to the control group. This may indicate how the internal cue participants received instruction on deeper hips and knee drive, but ultimately did not influence their jump performance. 
+
+$$
+\begin{equation*}
+    \mathbf{D_2^*}
+    =
+    \begin{pmatrix}
+    \text{Jump Distance} \\
+    \text{Hip Angle} \\
+    \text{Ankle Angle} \\
+    \text{Knee Angle} \\
+    \text{Stance Time}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        0.25 \\
+        \textbf{0.52} \\
+        -0.34 \\
+        \textbf{0.95} \\
+        0.03
+    \end{pmatrix}
+\end{equation*}
+$$
+
 ## Conclusion
 
-This project was featured in a couple places: 
+In conclusion, this project successfully showcased several advanced statistical analysis techniques tailored for multivariate analysis, allowing us to delve deeper into our research questions. Through ANOVA, we not only confirmed significant improvements in jump performance attributable to the external cue but also employed MANOVA to demonstrate that biomechanical variables varied significantly across treatment groups. Furthermore, using Linear Discriminant Analysis (LDA), we identified how these kinematic differences influenced group classification and their interrelationships. This comprehensive approach not only enhances our understanding of the data but also establishes a robust framework for future studies exploring the effects of various cues on performance metrics.
+
+The full project was featured in a couple places too! 
 - [Article on SYP](https://kutv.com/news/local/byu-professors-launch-strong-youth-project-to-improve-youth-sports-experiences)
-- [Instagram post](https://www.instagram.com/p/DBkf_LqNh0H/) (notice a familiar graphic!) 
--  Academic paper pending. 
+- [Instagram post](https://www.instagram.com/p/DBkf_LqNh0H/) (notice a familiar graphic?) 
+- [Youtube Video](https://www.youtube.com/watch?v=TxF30c76esU) (view 10:30 through 13:20)
+- Academic paper pending. 
 
 
