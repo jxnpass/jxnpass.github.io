@@ -34,7 +34,6 @@ The start of the program begins with the [Teams List](https://docs.google.com/sp
 
 <video align="center" width="640" height="360" controls>
   <source src="/assets/TourneyManager/teamslist.mov" type="video/mp4">
-  Your browser does not support the video tag.
 </video>
 
 This step, though simple, is essential for every other part of the spreadsheet. This list is used both to create the pool schedule AND score the round robin match results. 
@@ -44,20 +43,40 @@ This next part utilizes the R scripts found in the [TourneyManager Repository](h
 
 When you supply the link (and change the stack argument), all that is needed is to run the script. When running, Google Sheets will ask for authentication. After following the steps, it should run the rest of the code. 
 
+<video align="center" width="640" height="360" controls>
+  <source src="/assets/TourneyManager/createroundrobin.mov" type="video/mp4">
+</video>
+
 The sheets created are not too readable for audiences, so it transfers information to the [Master Schedule tab](https://docs.google.com/spreadsheets/d/1eCC9_43aua6a_YkqlNo_lh17zN3fFBxsDAmNnN1jnK0/edit?gid=1477006579#gid=1477006579). This sheet is for customizing the schedule to be displayed to the tourney participants. It takes in the information based on the pool name you enter into the yellow cell at the top, and then concatenates the team names into the match for that round and pool. The court column is a helper function for display only, and will not work logically for all scenarios (including matches with byes). Match number indicates the match unique to each pool, and the pool column indicates which pool that match takes place in (which is pulled from the ID column). The ID column and the round number columns are then used to pull the information from the generated schedule and concatenate the team names, showing the game for that round and match. 
 
 My personal method when using the Master Schedule tab is to copy schedule onto another sheet and paste (using "Values Only") onto another. Then I customize it for personal needs, removing court numbers with bye matchups. You can also remove the match number and ID column as they are unnecessary. 
 
+<video align="center" width="640" height="360" controls>
+  <source src="/assets/TourneyManager/masterschedule.mov" type="video/mp4">
+</video>
+
 ### Reporting Round Robin Results
 As you can see, the tourney is set up where teams are placed in one of many pools. These pools are usually separated by skill level, and games are played to determine who is ranked higher/lower than their opponents. After a match, both teams submit their results in a [Google Form link](https://docs.google.com/forms/d/1WFWo_PO638oHvYKf0lf6X_orLddXfKGRRlKc0IMpPd8/edit). All they need to do is enter their team name, which round they played in, and the match result (which is three different questions).
+
+<video align="center" width="640" height="360" controls>
+  <source src="/assets/TourneyManager/reportingscores.mov" type="video/mp4">
+</video>
 
 ### Assigning Seeds
 As scores get reported, the Google Form data is transferred live to the spreadsheet in the [Responses tab](https://docs.google.com/spreadsheets/d/1eCC9_43aua6a_YkqlNo_lh17zN3fFBxsDAmNnN1jnK0/edit?gid=818500033#gid=818500033). This immediately transfers results to the different pool sheets, (e.g. [Pool A Scores](https://docs.google.com/spreadsheets/d/1eCC9_43aua6a_YkqlNo_lh17zN3fFBxsDAmNnN1jnK0/edit?gid=890974284#gid=890974284)), and dynamically updates each teams' standing in their own pool. Their pool standing is calculated based on their pool score, which is a sum of their wins multiplied by 20 and the points scored minus conceded. If teams win games by a large margin, then they are ranked higher. If they lose their games by a lot of points, then they are ranked lower. Nothing is needed to set up the Pool Score tabs: only if you use different names other than A, B, C, and D do you need to make adjustments (to do so, duplicate one of the tabs, change the top left yellow cell to the name desired. If you see team names go into the first column, that is good sign you set it up right. Change the sheet name to "Pool {name} Scores" when you are done to update the [Seed Calculations tab](https://docs.google.com/spreadsheets/d/1eCC9_43aua6a_YkqlNo_lh17zN3fFBxsDAmNnN1jnK0/edit?gid=673908820#gid=673908820)). 
 
 Based on their pool score and standing, they are either promoted (for lower division pools) or demoted (from upper division pools). The teams sent to each bracket are then seeded based on their individual pool scores, now classified as the Power Ranking. Additionally, a placement feature is included for changes needed to teams sent to the upper or lower bracket. A single value above each pool (highlighted yellow) alters the teams that get promoted/demoted. To see the seed placement in action, you can view the [Seed Calculations tab](https://docs.google.com/spreadsheets/d/1eCC9_43aua6a_YkqlNo_lh17zN3fFBxsDAmNnN1jnK0/edit?gid=673908820#gid=673908820).
 
+<video align="center" width="640" height="360" controls>
+  <source src="/assets/TourneyManager/seedcalculations.mov" type="video/mp4">
+</video>
+
 ### Bracket Creation
 When pool play is finished and teams are seeded, the [Upper and Lower Bracket Tabs](https://docs.google.com/spreadsheets/d/1eCC9_43aua6a_YkqlNo_lh17zN3fFBxsDAmNnN1jnK0/edit?gid=884757995#gid=884757995) positions the team names into their slots respective to the seed. When tournament matches finish, you can enter in the scored points for each team. The team name with more points gets placed automatically to the next round. A completed match is highlighted orange to green, and a ready match is highlighted red to orange. A major limitation of this bracket is it is restricted to a 16-man tourney: these brackets are built under a Google Sheets extension called ["Tournament Extension"](https://workspace.google.com/u/0/marketplace/app/tournament_extensions/684126244332), which can adjust the number of entries for a tourney. While the add-on isn't required for this sheet anymore due to my personal adjustments, it is useful for building your own tourney (for example, you can increase the number of slots, incorporate dates for matches, etc.). 
+
+<video align="center" width="640" height="360" controls>
+  <source src="/assets/TourneyManager/bracketmaker.mov" type="video/mp4">
+</video>
 
 ## How To Use It For Yourself
 First of all, I would not claim this tool is fool proof since it was made to meet my needs in the moment (so its more "seasoned Excel user" proof). If it breaks anywhere, just use the undo button or re-copy it. 
