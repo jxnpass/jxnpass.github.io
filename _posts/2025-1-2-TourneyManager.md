@@ -14,15 +14,15 @@ date: 2025-1-2 17:50:00
 ## Table of Contents
 - [Overview](#overview)
 - [How It Works](#how-it-works)
-- [How To Use It For Youreslf](#how-to-use-it-for-yourself)
+- [How To Use It For Yourself](#how-to-use-it-for-yourself)
 - [Highlights and Credits](#highlights-and-credits)
 
 <p align="center">
-<img style="width: 50%" src="/assets/TourneyManager/groupphoto.png" alt="tourneyphoto">
+<img style="width: 80%" src="/assets/TourneyManager/groupphoto.png" alt="tourneyphoto">
 </p>
 
 ## Overview
-One thing I love to do with my friends in Arizona is play volleyball. The pickup volleyball games in AZ have grown so popular that hundreds of people of varied ages come to play. My friends and I decided to host frequent tourneys during holiday breaks to create a more competitive scene, as well as offer prize money to winning teams.
+One thing I love to do with my friends in Arizona is play volleyball. Over the years, the pickup volleyball scene in AZ has grown so popular that sometimes hundreds of people now come to play with us. My friends and I decided to host frequent tourneys during holiday breaks to foster greater competitive, offering prize money to winning teams.
 
 For our 2025 New Year's Day tourney, I was tasked to create game schedules, collect scores, and seed teams into an upper and lower bracket. 
 
@@ -31,6 +31,11 @@ The main management system is hosted on this [Google Sheets file](https://docs.g
 
 ### Entering Team Information
 The start of the program begins with the [Teams List](https://docs.google.com/spreadsheets/d/1eCC9_43aua6a_YkqlNo_lh17zN3fFBxsDAmNnN1jnK0/edit?gid=96325893#gid=96325893). All one needs to do is enter in the the name of the team under the first column, and the assigned pool in the second. Enter the number of rounds for each team to play in at the fourth column slot, highlighted yellow. The max number this manager can handle is eight, but an expert Excel coder can duplicate the sheet and reconfigure it if desired.
+
+<video align="center" width="640" height="360" controls>
+  <source src="/assets/TourneyManager/teamslist.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 This step, though simple, is essential for every other part of the spreadsheet. This list is used both to create the pool schedule AND score the round robin match results. 
 
@@ -64,7 +69,8 @@ First of all, I would not claim this tool is fool proof since it was made to mee
 
 ## Highlights and Credits
 - [Bill Venables](https://github.com/BillVenables): author of the [round robin code in R](https://rdrr.io/github/BillVenables/WWRCourse/man/round_robin.html). 
+- [YoRai Geffen](https://workspace.google.com/u/0/marketplace/app/tournament_extensions/684126244332): author of the tourney extensions add-on.
 - [Kyler Curry](https://www.instagram.com/kyler.curry24/) and [Josh Hilton](https://www.instagram.com/7josh7hilton7/): framework for the seed calculations
 - [Shawn McGarvin](https://www.facebook.com/people/Shawn-McGarvin/pfbid02bD55jMaMpmzGitaLG2SaGNKbY24DS9Are3Yi3VduwRShkXabCawULmT8a9ajM8VDl/) and [John Burton](https://www.instagram.com/bob_the_clarinet/): they are the hosts for the volleyball tournaments
 - [Volleyball Homies](https://www.instagram.com/vb_homies/): budding Instagram account
-- [Matthew Palmer](https://www.instagram.com/matthewpa1mer/): video and photography (check out his [drone shots!](https://www.instagram.com/reel/DEWAMutyrEd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==))
+- [Matthew Palmer](https://www.instagram.com/matthewpa1mer/): video and photography (check out his [drone shot video!](https://www.instagram.com/reel/DEWAMutyrEd/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==))
