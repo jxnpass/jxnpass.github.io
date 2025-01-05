@@ -12,9 +12,8 @@ date: 2025-1-4 17:50:00
 ---
 
 <iframe
-  src="https://wikiscraper.streamlit.app/?embed_options=dark_theme,show_padding"
+  src="https://wikiscraper.streamlit.app?embed=true"
   style="height: 450px; width: 100%;"
 ></iframe>
 
-
-
+https://wikiscraper.streamlit.app/?embed_options=dark_theme,show_padding
