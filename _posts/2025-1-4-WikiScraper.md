@@ -19,6 +19,6 @@ The app below is usable for you to test it out and use it for personal needs, or
 
 <iframe
   src="https://wikiscraper.streamlit.app?embed=true"
-  style="height: 800px; width: 100%;"
+  style="height: 600px; width: 100%;"
 ></iframe>
 
