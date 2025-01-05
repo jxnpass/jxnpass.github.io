@@ -8,7 +8,7 @@ github:
     repository_name: WikipediaTableScraper
     repository_url: https://github.com/jxnpass/WikipediaTableScraper
 
-date: 2025-1-5 17:50:00
+date: 2025-1-4 17:50:00
 ---
 
 <iframe
