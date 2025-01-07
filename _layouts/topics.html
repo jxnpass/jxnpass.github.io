@@ -1,0 +1,12 @@
+---
+layout: default
+title: Topics
+---
+
+<h1>Topics</h1>
+<ul>
+    {% assign tags = site.tags | sort %}
+    {% for tag in tags %}
+        <li><a href="/topics/{{ tag[0] | slugify }}/">{{ tag[0] }} ({{ tag[1].size }})</a></li>
+    {% endfor %}
+</ul>

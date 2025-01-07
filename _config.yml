@@ -9,3 +9,8 @@ github:
 
 google_analytics: GTM-5WMP23X4
 theme: jekyll-theme-cayman
+
+collections:
+  tags:
+    output: true
+    permalink: /topics/:name/

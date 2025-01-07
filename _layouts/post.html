@@ -6,6 +6,14 @@ layout: default
 
 {{ content }}
 
+<div class="tags">
+    <p>Tags: 
+        {% for tag in page.tags %}
+            <a href="/topics/{{ tag | slugify }}/" class="tag">{{ tag }}</a>
+        {% endfor %}
+    </p>
+</div>
+
 <div id="comments">
     <script src="https://giscus.app/client.js"
             data-repo="jxnpass/jxnpass.github.io"

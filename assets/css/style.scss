@@ -2,3 +2,21 @@
 ---
 
 @import 'jekyll-theme-cayman';
+
+.tags {
+    margin-top: 10px;
+}
+
+.tags a {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.tags a:hover {
+    background-color: #007acc;
+    color: white;
+}
