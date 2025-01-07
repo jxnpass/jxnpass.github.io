@@ -15,10 +15,9 @@ In today's data-driven world, there is a growing need for accessible and user-fr
 
 The app, built using Streamlit, enhances user interactivity by enabling the editing of specific cells within the scraped data. Users can modify the content of the table directly within the app, ensuring it meets their needs. Once the data is cleaned, the tool allows users to download the processed table in a CSV or Excel format, making it easy to share or further analyze. As the next step in this project, integrating Plotly will enable the creation of visual graphics, offering dynamic plots and charts that bring the data to life. By extending the functionality to visualize the extracted data, this tool will provide a comprehensive data manipulation and visualization pipeline for users, allowing for deeper insights and better decision-making.
 
-The app below is usable for you to test it out and use it for personal needs, or you can [view the app directly](https://wikiscraper.streamlit.app/) on the Streamlit Cloud. The three links I provided work well as these were used to test functionality, but there may be notable shortcomings found when using other Wikipedia URLs. 
-
 <iframe
   src="https://wikiscraper.streamlit.app?embed=true"
   style="height: 600px; width: 100%;"
 ></iframe>
 
+The app above is usable for testing and for personal needs. You can also [view the app directly](https://wikiscraper.streamlit.app/) through Streamlit Cloud. The three links on the dashboard work well, but there may be notable shortcomings found when using other Wikipedia URLs. 
