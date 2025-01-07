@@ -64,7 +64,9 @@ Expectation Maximization is a computationally powerful method that iteratively '
 $$
 Q(\theta|\theta^{(t)}) =  E(logL(X_{\text{complete}}|\theta)|(X_{\text{observed}},\theta^{(t)}))  
 $$
+
 ...and then updating the parameter estimates to maximize the likelihood of the complete data (Maximization-step). 
+
 $$
 \theta^{(t+1)} = \operatorname*{argmax}_{\theta}Q(\theta|\theta^{(t)})
 $$
@@ -88,7 +90,7 @@ EM may prove to be particularly effective when handling MAR and MCAR data, as it
 Conditional Sampling (CS) involves generating multiple imputations for missing multivariate data, each conditioned on the observed mean and covariance structure. CS assumes the data follows a MVN distribution and imputes missing values by drawing samples from this distribution. Unlike EM, which iteratively estimates a single set of parameter estimates, CS generates multiple datasets through conditional stochastic sampling such that
 
 $$
-X_{miss}|X_{observed} \sim \mathcal{N}(\mu_{miss|observed}, \Sigma_{miss|observed})
+X_{miss}|X_{observed} \sim N(\mu_{miss|observed}, \Sigma_{miss|observed})
 $$
 
 In R, the ```mice``` package can implement CS with ```method = "norm"``` and ```m = 5``` to generate five versions of the dataset. Computing multiple imputations reflect uncertainty in the missing data, which can be analyzed collectively using statistical techniques like the ```pool()```. For our study, we will be pooling in a different method by taking the average of the five imputation versions.
@@ -123,7 +125,7 @@ The simulations performed will provide evidence on how each method handles missi
 R's ```mvtnorm::rmvnorm()``` function creates datasets based on the MVN distributions. Each dataset generated will be a 1000 x 3 matrix, with a mean $\mu$ set to 0 and the variance $\sigma$ set to 1.
 
 $$
-X \sim \mathcal{N}(\mu, \Sigma)
+X \sim N(\mu, \Sigma)
 $$
 
 $$
@@ -142,10 +144,10 @@ The parameter $\rho$ will vary from 0 (no correlation), 0.3 (weak correlation), 
 The MVN data will have missing values that retain patterns similar to how MCAR, MAR, and MNAR data behave. To construct these types of missing data, each pattern will have the following rules:
 
 - **MCAR**: Randomly remove cells from the dataframe, with no regard towards a particular column or pattern.
-- **MAR**: Remove cells from a column if the column previous is in the top $p$ percentile of observations. For example, if $X_j \sim \mathcal{N}(0,1)$ and $X_{ij} > X_{pj}$, remove $X_{i(j+1)}$.
-- **MNAR**: Remove cells from a column if the value is in the top $p$ percentile of observations. For example, if $X_j \sim \mathcal{N}(0,1)$ and if $X_{ij} > X_{pj}$, remove $X_{ij}$.
+- **MAR**: Remove cells from a column if the column previous is in the top $p$ percentile of observations. For example, if $X_j \sim N(0,1)$ and $X_{ij} > X_{pj}$, remove $X_{i(j+1)}$.
+- **MNAR**: Remove cells from a column if the value is in the top $p$ percentile of observations. For example, if $X_j \sim N(0,1)$ and if $X_{ij} > X_{pj}$, remove $X_{ij}$.
 
-For consistency, $p = 0.10$ for all scenarios. This infers that 10\% of values will be missing at random in MCAR, and the 90th percentile (top 10\% of cell values) will dictate value removal MAR and MNAR. 
+For consistency, $p = 0.10$ for all scenarios. This infers that 10% of values will be missing at random in MCAR, and the 90th percentile (top 10% of cell values) will dictate value removal MAR and MNAR. 
 
 ### Setup Overview
 
@@ -157,13 +159,13 @@ Generating multiple sets of MVN data under a Monte Carlo framework allows for ea
 
 ### Mean Estimation
 
-We first view how each imputation method did at estimating the means from the MVN distribution. According to the figure below, each imputation method approximated the column means correctly when the data was MCAR. While the bias was minimal in the Monte Carlo estimation, LWD seems to be less precise in its approximation compared to EM and CS. Because data is redacted when any value in a row is missing, the method ultimtaely removes any information contributing to estimating the mean, increasing the uncertainty of the estimation. For MAR, LWD's bias is significantly greater: recall that the 10\% of the data that is missing covers the top 10% of values. This therefore pulls the mean estimates lower than the truth.  
+We first view how each imputation method did at estimating the means from the MVN distribution. According to the figure below, each imputation method approximated the column means correctly when the data was MCAR. While the bias was minimal in the Monte Carlo estimation, LWD seems to be less precise in its approximation compared to EM and CS. Because data is redacted when any value in a row is missing, the method ultimtaely removes any information contributing to estimating the mean, increasing the uncertainty of the estimation. For MAR, LWD's bias is significantly greater: recall that the 10% of the data that is missing covers the top 10% of values. This therefore pulls the mean estimates lower than the truth.  
 
 ![means](/assets/MVI/mean_ests.png)
 
 EM and CS perform similarly under MAR, but the bias of its results appear to increase gradually with increasing $\rho$. There are several possibilities as to why this is the case: under the MAR mechanism, the relationship between missing and observed cells are strengthened when collinearity is high. Increased collinearity reduces the effective independent information from other variables, potentially overemphasizing small deviations in the conditional means for CS, and convergence to maximum likelihood loses stability for EM.
 
-MNAR data indicates significant bias for all methods, regardless of the values for $\rho$. Because the MNAR setup keeps the top 90\% of each column (independent of the values of other columns), that proportion of the MVN distribution is lost regardless of what the observed values suggest, and without any prior means or belief supplied, the data cannot be reconstructed fully. 
+MNAR data indicates significant bias for all methods, regardless of the values for $\rho$. Because the MNAR setup keeps the top 90% of each column (independent of the values of other columns), that proportion of the MVN distribution is lost regardless of what the observed values suggest, and without any prior means or belief supplied, the data cannot be reconstructed fully. 
 
 The Table below dives deeper on the mean estimation figure and reports the numerical bias and spread of each method (note how LWD is always higher in spread).
 
