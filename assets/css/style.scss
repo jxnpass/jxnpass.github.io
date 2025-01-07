@@ -7,11 +7,20 @@
     margin-top: 10px;
 }
 
+.tags ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tags li {
+    display: inline;
+    margin-right: 5px;
+}
+
 .tags a {
     background-color: #f0f0f0;
     border-radius: 5px;
     padding: 5px 10px;
-    margin-right: 5px;
     text-decoration: none;
     color: #333;
 }

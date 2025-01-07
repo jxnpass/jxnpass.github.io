@@ -8,7 +8,7 @@ github:
     repository_name: WikipediaTableScraper
     repository_url: https://github.com/jxnpass/WikipediaTableScraper
 
-tags: [Python, Web Scraping, Dashboards]
+tags: [Python, Web-Scraping, Dashboards]
 date: 2025-1-4 17:50:00
 ---
 
