@@ -8,7 +8,7 @@ github:
     repository_name: Missing Value Imputation 
     repository_url: https://github.com/jxnpass/MissingValueImputation
 
-date: 2025-1-6 17:50:00
+date: 2025-1-7 17:50:00
 ---
 
 ## Table of Contents
