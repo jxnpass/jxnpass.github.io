@@ -14,5 +14,3 @@ collections:
   tags:
     output: true
     permalink: /topics/:name/
-
-permalink: /topics/
