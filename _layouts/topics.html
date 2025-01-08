@@ -3,10 +3,10 @@ layout: default
 ---
 <h1>Topics</h1>
 <ul>
-  {% for tag in site.tags %}
+  {% for tag, posts in site.tags %}
     <li>
-      <a href="/topics/{{ tag[0] | slugify }}/">{{ tag[0] }}</a> 
-      ({{ tag[1].size }} posts)
+      <a href="/topics/{{ tag | slugify }}/">{{ tag }}</a> 
+      ({{ posts.size }} posts)
     </li>
   {% endfor %}
 </ul>
