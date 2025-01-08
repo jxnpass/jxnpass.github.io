@@ -8,6 +8,7 @@ github:
     repository_name: RF-BART-Comparison
     repository_url: https://github.com/jxnpass/RF-BART-Comparison
 
+tags: [Models, Simulations]
 date: 2024-5-24 17:50:00
 ---
 

@@ -8,6 +8,7 @@ github:
     repository_name: Isaiah-to-BOM
     repository_url: https://github.com/jxnpass/Isaiah-to-BoM
 
+tags: [Dashboards, Data Science, Python]
 date: 2023-12-6 17:50:00
 ---
 

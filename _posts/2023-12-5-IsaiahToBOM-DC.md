@@ -8,6 +8,7 @@ github:
     repository_name: Isaiah-to-BOM
     repository_url: https://github.com/jxnpass/Isaiah-to-BoM
 
+tags: [Data Science, Python, Web-Scraping]
 date: 2023-12-5 17:50:00
 ---
 

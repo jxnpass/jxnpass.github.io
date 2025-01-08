@@ -8,6 +8,7 @@ github:
     repository_name: TourneyManager
     repository_url: https://github.com/jxnpass/TourneyManager
 
+tags: [Excel, R, Surveys, UX]
 date: 2025-1-2 17:50:00
 ---
 

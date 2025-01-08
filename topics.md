@@ -1,4 +1,0 @@
----
-layout: topics
-title: Topics
----

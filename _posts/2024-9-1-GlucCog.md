@@ -8,6 +8,7 @@ github:
     repository_name: GlucCog-Final
     repository_url: https://github.com/jxnpass/GlucCog-Final
 
+tags: [Data Science, Math, Models, R, Research Paper]
 date: 2024-9-1 17:50:00
 ---
 
