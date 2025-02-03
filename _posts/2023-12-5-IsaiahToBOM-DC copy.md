@@ -3,7 +3,7 @@ title: Baltimore City Crime Tableau Dashboard
 description: A demonstration of a Tableau Dashboard I helped recreate for a Data Visualization class.
 layout: post
 
-tags: [Dashboard]
+tags: [Dashboards, Tableau]
 date: 2025-2-2 17:50:00
 ---
 
@@ -13,7 +13,7 @@ date: 2025-2-2 17:50:00
             <img alt='Baltimore City Crime Dashboard' src='https://public.tableau.com/static/images/ba/baltimorecrime_17386063823820/BaltimoreCityCrimeDashboard/1.png' style='border: none;' />
         </a>
     </noscript>
-    <object class='tableauViz' style='width: 125%; height: 991px; display: none;'>
+    <object class='tableauViz' style='width: 125%; height: 1050px; display: none;'>
         <param name='host_url' value='https://public.tableau.com/' />
         <param name='embed_code_version' value='3' />
         <param name='site_root' value='' />
@@ -40,3 +40,4 @@ date: 2025-2-2 17:50:00
 
 
 [Link to Original Dashboard](https://app.powerbigov.us/view?r=eyJrIjoiZjcyZDY5NWYtNTBlZS00OTg0LTgyNDQtOWYwMDEyOGI5Y2M1IiwidCI6IjMxMmNiMTI2LWM2YWUtNGZjMi04MDBkLTMxOGU2NzljZTZjNyJ9&pageName=ReportSectionb1fa0cb3c370416927ba)
+[Data](https://data.baltimorecity.gov/datasets/baltimore::nibrs-group-a-crime-data/about)
