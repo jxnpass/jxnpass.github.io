@@ -13,7 +13,7 @@ date: 2025-2-2 17:50:00
             <img alt='Baltimore City Crime Dashboard' src='https://public.tableau.com/static/images/ba/baltimorecrime_17386063823820/BaltimoreCityCrimeDashboard/1.png' style='border: none;' />
         </a>
     </noscript>
-    <object class='tableauViz' style='width: 100%; height: 991px; display: none;'>
+    <object class='tableauViz' style='width: 125%; height: 991px; display: none;'>
         <param name='host_url' value='https://public.tableau.com/' />
         <param name='embed_code_version' value='3' />
         <param name='site_root' value='' />
