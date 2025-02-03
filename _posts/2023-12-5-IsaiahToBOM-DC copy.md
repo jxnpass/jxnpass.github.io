@@ -1,6 +1,6 @@
 ---
 title: Baltimore City Crime Tableau Dashboard
-description: A demonstration of a Tableau Dashboard I helped recreate for a Data Visualization class.
+description: A link to a Tableau Dashboard I assisted the professor to recreate for a Data Visualization class.
 layout: post
 
 tags: [Dashboards, Tableau]
