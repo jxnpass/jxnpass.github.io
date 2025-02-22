@@ -13,21 +13,21 @@ date: 2025-2-21 17:50:00
 ---
 
 <iframe src="/assets/MO2/MVN.html"
-        width="1000" height="400"
-        style="border: none;">
+        width="1000" height="800"
+        style="border: black;">
 </iframe>
 
 <iframe src="/assets/MO2/MVN_TypeA.html"
-        width="800" height="400"
-        style="border: none;">
+        width="1000" height="800"
+        style="border: black;">
 </iframe>
 
 <iframe src="/assets/MO2/MVN_TypeB.html"
-        width="600" height="600"
-        style="border: none;">
+        width="1000" height="800"
+        style="border: black;">
 </iframe>
 
 <iframe src="/assets/MO2/MVN_TypeC.html"
-        width="600" height="400"
-        style="border: none;">
+        width="1000" height="800"
+        style="border: black;">
 </iframe>
