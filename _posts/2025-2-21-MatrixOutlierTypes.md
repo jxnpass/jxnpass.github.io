@@ -1,6 +1,6 @@
 ---
 title: "Outlier Detection Algorithm -- Part 2: Types of Cellwise Outliers"
-description: 
+description: In this post I introduce more of my master's research topics, diving into the different types of outliers found in raw data. 
 layout: post
 
 github:
@@ -9,7 +9,7 @@ github:
     repository_url: 
 
 tags: [Data Science, R, Outlier Detection, Simulations]
-date: 2025-1-7 17:50:00
+date: 2025-2-21 17:50:00
 ---
 
 <iframe src="/assets/MO2/MVN.html"
