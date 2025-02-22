@@ -12,22 +12,30 @@ tags: [Data Science, R, Outlier Detection, Simulations]
 date: 2025-2-21 17:50:00
 ---
 
+
+## Multivariate Normal Distribution - Uncontaminated
 <iframe src="/assets/MO2/MVN.html"
         width="1000" height="800"
-        style="border: black;">
+        style="border: 2px solid black; border-radius: 10px;">
 </iframe>
+
+## Multivariate Normal Distribution - Type A Cellwise Outliers
 
 <iframe src="/assets/MO2/MVN_TypeA.html"
         width="1000" height="800"
-        style="border: black;">
+        style="border: 2px solid black; border-radius: 10px;">
 </iframe>
+
+## Multivariate Normal Distribution - Type B Cellwise Outliers
 
 <iframe src="/assets/MO2/MVN_TypeB.html"
         width="1000" height="800"
-        style="border: black;">
+        style="border: 2px solid black; border-radius: 10px;">
 </iframe>
+
+# Multivariate Normal Distribution - Type C Cellwise Outliers
 
 <iframe src="/assets/MO2/MVN_TypeC.html"
         width="1000" height="800"
-        style="border: black;">
+        style="border: 2px solid black; border-radius: 10px;">
 </iframe>
