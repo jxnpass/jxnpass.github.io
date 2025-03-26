@@ -45,7 +45,9 @@ As a base case, we start with a three-dimensional multivariate normal distributi
 
 ### Type A: Z-Score
 
-* A cell value is much larger or smaller than expected. We set $z$ to impose $X_{ij}$ to be $z \cdot \text{SD}(X_i)$ away from the true value.
+A cell value is much larger or smaller than expected. We set $z$ to impose $X_{ij}$ to be $z \cdot \text{SD}(X_i)$ away from the true value.
+* Example: a researcher records data of the weight of subjects, and records some of the weights in lbs instead of kg. 
+
 <iframe src="/assets/MO2/MVN_TypeA.html"
         width="800" height="650"
         style="border: 2px solid black; border-radius: 10px;">
@@ -53,6 +55,8 @@ As a base case, we start with a three-dimensional multivariate normal distributi
 
 ### Type B: Mahalanobis Quantile
 A cell is exchanged with a value found within the bounds of $\sim U[\min(X_i), \max(X_i)]$. This scenario adjusts $X_{ij}$ to deviate from the correlation structure enough such that it exceeds the 99th percentile of the Mahalanobis distance of the uncontaminated data.
+* Example: a computer program accidentally shuffles some of the observations in one of the data columns. It doesn't necessarily ruin 
+
 <iframe src="/assets/MO2/MVN_TypeB.html"
         width="800" height="650"
         style="border: 2px solid black; border-radius: 10px;">
@@ -60,7 +64,15 @@ A cell is exchanged with a value found within the bounds of $\sim U[\min(X_i), \
 
 ### Type C: Cellwise Replacement
 A cell value  is replaced by a specific value. This is inspired by the function `generateData` in the `cellWise` package (Raymaekers and Rousseeuw, 2022).
+* Example: a computer program randomly replaces some of the values within a column to be 3 (but some of the cells were actually 3).
 <iframe src="/assets/MO2/MVN_TypeC.html"
         width="800" height="650"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
+
+## Conclusion
+We explored the difference between cellwise and casewise outliers, as well as the styles of cellwise outliers and where they may occur in real world data. This article sets up our part 3 of the matrix outlier series in exploring our new algorithm competes with leading methods for cellwise detection. 
+
+
+
+
