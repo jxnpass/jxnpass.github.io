@@ -19,14 +19,17 @@ date: 2025-2-21 17:50:00
 
 ## Introduction
 
-Raw data is almost always messy. It comes with plenty of errors ranging between the data being recorded incorrectly to missing completely. Not handling these errors may make machine learning algorithms or statistical inference problematic, with inflated variance in its estimation or  However, erroneous data may have certain patterns to its complications. In [Part 1](/_posts/2025-1-7-MissingValueImputation.md), we discussed how missing data can be Missing At Random, Missing Completely At Random, or Missing Not At Random, which all of it relates to the correlation structure of the data. Outlier data, on the other hand, comes in two different genres, namely casewise and cellwise outliers. 
+Raw data is almost always messy. It often contains errors ranging from incorrect entries to missing values. Failing to handle these errors can disrupt machine learning algorithms and statistical inference, leading to inflated variance and biased estimates. However, erroneous data often follows certain patterns. In [Part 1](/_posts/2025-1-7-MissingValueImputation.md), we discussed how missing data can be Missing At Random, Missing Completely At Random, or Missing Not At Random — all of which relate to the correlation structure of the data.
+
+Outliers, on the other hand, fall into two main categories: casewise and cellwise outliers.
 
 ### Casewise Outliers
 
-Casewise outliers are when an entire row within a dataframe is anomalous. It assumes that most cases were drawn from a certain model distribution but some other cases were not. These can be easily detected with various methods, namely Cook's Distance, Euclidean Distance, or _. Plenty of research has been conducted already to detect these types of outliers. 
+Casewise outliers occur when an entire row in a dataframe is anomalous. This assumes that most cases come from a certain model distribution, but some deviate from it. These outliers are relatively easy to detect using methods like Cook's or Euclidean Distance. A large body of research already exists on detecting these types of outliers.
 
 ### Cellwise Outliers
-Cellwise outliers are outliers where one cell within a row is anomalous. These are much harder to detect, and more common among research data. These occur likely when a computer has recording issues, or data entry workers make mistakes imputing research data. Most research exploring detecting these outliers are very recent; within the last 10 years, the most promising methods to detect these outliers have been developed by statistical researchers like Rousseeuw and Raymakers. I explore these methods and introduce our new method in Part 3.
+
+Cellwise outliers occur when a single cell within a row is anomalous. These are harder to detect and more common in research data. They often result from data entry errors or recording issues. Research into detecting cellwise outliers is relatively recent, with significant advancements over the last decade by researchers like Rousseeuw and Raymakers. In [Part 3](/_posts/2025-3-26-MatrixOutlierAlgorithms.md), we will explore these methods and introduce a new approach.
 
 <p align="center">
 <img style="width: 50%" src="/assets/MO2/outliergenres.png" alt="outliers">
@@ -34,9 +37,9 @@ Cellwise outliers are outliers where one cell within a row is anomalous. These a
 
 ## Types of Cellwise Outliers
 
-Cellwise outliers are unique in that they only stand out visually either within a multi-dimensional setting, or when the cell's column is marginalized to be within a two-dimensional framework. If you don't know to look for them, they could go completely undetected, and it will corrupt parts of your model and/or statistical inferences. In this article, we explore different types of cellwise outliers and how they can be seen when the data is three-dimensional (i.e. the dataframe has three columns). 
+Cellwise outliers are tricky to detect because they only stand out in multi-dimensional settings or when reduced to two dimensions. Without actively looking for them, they can go unnoticed and compromise model performance and statistical inference.
 
-As a base case, we start with a three-dimensional multivariate normal distribution. The dataset, represented in a three-dimensional plot below. The strong positive direction from the origin indicates that the correlation structure incorporates high collinearity between $X_1$, $X_2$, and $X_3$. As a consequence to outlier detection, higher collinearity makes classifying cellwise outliers easier, despite sometimes being problematic for linear models. 
+We’ll explore different types of cellwise outliers using a three-dimensional dataset generated from a multivariate normal distribution. The plot below illustrates the dataset’s strong positive correlation between $X_1$, $X_2$, and $X_3$, which makes detecting cellwise outliers easier despite potential issues with linear models.
 
 <iframe src="/assets/MO2/MVN.html"
         width="800" height="650"
@@ -44,9 +47,8 @@ As a base case, we start with a three-dimensional multivariate normal distributi
 </iframe>
 
 ### Type A: Z-Score
-
-A cell value is much larger or smaller than expected. We set $z$ to impose $X_{ij}$ to be $z \cdot \text{SD}(X_i)$ away from the true value.
-* Example: a researcher records data of the weight of subjects, and records some of the weights in lbs instead of kg. 
+A cell value is much larger or smaller than expected. We define $z$ as the number of standard deviations ($\text{SD}(X_i)$) that $X_{ij}$ deviates from the true value.
+* Example: A researcher records subjects’ weights, but some are recorded in pounds instead of kilograms.
 
 <iframe src="/assets/MO2/MVN_TypeA.html"
         width="800" height="650"
@@ -54,8 +56,8 @@ A cell value is much larger or smaller than expected. We set $z$ to impose $X_{i
 </iframe>
 
 ### Type B: Mahalanobis Quantile
-A cell is exchanged with a value found within the bounds of $\sim U[\min(X_i), \max(X_i)]$. This scenario adjusts $X_{ij}$ to deviate from the correlation structure enough such that it exceeds the 99th percentile of the Mahalanobis distance of the uncontaminated data.
-* Example: a computer program accidentally shuffles some of the observations in one of the data columns. It doesn't necessarily ruin 
+A cell value is exchanged with a value within the range of $\sim U[\min(X_i), \max(X_i)]$, causing it to exceed the 99th percentile of the Mahalanobis distance of the uncontaminated data.
+* Example: A computer program accidentally shuffles values in one of the columns, disrupting the correlation structure.
 
 <iframe src="/assets/MO2/MVN_TypeB.html"
         width="800" height="650"
@@ -63,16 +65,15 @@ A cell is exchanged with a value found within the bounds of $\sim U[\min(X_i), \
 </iframe>
 
 ### Type C: Cellwise Replacement
-A cell value  is replaced by a specific value. This is inspired by the function `generateData` in the `cellWise` package (Raymaekers and Rousseeuw, 2022).
-* Example: a computer program randomly replaces some of the values within a column to be 3 (but some of the cells were actually 3).
+A cell value  is replaced by a specific value. This is based on the function `generateData` in the `cellWise` package (Raymaekers and Rousseeuw, 2022).
+* Example: A computer program randomly replaces some values in a column with 3 — even though some original values were already 3.
 <iframe src="/assets/MO2/MVN_TypeC.html"
         width="800" height="650"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
 ## Conclusion
-We explored the difference between cellwise and casewise outliers, as well as the styles of cellwise outliers and where they may occur in real world data. This article sets up our part 3 of the matrix outlier series in exploring our new algorithm competes with leading methods for cellwise detection. 
-
+We explored the difference between cellwise and casewise outliers, along with the different types of cellwise outliers and how they appear in real-world data. In [Part 3](/_posts/2025-3-26-MatrixOutlierAlgorithms.md), we will examine how our new algorithm compares to leading methods for detecting cellwise outliers.
 
 
 
