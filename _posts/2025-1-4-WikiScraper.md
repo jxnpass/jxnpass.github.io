@@ -21,4 +21,4 @@ The app, built using Streamlit, enhances user interactivity by enabling the edit
   style="height: 600px; width: 100%;"
 ></iframe>
 
-The app above is usable for testing and for personal needs. You can also [view the app directly](https://wikiscraper.streamlit.app/) through Streamlit Cloud. The three links on the dashboard work well, but there may be notable shortcomings found when using other Wikipedia URLs. 
+Note: if the app is seen as asleep, you need to wake up the app directly [through this link](https://wikiscraper.streamlit.app/) on Streamlit Cloud. It will not wake up through the blog. 

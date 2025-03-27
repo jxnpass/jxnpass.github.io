@@ -40,7 +40,7 @@ $$
 
 The Mahalanobis distance formula computes the distance between observations within the data and the mean $\boldsymbol\mu$, also taking into account the correlation structure of the dat $\Sigma$. The significance of incorporating $\Sigma$ is to account for extreme values consistent with trends in the data to have a lower $D^2$ than any extreme values that are clearly separated from those trends. 
 
-For every column/variabel $j$ in $\textbf{X}$.
+For every column/variable $j$ in $\textbf{X}$.
 
 
 - Compute the Mahalanobis distance excluding $x_j$, $\mu_j$, and $\Sigma_{j}$ to get $D_{-j}^2$:  
