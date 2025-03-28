@@ -184,6 +184,56 @@ $$
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
+We initialize the creation of each distribution with a vector of $d$ means $\mu$, a standard deviation $\sigma$. We can also specify the means and variances for each cluster in a bimodal MVN dataset.
+
+**Covariance Structure**
+
+The form of the covariance matrix can also alternate between three types:
+
+- **Rho** ($\rho$): The Rho structure assumes a constant correlation value $\rho$ between all variables. The covariance matrix for this structure is defined below as
+
+$$
+\Sigma_{d} = 
+\sigma^2 
+\begin{bmatrix}
+1 & \rho & \rho & \cdots & \rho \\
+\rho & 1 & \rho & \cdots & \rho \\
+\rho & \rho & 1 & \cdots & \rho \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+\rho & \rho & \rho & \cdots & 1
+\end{bmatrix}
+$$
+
+- **A09**: Titled by [Jakob Raymaekers & Peter J. Rousseeuw](https://www.tandfonline.com/doi/full/10.1080/01621459.2023.2267777#abstract), this covariance structure is calculated to have stronger correlations among columns closer together, and weaker correlations for columns farther away. It can be computed as follows...
+
+$$
+\Sigma_{d} = 
+\sigma^2 
+\begin{bmatrix}
+1 & 0.9 & 0.9^2 & \cdots & 0.9^d \\
+0.9 & 1 & 0.9 & \cdots & 0.9^{d-1} \\
+0.9^2 & 0.9 & 1 & \cdots & 0.9^{d-2} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0.9^{d} & 0.9^{d-1} & 0.9^{d-2} & \cdots & 1
+\end{bmatrix}
+$$
+
+- **ALYZ**: ALYZ variances are randomly generated correlation matrices following the procedure of [Agostinelli et al. (2015)](https://link.springer.com/article/10.1007/s11749-015-0450-6) and typically have mostly small absolute correlations. The main point to illustrate with this type of structure is its wide variety to implement strong to weak correlations it generates in column data.
+
+**Outlier Settings**
+
+After we create our dataset from one of the three distributions, we then impose a proportion of the cells (called "rate") to become one of the three types of outliers:
+
+- Type A: a cell value is much larger or smaller than expected. We define $z$ as the number of standard deviations ($\text{SD}(X_i)$) that $X_{ij}$ deviates from the true value.
+
+- Type B: a cell value is exchanged with a value found within the range of $\sim U[\min(X_i), \max(X_i)]$, imposed to exceed the 99th percentile of the Mahalanobis distance of the uncontaminated data.
+
+- Type C: A cell value is replaced by a specific value. This is based on the function `generateData` in the `cellWise` package (Raymaekers and Rousseeuw, 2022).
+  
+And as inferred, each type of outlier has its own parameter settings, which we do not we will not go too into depth here. 
+
+For more information on the outlier types, you can refer to [Part 2](/_posts/2025-2-21-MatrixOutlierTypes.md).
+
 ## Discussion
 
 ## Next Steps
