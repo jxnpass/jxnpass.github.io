@@ -148,7 +148,7 @@ $$
 $\mu$ is a vector of $d$ means and $\Sigma$ is a $d \times d$ covariance matrix.
 
 <iframe src="/assets/MO3/MVN.html"
-        width="800" height="400"
+        width="650" height="500"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
@@ -167,7 +167,7 @@ $$
 This is essentially two MVN clusters within a dataset.
 
 <iframe src="/assets/MO3/bi_MVN.html"
-        width="800" height="400"
+        width="650" height="500"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
@@ -180,7 +180,7 @@ $$
 $$
 
 <iframe src="/assets/MO3/log_MVN.html"
-        width="800" height="400"
+        width="650" height="500"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
