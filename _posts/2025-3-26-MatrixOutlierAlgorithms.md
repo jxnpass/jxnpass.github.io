@@ -138,6 +138,7 @@ This figure below illustrates what is normally called a confusion matrix, which 
 In order to simulate the different forms data could take, we simulated from the following distributions in our Monte Carlo simulation study:
 
 MVN (Multivariate Noraml):
+
 $$
 \begin{equation}
     \boldsymbol{X}_{n\times d} \sim N_{d}(\boldsymbol{\mu}, \boldsymbol{\Sigma})
@@ -147,11 +148,12 @@ $$
 $\mu$ is a vector of $d$ means and $\Sigma$ is a $d \times d$ covariance matrix.
 
 <iframe src="/assets/MO3/MVN.html"
-        width="800" height="650"
+        width="800" height="400"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
 Bimodal MVN:
+
 $$
 \begin{equation} 
     \boldsymbol{X}_{n \times d} \sim 
@@ -161,14 +163,16 @@ $$
     \end{cases}
 \end{equation}
 $$
+
 This is essentially two MVN clusters within a dataset.
 
 <iframe src="/assets/MO3/bi_MVN.html"
-        width="800" height="650"
+        width="800" height="400"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
 Log MVN:
+
 $$
 \begin{equation}
     \boldsymbol{X}_{n\times d} \sim Lognormal_{d}(\boldsymbol{\mu}, \boldsymbol{\Sigma})
@@ -176,7 +180,7 @@ $$
 $$
 
 <iframe src="/assets/MO3/log_MVN.html"
-        width="800" height="650"
+        width="800" height="400"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
