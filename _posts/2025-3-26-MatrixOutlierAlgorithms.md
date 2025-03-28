@@ -129,13 +129,13 @@ To test the efficacy of each algorithm in detecting cellwise outliers, we incorp
 
 - Computation Time: The length to run the algorithm. 
 
-This figure below illustrates what is normally called a confusion matrix, which illustrates how accuracy and F1 score are computed under classification problems. Note the relationship between F1 Score and accuracy.  
+This figure below illustrates what is normally called a confusion matrix, which illustrates how accuracy and F1 score are computed under classification problems. Note the relationship between F1 Score and accuracy. While they are not exactly the same, they are closely related. For a low rate of outliers within a dataset (which is most likely), the accuracy can still be really high even if predictions on every cell is an inlier. F1 Score, ultimately, is a more indicative classifier when a model can find the outliers amid a sea of inliers. F1 Score mediates in finding all the outliers without over-classifying them (high recall, low precision), nor playing it safe by not classifying very few outliers (high precision, low recall). Thus, we utilize F1 Score as a secondary and powerfully demonstrative metric in determining algorithm success. 
 
 ![confmat](/assets/MO3/confmat.jpg)
 
 **Distributions and Parameters**
 
-In order to simulate the different forms data could take, we simulated from the following distributions:
+In order to simulate the different forms data could take, we simulated from the following distributions in our Monte Carlo simulation study:
 
 MVN (Multivariate Noraml):
 $$
@@ -146,12 +146,10 @@ $$
 
 $\mu$ is a vector of $d$ means and $\Sigma$ is a $d \times d$ covariance matrix.
 
-Log MVN:
-$$
-\begin{equation}
-    \boldsymbol{X}_{n\times d} \sim Lognormal_{d}(\boldsymbol{\mu}, \boldsymbol{\Sigma})
-\end{equation}
-$$
+<iframe src="/assets/MO3/MVN.html"
+        width="800" height="650"
+        style="border: 2px solid black; border-radius: 10px;">
+</iframe>
 
 Bimodal MVN:
 $$
@@ -163,9 +161,24 @@ $$
     \end{cases}
 \end{equation}
 $$
-
 This is essentially two MVN clusters within a dataset.
 
+<iframe src="/assets/MO3/bi_MVN.html"
+        width="800" height="650"
+        style="border: 2px solid black; border-radius: 10px;">
+</iframe>
+
+Log MVN:
+$$
+\begin{equation}
+    \boldsymbol{X}_{n\times d} \sim Lognormal_{d}(\boldsymbol{\mu}, \boldsymbol{\Sigma})
+\end{equation}
+$$
+
+<iframe src="/assets/MO3/log_MVN.html"
+        width="800" height="650"
+        style="border: 2px solid black; border-radius: 10px;">
+</iframe>
 
 ## Discussion
 
