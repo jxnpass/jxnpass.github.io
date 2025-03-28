@@ -15,7 +15,7 @@ date: 2025-3-26 7:50:00
 ## Table of Contents
 - [Introduction](#introduction)
 - [Methods](#methods)
-- [Simulation Results](#simulation-results)
+- [Simulation Results](#simulation)
 - [Discussion](#discussion)
 - [Next Steps](#next-steps)
 
@@ -75,31 +75,96 @@ The intuition stems from the difference calculation. If removing variable $j$ ca
 
 ### Fast DDC
 
-Fast DDC (Detect Deviating Cells) is an algorithm developed by [Peter J. Rousseeuw and Wannes Van Den Bossche in 2017](https://www.tandfonline.com/doi/full/10.1080/00401706.2017.1340909). For Fast DDC to work, the data is first standardized and calculates estimates $z$ based on robust estimates of $\mu$ and $\Sigma$. Cells are then flagged when $z$ surpasses a $\chi^2_1$ distribution. The flagged cells are removed for another round of estimation for bivariate correlations $\rho$. Then they re-impute the cells that are flagged to a best-case prediction value. If cells are deviant from the predicted value, that cell is marked as an outlier.
+Fast DDC (Detect Deviating Cells) is an algorithm developed by [Peter J. Rousseeuw and Wannes Van Den Bossche in 2017](https://www.tandfonline.com/doi/full/10.1080/00401706.2017.1340909). Fast DDC works by first standardizing the data using robust estimates of the mean ($\mu$) and covariance matrix ($\Sigma$). It computes robust z-scores based on these estimates, and cells are flagged when their z-score exceeds a critical value from a $\chi_1^2$ distribution.
 
-The primary advantage of Fast DDC is in its name: it proves to be very computationally efficient for larger data and fairly accurate. However, this method can only work when the data derives from a multivariate normal distribution. 
+Flagged cells are temporarily removed, and pairwise correlations ($\rho$) are re-estimated using the remaining data. Fast DDC then imputes flagged cells with a best-case prediction value based on these updated correlations. If the deviation from the predicted value remains large, the cell is marked as an outlier.
+
+The main advantage of Fast DDC is its computational efficiency, making it suitable for large datasets. However, its accuracy depends on the assumption that the data is approximately multivariate normal, which limits its application to non-Gaussian data.
 
 ### Cell MCD
 
-Cell MCD, or Cellwise Minimum Covariance Determinant, is based on the framework of Fast DDC to robustly estimate $\mu$ and $\Sigma$, but has added complexities to its computation to make it more concentrated in its identification. Developed by [Peter J. Rousseuw and Jakob Raymaekers in 2024](https://www.tandfonline.com/doi/full/10.1080/01621459.2023.2267777#abstract), it augments Fast DDC by maximizing a multivariate Gaussian likelihood in its estimation of the Mahalanobis distance for each point, then iterates through Concentration, Expectation, and Maximization of the likelihood until convergence (commonly considered C, E, and M steps).
+Cell MCD (Cellwise Minimum Covariance Determinant) builds upon the Fast DDC framework but introduces additional complexity to improve robustness and accuracy. Developed by [Peter J. Rousseeuw and Jakob Raymaekers in 2024](https://www.tandfonline.com/doi/full/10.1080/01621459.2023.2267777#abstract), it estimates the mean and covariance matrix using the Minimum Covariance Determinant (MCD) approach, which minimizes the determinant of the covariance matrix over a subset of the data.
 
-Cell MCD is very accurate and useful for imputing deviating cells (which is not our focus for this research yet) and proves to be a promising detector under Gaussian data. 
+Cell MCD computes the Mahalanobis distance for each point, then iterates through Concentration, Expectation, and Maximization (CEM steps) to refine the estimates of the mean and covariance matrix. This iterative process improves accuracy in identifying outliers, especially in small or noisy datasets.
+
+Cell MCD is highly accurate and also effective for imputing deviating cells. However, its greater computational complexity makes it less efficient than Fast DDC.
 
 ### DI
 
-DI stands for Detection Imputation, and is formulated based on two steps. After finding robust estimates of the standardized form of the data, DI utilizes various computations such as LASSO regression to detect cellwise outliers row by row in the Detection D-step, followed by an attempt to impute a corrected value under the Imputation I-step. This process repeats until convergence, or until the changes in the covariance structure are minute. This method is developed by [Peter J. Rousseuw and Jakob Raymaekers in 2020](https://jdssv.org/index.php/jdssv/article/view/18).
+DI (Detection-Imputation) follows a two-step framework involving detection and imputation. Developed by [Peter J. Rousseuw and Jakob Raymaekers in 2020](https://jdssv.org/index.php/jdssv/article/view/18), DI first computes robust estimates of the mean and covariance matrix.
 
-Like Cell MCD, DI promises accurate imputation using an EM algorithm based on a Gaussian likelihood. It proves slightly less efficient than Cell MCD and Fast DDC, however.  
+- In the Detection (D) step, DI applies methods like LASSO regression to identify cellwise outliers row-by-row.
+
+- In the Imputation (I) step, DI attempts to replace flagged values with best-case predictions based on the current estimates.
+
+This process repeats until convergence or until changes in the covariance structure become negligible.
+
+DI is effective for detecting and imputing outliers under the assumption of multivariate normality. However, it is computationally more expensive than Fast DDC and Cell MCD due to the iterative imputation step.
 
 ### Cell GMM
 
-Cell GMM (Gaussian Mixture Model) is developed by [Zacharria et. al. in 2025](https://www.researchgate.net/publication/383985298_Cellwise_outlier_detection_in_heterogeneous_populations) and is a unique algorithm compared to the previously listed ones as it is specifically designed to handle clusters of multivariate normal data. This method is like Cell MCD, but reconfigures the C-step to classify which rows belong to which cluster. 
+Cell GMM (Gaussian Mixture Model) was developed by [Zacharria et. al. in 2025](https://www.researchgate.net/publication/383985298_Cellwise_outlier_detection_in_heterogeneous_populations). Unlike the previous methods, Cell GMM is specifically designed for data with a clustered structure, where different subgroups of data may follow distinct multivariate normal distributions.
 
-Cell GMM proves to be a very strong algorithm in its ability to predict and impute, but has some major downsides to its use. In R programming, cell GMM takes over ten different hyperparameters in order to initialize computing over a dataset. In addition, the cell GMM method is extremely computationally expensive (as we will explore later). It has proven to be very impractical despite its powerful computation. 
+Cell GMM works similarly to Cell MCD but introduces a modified C-step to classify which rows belong to which cluster. It estimates the mean and covariance matrix for each cluster, then computes the Mahalanobis distance within each cluster to detect outliers.
 
-## Simulation Results
+Cell GMM is highly effective for detecting and imputing outliers in heterogeneous data. However, it has significant drawbacks:
 
+- It requires tuning over ten hyperparameters for proper initialization.
 
+- It is computationally expensive due to the complexity of fitting multiple mixture components and refining cluster assignments.
+
+As a result, Cell GMM is often impractical for large datasets despite its strong performance.
+
+## Simulation
+
+### Setup 
+
+**Metrics**
+
+To test the efficacy of each algorithm in detecting cellwise outliers, we incorporate a Monte Carlo simulation framework in order to assess both the center and spread of the algorithm metrics. We treat successful detectors similarly to how classification models are assessed under a classification framework. The metrics we will focus on for our analysis are the following:
+
+- Accuracy: Simply put, the proportion we correctly predict as inliers and correctly predict as outliers. 
+
+- F1 Score: The "harmonic" mean of recall and precision. In other words, it is the average of the proportion  of correctly predicted outliers out of all true outliers (recall) and the proportion of true outliers out of all predicted outliers (precision). 
+
+- Computation Time: The length to run the algorithm. 
+
+This figure below illustrates what is normally called a confusion matrix, which illustrates how accuracy and F1 score are computed under classification problems. Note the relationship between F1 Score and accuracy.  
+
+![confmat](/assets/MO3/confmat.jpg)
+
+**Distributions and Parameters**
+
+In order to simulate the different forms data could take, we simulated from the following distributions:
+
+MVN (Multivariate Noraml):
+$$
+\begin{equation}
+    \boldsymbol{X}_{n\times d} \sim N_{d}(\boldsymbol{\mu}, \boldsymbol{\Sigma})
+\end{equation}
+$$
+
+$\mu$ is a vector of $d$ means and $\Sigma$ is a $d \times d$ covariance matrix.
+
+Log MVN:
+$$
+\begin{equation}
+    \boldsymbol{X}_{n\times d} \sim Lognormal_{d}(\boldsymbol{\mu}, \boldsymbol{\Sigma})
+\end{equation}
+$$
+
+Bimodal MVN:
+$$
+\begin{equation} 
+    \boldsymbol{X}_{n \times d} \sim 
+    \begin{cases} 
+        N_d(\boldsymbol\mu_1, \boldsymbol\Sigma_1), & \text{with probability } p \\ 
+        N_d(\boldsymbol\mu_2, \boldsymbol\Sigma_2), & \text{with probability } (1 - p) 
+    \end{cases}
+\end{equation}
+$$
+
+This is essentially two MVN clusters within a dataset.
 
 
 ## Discussion
