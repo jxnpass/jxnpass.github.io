@@ -1,6 +1,6 @@
 ---
-title: "Outlier Detection Algorithm -- Part 3: Methods for Detecting Cellwise Outliers"
-description: In this post I introduce the main algorithm to define my master's research project, called MaMa (for Marginalized Mahalanobis), as well as exploring how competing algorithms classify cellwise outliers compared to ours.
+title: "Outlier Detection Algorithm -- Part 3: Methods for Creating and Detecting Cellwise Outliers"
+description: In this post I introduce the main algorithm to define my master's research project, called MaMa (for Marginalized Mahalanobis), as well as exploring how competing algorithms classify cellwise outliers.
 layout: post
 
 github:
@@ -15,8 +15,7 @@ date: 2025-3-26 7:50:00
 ## Table of Contents
 - [Introduction](#introduction)
 - [Methods](#methods)
-- [Simulation Results](#simulation)
-- [Discussion](#discussion)
+- [Simulation](#simulation)
 - [Next Steps](#next-steps)
 
 ## Introduction
@@ -190,7 +189,7 @@ We initialize the creation of each distribution with a vector of $d$ means $\mu$
 
 The form of the covariance matrix can also alternate between three types:
 
-- **Rho** ($\rho$): The Rho structure assumes a constant correlation value $\rho$ between all variables. The covariance matrix for this structure is defined below as
+- **Rho** ($\rho$): The Rho structure assumes a constant correlation value $\rho$ between all variables. $\rho$ can be any value in $(-1,1)$. The covariance matrix for this structure is defined below as
 
 $$
 \Sigma_{d} = 
@@ -204,7 +203,7 @@ $$
 \end{bmatrix}
 $$
 
-- **A09**: Titled by [Jakob Raymaekers & Peter J. Rousseeuw](https://www.tandfonline.com/doi/full/10.1080/01621459.2023.2267777#abstract), this covariance structure is calculated to have stronger correlations among columns closer together, and weaker correlations for columns farther away. It can be computed as follows...
+- **A09**: Titled by [Jakob Raymaekers & Peter J. Rousseeuw](https://www.tandfonline.com/doi/full/10.1080/01621459.2023.2267777#abstract), this covariance structure is calculated to have stronger correlations among columns closer together, and weaker correlations for columns farther away. 
 
 $$
 \Sigma_{d} = 
@@ -230,13 +229,9 @@ After we create our dataset from one of the three distributions, we then impose 
 
 - Type C: A cell value is replaced by a specific value. This is based on the function `generateData` in the `cellWise` package (Raymaekers and Rousseeuw, 2022).
   
-And as inferred, each type of outlier has its own parameter settings, which we do not we will not go too into depth here. 
-
 For more information on the outlier types, you can refer to [Part 2](/_posts/2025-2-21-MatrixOutlierTypes.md).
-
-## Discussion
 
 ## Next Steps
 
-
+In the next post Part 4, we will explore the results of each algorithm compared to MaMa under various combinations of the simulation parameters. 
 
