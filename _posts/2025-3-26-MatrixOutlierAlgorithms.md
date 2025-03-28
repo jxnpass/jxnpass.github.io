@@ -116,23 +116,21 @@ As a result, Cell GMM is often impractical for large datasets despite its strong
 
 ## Simulation
 
-### Setup 
-
-**Metrics**
+### Metrics
 
 To test the efficacy of each algorithm in detecting cellwise outliers, we incorporate a Monte Carlo simulation framework in order to assess both the center and spread of the algorithm metrics. We treat successful detectors similarly to how classification models are assessed under a classification framework. The metrics we will focus on for our analysis are the following:
 
-- Accuracy: Simply put, the proportion we correctly predict as inliers and correctly predict as outliers. 
+- **Accuracy**: Simply put, the proportion we correctly predict as inliers and correctly predict as outliers. 
 
-- F1 Score: The "harmonic" mean of recall and precision. In other words, it is the average of the proportion  of correctly predicted outliers out of all true outliers (recall) and the proportion of true outliers out of all predicted outliers (precision). 
+- **F1 Score**: The "harmonic" mean of recall and precision. In other words, it is the average of the proportion  of correctly predicted outliers out of all true outliers (recall) and the proportion of true outliers out of all predicted outliers (precision). 
 
-- Computation Time: The length to run the algorithm. 
+- **Computation Time**: The length of time to run the algorithm. 
 
 This figure below illustrates what is normally called a confusion matrix, which illustrates how accuracy and F1 score are computed under classification problems. Note the relationship between F1 Score and accuracy. While they are not exactly the same, they are closely related. For a low rate of outliers within a dataset (which is most likely), the accuracy can still be really high even if predictions on every cell is an inlier. F1 Score, ultimately, is a more indicative classifier when a model can find the outliers amid a sea of inliers. F1 Score mediates in finding all the outliers without over-classifying them (high recall, low precision), nor playing it safe by not classifying very few outliers (high precision, low recall). Thus, we utilize F1 Score as a secondary and powerfully demonstrative metric in determining algorithm success. 
 
 ![confmat](/assets/MO3/confmat.jpg)
 
-**Distributions and Parameters**
+### Distributions and Parameters
 
 In order to simulate the different forms data could take, we simulated from the following distributions in our Monte Carlo simulation study:
 
@@ -185,7 +183,7 @@ $$
 
 We initialize the creation of each distribution with a vector of $d$ means $\mu$, a standard deviation $\sigma$. We can also specify the means and variances for each cluster in a bimodal MVN dataset.
 
-**Covariance Structure**
+### Covariance Structures
 
 The form of the covariance matrix can also alternate between three types:
 
@@ -219,7 +217,7 @@ $$
 
 - **ALYZ**: ALYZ variances are randomly generated correlation matrices following the procedure of [Agostinelli et al. (2015)](https://link.springer.com/article/10.1007/s11749-015-0450-6) and typically have mostly small absolute correlations. The main point to illustrate with this type of structure is its wide variety to implement strong to weak correlations it generates in column data.
 
-**Outlier Settings**
+### Outlier Settings
 
 After we create our dataset from one of the three distributions, we then impose a proportion of the cells (called "rate") to become one of the three types of outliers:
 
