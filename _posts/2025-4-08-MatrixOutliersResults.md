@@ -46,42 +46,45 @@ Each chart within the subsections illustrates how each algorithm’s performance
 ### Type A Outliers
 
 **MVN**
+
 It's important to recall that all five algorithms we explore here (cellGMM, cellMCD, DDC, DI, and MaMa), were built to detect cellwise outliers under a standard multivariate normal distribution. Under the effect size figure, we see each algorithm perform exceptionally well. However, some algorithms struggle to handle high contamination. As the contamination of cellwise outliers grow, some of models like cellGMM and DDC tend to struggle greatly. These algorithms do not have explicit hyperparameters that make initial predictions on the rate of contamination.
 
-<div style="display: flex; justify-content: center; gap: 10px;">
-  <figure style="width: 65%; text-align: center;">
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <figure style="width: 48%; text-align: center;">
     <img src="/assets/MO4/EffectSizeFigs/Type A/MVN-A09-OutA.png" alt="MVN-A09-OutA-Effect" style="width: 100%;">
     <figcaption>Each algorithm performs well under a strongly intercorrelated (A09) dataset</figcaption>
   </figure>
-  <figure style="width: 65%; text-align: center;">
+  <figure style="width: 48%; text-align: center;">
     <img src="/assets/MO4/RateFigs/Type A/MVN-A09-OutA.png" alt="MVN-A09-OutA-Rate" style="width: 100%;">
     <figcaption>However, certain algorithms struggle under higher contamination rates</figcaption>
   </figure>
 </div>
 
 **Bimodal MVN**
+
 Let's consider the scenario where we combine two MVN clusters into a dataset. For this case, we see that MaMa and cellGMM do the best under various effect sizes and most outlier rates. Cell GMM was trained to identify outliers under "heterogenous data", and thus are built to excel in this type of data. However, higher percentages of outliers are a struggle for this algorithm. MaMa seems to handle each of these cases exceptionally well compared to competitors.   
 
-<div style="display: flex; justify-content: center; gap: 10px;">
-  <figure style="width: 65%; text-align: center;">
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <figure style="width: 48%; text-align: center;">
     <img src="/assets/MO4/EffectSizeFigs/Type A/bi_MVN-ALYZ-OutA.png" alt="bi_MVN-ALYZ-OutA-Effect" style="width: 100%;">
     <figcaption>MaMa and cellGMM are optimal algorithms under bimodal MVN </figcaption>
   </figure>
-  <figure style="width: 65%; text-align: center;">
+  <figure style="width: 48%; text-align: center;">
     <img src="/assets/MO4/RateFigs/Type A/bi_MVN-ALYZ-OutA.png" alt="bi_MVN-ALYZ-OutA-Rate" style="width: 100%;">
     <figcaption>cellGMM loses reliability at higher percentages of cellwise outliers </figcaption>
   </figure>
 </div>
 
 **Log MVN**
+
 When expanded to a logarithm MVN, MaMa makes promising strides. While detecting outliers gets trickier under this scenario, MaMa is able to pick up on the outlier trend faster than its competitors as the effect size grows. However, predictive accuracy dips downward unforunately under higher rates of outliers. Why is this the case? There is an important concept to establish here: the rate graphic is not to illustrate how MaMa performs worse under higher outlier percentages, but how cellMCD, DDC, and DI fail to establish any connection under **ALL** outlier rates. Note how precision is stuck at 100% for these three algorithms. Because each algorithm is trained to predict cellwise outliers far from its data center, it fails to determine if the naturally skewed observations found in a log MVN distribution are inliers, which inevitably creates over-sensitive classifications. Thus, the recall is so high, and the precision is so low for lower rates. However, as outlier percentage grows in the study, the trend for precision and F1 increases, making it a more attractive choice on paper, but ultimately not optimal for this type of algorithm. Thus, even though MaMa declines in performance with higher rates, it is very much preferred over these competing alorithms. 
 
-<div style="display: flex; justify-content: center; gap: 10px;">
-  <figure style="width: 65%; text-align: center;">
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <figure style="width: 48%; text-align: center;">
     <img src="/assets/MO4/EffectSizeFigs/Type A/log_MVN-Rho-OutA.png" alt="log_MVN-Rho-OutA-Effect" style="width: 100%;">
     <figcaption>MaMa is the obvious choice when detecting outliers in this distribution</figcaption>
   </figure>
-  <figure style="width: 65%; text-align: center;">
+  <figure style="width: 48%; text-align: center;">
     <img src="/assets/MO4/RateFigs/Type A/log_MVN-Rho-OutA.png" alt="log_MVN-Rho-OutA-Rate" style="width: 100%;">
     <figcaption>MVN-trained cellwise algorithms like DDC improve under a 'false' advantage under high outlier rates  </figcaption>
   </figure>
