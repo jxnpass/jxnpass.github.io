@@ -45,6 +45,8 @@ Each chart within the subsections illustrates how each algorithm’s performance
 
 ### Type A Outliers
 
+Type A outliers are simply created by altering $X_{ij}$ to be  $X_{ij} \pm z*SD(X)$. A higher effect size $z$ creates a more conspicuous outlier.
+
 **MVN**
 
 It's important to recall that all five algorithms we explore here (cellGMM, cellMCD, DDC, DI, and MaMa), were built to detect cellwise outliers under a standard multivariate normal distribution. Under the effect size figure, we see each algorithm perform exceptionally well. However, some algorithms struggle to handle high contamination. As the contamination of cellwise outliers grow, some of models like cellGMM and DDC tend to struggle greatly. These algorithms do not have explicit hyperparameters that make initial predictions on the rate of contamination.
@@ -86,14 +88,95 @@ When expanded to a logarithm MVN, MaMa makes promising strides. While detecting 
   </figure>
   <figure style="width: 90%; text-align: center;">
     <img src="/assets/MO4/RateFigs/Type A/log_MVN-Rho-OutA.png" alt="log_MVN-Rho-OutA-Rate" style="width: 100%;">
-    <figcaption>MVN-trained cellwise algorithms like DDC improve under a 'false' advantage with high outlier rates  </figcaption>
+    <figcaption>MVN-trained cellwise algorithms like DDC improve under the 'false' advantage of high outlier rates  </figcaption>
   </figure>
 </div>
 
-
 ### Type B Outliers
 
+Type B outliers require much more scrutiny in cleaning. This is because Type B outliers require consideration of the correlation structure of the dataset, as each value, including the cellwise outliers, are within the range of each variable. A Type B outlier is created when a cell value is pulled outside of the correlation structure such that it surpasses the quantile of Mahalanobis distances (MD) found within the true data (more explanation in [Part 2](/_posts/2025-2-21-MatrixOutlierTypes.md)). This quantile effect increases from the 90th to the 100th (maximum) to test different predictive outcomes.  
+
+For these examples, I decided to use the "A09" covariance matrix as it creates datasets with the greatest amount of multicollinearity, allowing outliers to stand out more and algorithms to be more comparable. 
+
+**MVN**
+
+Under the MVN Type B outliers, we see that MaMa is comparatively underperforming in precision, but doing mediocre in F1 and recall. Interestingly, MaMa performs well under various outlier percentages. While it is less accurate at detecting outliers at the lower rates, it keeps the same consistency under higher rates. 
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/EffectSizeFigs/Type B/MVN-A09-OutB.png" alt="MVN-A09-OutB-Effect" style="width: 100%;">
+    <figcaption>MaMa underperforms under Type B in the MVN case </figcaption>
+  </figure>
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/RateFigs/Type B/MVN-A09-OutB.png" alt="MVN-A09-OutB-Rate" style="width: 100%;">
+    <figcaption>Unlike other algorithms, MaMa stays consistent under changing outlier rates </figcaption>
+  </figure>
+</div>
+
+**Bimodal MVN**
+
+MaMa and Cell GMM perform exceptional in the bimodal case and are almost equally optimal for various MD quantiles. However, cellGMM has a poor recall, so it makes very "safe" classifications for cellwise outliers. Additionally, and similar to the MVN case, MaMa reveals greater consistency under various outlier percentages, again unlike cellGMM. 
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/EffectSizeFigs/Type B/bi_MVN-A09-OutB.png" alt="bi_MVN-A09-OutB-Effect" style="width: 100%;">
+    <figcaption>MaMa and cellGMM perform well under Type B in the bimodal MVN case </figcaption>
+  </figure>
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/RateFigs/Type B/bi_MVN-A09-OutB.png" alt="bi_MVN-A09-OutB-Rate" style="width: 100%;">
+    <figcaption>MaMa keeps consistency under changing outlier rates unlike cellGMM </figcaption>
+  </figure>
+</div>
+
+**Log MVN**
+
+The line chart figures below suggest interesting trends for MaMa. For the quantile increases, MaMa struggles at first, but sharply outperforms the other methods in classifying outliers. For the other four models, there is a certain percentile (around 92.5th to 95th) where we witness no improvement in classification. For the outlier rates, MaMa is clearly performing best in detection up until around 20%, where it takes a sharp decline. The logic behind this trend is unknown as of now, but future research may consider why MaMa had struggled in this area so uniquely. 
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/EffectSizeFigs/Type B/log_MVN-A09-OutB.png" alt="log_MVN-A09-OutB-Effect" style="width: 100%;">
+    <figcaption>MaMa stands out as an optimal model for classifying outliers under higher quantiles </figcaption>
+  </figure>
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/RateFigs/Type B/log_MVN-A09-OutB.png" alt="log_MVN-A09-OutB-Rate" style="width: 100%;">
+    <figcaption>MaMa outperforms all models up until around 20%, where it declines sharply </figcaption>
+  </figure>
+</div>
+
 ### Type C Outliers
+
+Type C is the simplest case of outliers, where a random percentage of cells within a column are replaced with a set value. This style of outlier creation was designed by Raymaekers and Rousseeuw and the `generateData` function in the `cellWise` package. To maintain the designed integrity of this outlier, we only consider the MVN and the bimodal MVN cases, as this function was designed to generate MVN data. 
+
+**MVN**
+
+For the MVN case, it appears that MaMa and cellGMM perform the best under Type C outliers with changing effects. There also appears to be some effect size where DDC, cellMCD, and DI cannot improve further. For growing outlier rates, MaMa again performs the most consistently. 
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/EffectSizeFigs/Type C/MVN-ALYZ-OutC.png" alt="MVN-ALYZ-OutC-Effect" style="width: 100%;">
+    <figcaption>MaMa and cellGMM are the top performers under MVN Type C  </figcaption>
+  </figure>
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/RateFigs/Type C/MVN-ALYZ-OutC.png" alt="MVN-ALYZ-OutC-Rate" style="width: 100%;">
+    <figcaption>MaMa performs the most consisently under all outlier percentages </figcaption>
+  </figure>
+</div>
+
+**Bimodal MVN**
+
+The line charts for this case had very unique trends. We see under growing effect size that each method seems to improve its classification, almost at the same rate. With outlier percentages, however, we see that each method does not perform well at all.
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/EffectSizeFigs/Type C/bi_MVN-Rho-OutC.png" alt="bi_MVN-Rho-OutC-Effect" style="width: 100%;">
+    <figcaption>All methods improve in performance when effect size grows </figcaption>
+  </figure>
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/RateFigs/Type C/bi_MVN-Rho-OutC.png" alt="bi_MVN-Rho-OutC-Rate" style="width: 100%;">
+    <figcaption>Each method reveals poor performance in one or more metrics </figcaption>
+  </figure>
+</div>
+
 
 ### Computation Time
 
@@ -103,4 +186,4 @@ When expanded to a logarithm MVN, MaMa makes promising strides. While detecting 
 
 ## Awards
 
-BYU held their 2025 Student Research Conference where I could to present my research to! I am estatic to share that I was the selected [winner of my session](https://src.byu.edu/winners/2025) (against 8 other student presenters) from the research I describe here. 
+BYU held their 2025 Student Research Conference where I could to present my research to! I am estatic to share that I was the selected [winner of my session](https://src.byu.edu/winners/2025) (against 6 other student presenters) from the research I describe here. 
