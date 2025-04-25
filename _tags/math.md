@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Post with Math
+title: Math
 permalink: /topics/math/
 ---

@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Posts with Tableau
+title: Tableau
 permalink: /topics/tableau/
 ---

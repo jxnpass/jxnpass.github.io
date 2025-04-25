@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Posts with R
+title: R
 permalink: /topics/r/
 ---

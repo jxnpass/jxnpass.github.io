@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Posts with Surveys
+title: Surveys
 permalink: /topics/surveys/
 ---

@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Posts with Outlier Detection
+title: Outlier Detection
 permalink: /topics/outlier-detection/
 ---

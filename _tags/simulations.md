@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Posts with Simulations
+title: Simulations
 permalink: /topics/simulations/
 ---

@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Posts with Web-Scraping
+title: Web-Scraping
 permalink: /topics/web-scraping/
 ---
