@@ -187,3 +187,10 @@ The line charts for this case had very unique trends. We see under growing effec
 ## Awards
 
 BYU held their 2025 Student Research Conference where I could to present my research to! I am estatic to share that I was the selected [winner of my session](https://src.byu.edu/winners/2025) (against 6 other student presenters) from the research I describe here. 
+
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <figure style="width: 90%; text-align: center;">
+    <img src="/assets/MO4/SRCWinners.JPG" alt="SRCWinners" style="width: 100%;">
+  </figure>
+</div>
+
