@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Python
+title: Posts with Python
 permalink: /topics/python/
 ---

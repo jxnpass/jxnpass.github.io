@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Models
+title: Posts with Models
 permalink: /topics/models/
 ---

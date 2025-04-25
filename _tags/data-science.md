@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Data Science
+title: Posts with Data Science
 permalink: /topics/data-science/
 ---

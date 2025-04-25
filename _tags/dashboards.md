@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Dashboards
+title: Posts with Dashboards
 permalink: /topics/dashboards/
 ---

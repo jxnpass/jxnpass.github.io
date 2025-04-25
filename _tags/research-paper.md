@@ -1,5 +1,5 @@
 ---
 layout: tag
-title: Research Paper
+title: Posts with Research Papers
 permalink: /topics/research-paper/
 ---
