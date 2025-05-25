@@ -95,6 +95,6 @@ If we assumed that $X_m$ and $X_f$ were normally distributed, we certainly could
 
 I learned a lot about how to report statistical inference with many complications in statistical reasoning in mind, namely survey response biases, imbalanced groups, and reporting findings under the pretense of a generally non-academic audience and doing so **with statistical cautions** in place. I also explored how different statistical methods have pros and cons, such as how Type I and Type II inflation influences p-values, and how Monte Carlo simulations can be used to expand questions from real-world data. Finally, the experience taught me how to tell a compelling story using visualizations, tables, and modeling in context of young adult dating culture, which is a very unique and interesting topic to report statistics on.  
 
-If you want to learn more about my statistics work on this project, I recommend checking out the full PDF! It is only $3, and can either be a very insightful deep reading, or a fun document to skim through. Either way, any support you offer me will help create more reports like this in the future! 
+If you want to learn more about my statistics work on this project, I recommend checking out the full PDF! It is only $5, and can either be a very insightful deep reading, or a fun document to skim through. Either way, any support you offer me will help create more reports like this in the future! 
 
 You can purchase the PDF [here](https://utahstats.org/product/provostats-comprehensive-report/).
