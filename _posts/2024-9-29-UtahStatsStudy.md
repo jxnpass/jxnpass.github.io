@@ -97,7 +97,4 @@ I learned a lot about how to report statistical inference with many complication
 
 If you want to learn more about my statistics work on this project, I recommend checking out the full PDF! It is only $3, and can either be a very insightful deep reading, or a fun document to skim through. Either way, any support you offer me will help create more reports like this in the future! 
 
-You can purchase the PDF here.
-
-<div class="payhip-embed-page" data-key="ujhvs">...</div><script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>
-
+You can purchase the PDF [here](https://utahstats.org/product/provostats-comprehensive-report/).
