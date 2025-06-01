@@ -1,5 +1,5 @@
 ---
-title: Institute Class Dashboard Tableau Dashboard
+title: Institute Class Tableau Dashboard
 description: A link to a Tableau Dashboard I assisted my local church group to help understand class attendance. 
 layout: post
 
