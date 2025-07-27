@@ -42,7 +42,7 @@ Cellwise outliers are tricky to detect because they only stand out in multi-dime
 We’ll explore different types of cellwise outliers using a three-dimensional dataset generated from a multivariate normal distribution. The plot below illustrates the dataset’s strong positive correlation between $X_1$, $X_2$, and $X_3$, which makes detecting cellwise outliers easier despite potential issues with linear models.
 
 <iframe src="/assets/MO2/MVN.html"
-        width="800" height="650"
+        width="800" height="800"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
@@ -51,7 +51,7 @@ A cell value is much larger or smaller than expected. We define $z$ as the numbe
 * Example: A researcher records subjects’ weights, but some are recorded in pounds instead of kilograms.
 
 <iframe src="/assets/MO2/MVN_TypeA.html"
-        width="800" height="650"
+        width="800" height="800"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
@@ -60,7 +60,7 @@ A cell value is exchanged with a value within the range of $\sim U[\min(X_i), \m
 * Example: A computer program accidentally shuffles values in one of the columns, disrupting the correlation structure.
 
 <iframe src="/assets/MO2/MVN_TypeB.html"
-        width="800" height="650"
+        width="800" height="800"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
