@@ -17,7 +17,7 @@ date: 2025-2-21 17:50:00
 - [Types of Cellwise Outliers](#types-of-cellwise-outliers)
 - [Conclusion](#Conclusion)
 
-## Introduction
+## Introduction 
 
 Raw data is almost always messy. It often contains errors ranging from incorrect entries to missing values. Failing to handle these errors can disrupt machine learning algorithms and statistical inference, leading to inflated variance and biased estimates. However, erroneous data often follows certain patterns. In [Part 1](/_posts/2025-1-7-MissingValueImputation.md), we discussed how missing data can be Missing At Random, Missing Completely At Random, or Missing Not At Random — all of which relate to the correlation structure of the data.
 
