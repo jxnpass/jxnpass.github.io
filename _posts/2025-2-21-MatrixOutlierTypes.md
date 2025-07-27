@@ -68,7 +68,7 @@ A cell value is exchanged with a value within the range of $\sim U[\min(X_i), \m
 A cell value is replaced by a specific value. This is based on the function `generateData` in the `cellWise` package (Raymaekers and Rousseeuw, 2022).
 * Example: A computer program randomly replaces some values in a column with 3 — even though some original values were already 3.
 <iframe src="/assets/MO2/MVN_TypeC.html"
-        width="800" height="650"
+        width="800" height="800"
         style="border: 2px solid black; border-radius: 10px;">
 </iframe>
 
