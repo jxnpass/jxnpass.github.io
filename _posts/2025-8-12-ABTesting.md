@@ -1,9 +1,9 @@
 ---
-title: The Holy War of A/B Testing: Frequentists vs Bayesians
+title: A/B Testing Holy War
 description: As I have progressed in to my education and career in statistical inference, I have heard from various professionals, strategy leaders, and peers about how frustrating interpreting statistics results can be. Statistics and data science academics, especially those deep into their fields, have very strong preferences for go-to testing. Here I unpack how both classical and Bayesian statisticians understand uncertainty, handle evidence, and guide decision-making. I'll also provide for R enthusiasts the right playground to perform their own hypothesis tests.
 layout: post
 tags: [R, Math, Inference]
-date: 2025-8-12 7:50:00
+date: 2025-8-12 17:50:00
 ---
 
 ## Table of Contents
