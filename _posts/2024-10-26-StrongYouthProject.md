@@ -8,7 +8,7 @@ github:
     repository_name: StrongYouthProject
     repository_url: https://github.com/jxnpass/StrongYouthProject
 
-tags: [Data Science, Models, Math, R, Research Paper]
+tags: [Data Science, Inference, Models, Math, R, Research Paper]
 date: 2024-10-26 17:50:00
 ---
 

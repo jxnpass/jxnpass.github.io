@@ -8,7 +8,7 @@ github:
     repository_name: UtahStats
     repository_url: https://github.com/jxnpass/UtahStats
 
-tags: [Data Science, Models, R, Research Paper, Surveys, Simulations]
+tags: [Data Science, Inference, Models, R, Research Paper, Surveys, Simulations]
 date: 2024-9-29 17:50:00
 ---
 
