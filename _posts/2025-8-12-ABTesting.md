@@ -177,7 +177,7 @@ SE_p <- sqrt(p_hat * (1-p_hat) * (1/gA$N + 1/gB$N))
 We can calculate the z-score and p-value manually, or use built-in R functions.
 
 Method 1: Manual
-```
+```r
 z_val <- (obs_difference - exp_difference) / SE_p
 
 # Compute p-value
@@ -195,13 +195,13 @@ paste("[", lwr, ", ", upr, "]", sep = "")
 ```
 
 Method 2: base R `prop.test()`
-```
+```r
 prop.test(x = c(gA$Sum, gB$Sum), n = c(gA$N, gB$N), 
           alternative = "two.sided", correct = F)
 ```
 
 Method 3: tidymodels `prop_test()`
-```
+```r
 data %>% 
   prop_test(Y ~ X, order = c("TRUE", "FALSE"), 
             correct = F, z = TRUE)
