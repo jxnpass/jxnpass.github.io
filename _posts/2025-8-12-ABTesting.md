@@ -106,7 +106,7 @@ Before diving into statistical testing, we start with some exploratory analysis.
 
 From this plot, multiple-item purchases appear to increase the probability of fraud by 300%. This suggests that the difference is at least eye-catching. We now need to formally test whether this difference is statistically significant.
 
-<details>
+<details markdown="1">
 <summary><strong>Frequentist Proportions Test</strong></summary>
 
 Let's determine whether multiple-item credit card purchases have a significantly higher fraud rate than single-item purchases.  
@@ -206,6 +206,7 @@ data %>%
   prop_test(Y ~ X, order = c("TRUE", "FALSE"), 
             correct = F, z = TRUE)
 ```
+
 </details> 
 
 ### Bayesian Proportions Test
