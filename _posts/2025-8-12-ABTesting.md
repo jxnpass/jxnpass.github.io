@@ -1,8 +1,8 @@
 ---
 title: A/B Testing Holy War
-description: As I have progressed in to my education and career in statistical inference, I have heard from various professionals, strategy leaders, and peers about how frustrating interpreting statistics results can be. Statistics and data science academics, especially those deep into their fields, have very strong preferences for go-to testing. Here I unpack how both classical and Bayesian statisticians understand uncertainty, handle evidence, and guide decision-making. I'll also provide for R enthusiasts the right playground to perform their own hypothesis tests.
+description: As I have progressed in to my education and career in statistical inference, I have heard from various professionals, strategy leaders, and peers about how frustrating interpreting statistics results can be. Here I unpack how both classical and Bayesian statisticians understand uncertainty, handle evidence, and guide decision-making. I'll also provide for R enthusiasts the right playground to perform their own hypothesis tests.
 layout: post
-tags: [R, Math, Inference]
+tags: [R, Inference, Math]
 date: 2025-8-12 17:50:00
 ---
 
@@ -10,8 +10,8 @@ date: 2025-8-12 17:50:00
 - [Introduction](#introduction)
 - [How Frequentists Think](#how-frequentists-think)
 - [How Bayesians Think](#how)
-- [Proportions](#proportions)
-- [Means](#means)
+- [Example 1: Credit Card Fraud](#example-1-credit-card-fraud)
+- [Example 2: BMI and Medical Expenses](#example-2-bmi-and-medical-costs)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -27,9 +27,9 @@ Here’s the exact setup they saw:
 Think you can answer these two questions correctly?
 
 <button type="button" onclick="toggleSpoiler('spoilerContent')">Show Answer</button>
-<div id="spoilerContent" style="display:none;">
+<blockquote id="spoilerContent" style="display:none; font-weight:bold">
     Both are "None of the above answers are correct"
-</div>
+</blockquote>
 
 <script>
 function toggleSpoiler(id) {
@@ -42,7 +42,7 @@ function toggleSpoiler(id) {
 }
 </script>
 
-So, why do so many smart, experienced people get this wrong?
+So, why do so many with educations still get this wrong?
 Because terms like p-value, test statistic, and confidence interval—while central to A/B testing—are widely misunderstood, even among professionals.
 
 A/B testing is built to make comparisons, and our brains naturally want to frame those comparisons in everyday language: Is A better than B? By how much? The classical A/B test—often taught in your first statistics course—answers these questions using only the information in your sample. On paper, it’s straightforward.
@@ -86,10 +86,138 @@ That last one is particularly powerful: a Bayesian 95% credible interval isn't r
 
 Of course, there’s a price: Bayesian methods require you to specify a prior belief (which can be controversial), and the math can be computationally heavier. But in exchange, you get results that align much more closely with how humans naturally think about uncertainty.
 
+In the next sections, I will give show the process of how frequentists and Bayesians perform an A/B test in R. 
 
-## Proportions
+## Example 1: Credit Card Fraud
 
-## Means
+We’ll use a dataset from [Kaggle](https://www.kaggle.com/datasets/younusmohamed/payment-fraud-empowering-financial-security?select=payment_fraud.csv).
+
+Imagine your boss hands you this data and asks "Is there significant evidence that making more than one purchase on a credit card is a signal for fraud?"
+
+To investigate, we define:
+
+Group A: Multiple-item charges (treatment)
+
+Group B: Single-item charges (control)
+
+Before diving into statistical testing, we start with some exploratory analysis. The bar chart below compares the fraud rates between the two groups:
+
+![fig2.1](/assets/ABTest/prop_eda.png)
+
+From this plot, multiple-item purchases appear to increase the probability of fraud by 300%. This suggests that the difference is at least eye-catching. We now need to formally test whether this difference is statistically significant.
+
+<details>
+<summary><strong>Frequentist Proportions Test</strong></summary>
+
+Let's determine whether multiple-item credit card purchases have a significantly higher fraud rate than single-item purchases.  
+
+To follow along, download the dataset from [Kaggle](https://www.kaggle.com/datasets/younusmohamed/payment-fraud-empowering-financial-security?select=payment_fraud.csv) and run the following setup code:
+
+```r
+library(tidyverse) # install.packages(tidyverse)
+library(tidymodels) # install.packages(tidymodels)
+
+data <- read_csv("payment_fraud.csv") %>% 
+  rename(X = numItems, Y = label) %>% 
+  select(X, Y)
+
+# Convert to binary indicators
+data$Y <- ifelse(data$Y == 1, T, F) # fraud?
+data$X <- ifelse(data$X > 1, T, F) # >1 purchase?
+
+# Compute group-level stats
+group_stats <- data %>% 
+    group_by(X) %>% 
+    summarise(Prop = mean(Y), Sum = sum(Y), N = n())
+gA <- group_stats[2,] # Multiple-item group
+gB <- group_stats[1,] # Single-item group
+```
+
+#### Step 1. Hypotheses 
+
+We begin by stating the null and alternative hypotheses:
+- Null $H_0$: $p_A - p_B = 0$ (fraud rates are the same for both groups)
+- Alternative $H_1$: $p_A - p_B \neq 0$ (fraud rates differ)
+
+We’ll also choose a significance level, $\alpha = 0.05$, as our decision cutoff.
+
+```r
+exp_diff <- 0 # null hypothesis difference
+obs_diff <- gA$Prop - gB$Prop
+alpha <- 0.05 # cutoff
+```
+
+#### Step 2: Check Assumptions
+
+The two-proportion z-test assumes:
+- Random and independent samples
+- Each group has at least 5 (preferably 10) “successes” and “failures”
+
+```r
+gA$N * gA$Prop > 5
+gA$N * (1-gA$Prop) > 5
+gB$N * gB$Prop > 5
+gB$N * (1-gB$Prop) > 5
+```
+
+#### Step 3: Standard Error
+- Unpooled: For confidence intervals
+- Pooled: For hypothesis testing and p-values
+
+```
+# unpooled (for CI)
+SE_u <- sqrt(((gA$Prop) * (1 - gA$Prop)) / gA$N + ((gB$Prop) * (1 - gB$Prop)) / gB$N)
+
+# pooled (for p-value)
+p_hat <- (gA$Sum + gB$Sum) / (gA$N + gB$N)
+SE_p <- sqrt(p_hat * (1-p_hat) * (1/gA$N + 1/gB$N))
+```
+
+#### Step 4. Run the test 
+We can calculate the z-score and p-value manually, or use built-in R functions.
+
+Method 1: Manual
+```
+z_val <- (obs_difference - exp_difference) / SE_p
+
+# Compute p-value
+p_val <- 2*pnorm(q = abs(z_val), lower.tail = F) # multiply by 2 for two-sided
+paste("Z-score", round(z_val, 2))
+paste("p-value", p_val) # definitely significant 
+
+# Compute confidence interval of difference
+lwr = obs_difference - qnorm(1-alpha/2) * SE_u
+upr = obs_difference + qnorm(1-alpha/2) * SE_u
+paste("Observed Difference")
+paste(obs_difference)
+paste("Observed Difference Confidence Interval:")
+paste("[", lwr, ", ", upr, "]", sep = "")
+```
+
+Method 2: base R `prop.test()`
+```
+prop.test(x = c(gA$Sum, gB$Sum), n = c(gA$N, gB$N), 
+          alternative = "two.sided", correct = F)
+```
+
+Method 3: tidymodels `prop_test()`
+```
+data %>% 
+  prop_test(Y ~ X, order = c("TRUE", "FALSE"), 
+            correct = F, z = TRUE)
+```
+</details> 
+
+### Bayesian Proportions Test
+
+
+
+
+## Example 2: BMI and Medical Costs
+
+- dataset from https://www.kaggle.com/datasets/waqi786/medical-costs
+![fig3.1](/assets/ABTest/mean_eda.png)
+
 
 ## Conclusion
 
