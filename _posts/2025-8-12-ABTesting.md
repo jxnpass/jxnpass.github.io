@@ -16,8 +16,7 @@ date: 2025-8-12 17:50:00
 - [Introduction](#introduction)
 - [How Frequentists Think](#how-frequentists-think)
 - [How Bayesians Think](#how)
-- [Example 1: Credit Card Fraud](#example-1-credit-card-fraud)
-- [Example 2: BMI and Medical Expenses](#example-2-bmi-and-medical-costs)
+- [Example: Credit Card Fraud](#example-credit-card-fraud)
 - [Conclusion](#conclusion)
 
 ## Introduction
@@ -94,7 +93,7 @@ Of course, there’s a price: Bayesian methods require you to specify a prior be
 
 In the next sections, I will give show the process of how frequentists and Bayesians perform an A/B test in R. 
 
-## Example 1: Credit Card Fraud
+## Example: Credit Card Fraud
 
 We’ll use a dataset from [Kaggle](https://www.kaggle.com/datasets/younusmohamed/payment-fraud-empowering-financial-security?select=payment_fraud.csv).
 
