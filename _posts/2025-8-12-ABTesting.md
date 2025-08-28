@@ -106,8 +106,7 @@ Before diving into statistical testing, we start with some exploratory analysis.
 
 From this plot, multiple-item purchases appear to increase the probability of fraud by 300%. This suggests that the difference is at least eye-catching. We now need to formally test whether this difference is statistically significant.
 
-<details markdown="1">
-<summary><strong>Frequentist Proportions Test</strong></summary>
+### Frequentist Proportions Testing
 
 Let's determine whether multiple-item credit card purchases have a significantly higher fraud rate than single-item purchases.  
 
@@ -133,7 +132,7 @@ gA <- group_stats[2,] # Multiple-item group
 gB <- group_stats[1,] # Single-item group
 ```
 
-#### Step 1. Hypotheses 
+**Step 1. Hypotheses**
 
 We begin by stating the null and alternative hypotheses:
 - Null $H_0$: $p_A - p_B = 0$ (fraud rates are the same for both groups)
@@ -147,7 +146,7 @@ obs_diff <- gA$Prop - gB$Prop
 alpha <- 0.05 # cutoff
 ```
 
-#### Step 2: Check Assumptions
+**Step 2: Check Assumptions**
 
 The two-proportion z-test assumes:
 - Random and independent samples
@@ -160,7 +159,7 @@ gB$N * gB$Prop > 5
 gB$N * (1-gB$Prop) > 5
 ```
 
-#### Step 3: Standard Error
+**Step 3: Standard Error**
 - Unpooled: For confidence intervals
 - Pooled: For hypothesis testing and p-values
 
@@ -173,10 +172,10 @@ p_hat <- (gA$Sum + gB$Sum) / (gA$N + gB$N)
 SE_p <- sqrt(p_hat * (1-p_hat) * (1/gA$N + 1/gB$N))
 ```
 
-#### Step 4. Run the test 
+**Step 4. Run the test**
 We can calculate the z-score and p-value manually, or use built-in R functions.
 
-Method 1: Manual
+*Method 1: Manual*
 ```r
 z_val <- (obs_difference - exp_difference) / SE_p
 
@@ -194,24 +193,40 @@ paste("Observed Difference Confidence Interval:")
 paste("[", lwr, ", ", upr, "]", sep = "")
 ```
 
-Method 2: base R `prop.test()`
+*Method 2: base R `prop.test()`*
 ```r
 prop.test(x = c(gA$Sum, gB$Sum), n = c(gA$N, gB$N), 
           alternative = "two.sided", correct = F)
 ```
 
-Method 3: tidymodels `prop_test()`
+*Method 3: tidymodels `prop_test()`*
 ```r
 data %>% 
   prop_test(Y ~ X, order = c("TRUE", "FALSE"), 
             correct = F, z = TRUE)
 ```
 
-</details> 
+These methods are consistent in their result: given that the p-value is 8.5e-49 (very very really small) and is less than 0.05, we reject the null hypothesis and conclude that the risk for fraud is significantly higher when multiple-item purchases are made. This p-value also suggests that the probability that there is truly no difference between single-item and multi-item purchases is this low, given the data we had observed. 
 
 ### Bayesian Proportions Test
 
+Here’s where Bayesian thinking really shines. Instead of framing everything around *what’s the probability of seeing this data if there’s no difference*, we flip the script and ask: *What’s the probability that one group really does have a higher fraud rate than the other?*
 
+To get there, Bayesians build a probability distribution for each group that reflects both what we believe before seeing the data (the prior) and what the data tells us (the likelihood). Think of it like this:
+
+- The likelihood comes from the data you’ve collected—how many fraudulent purchases you actually observed. Because each transaction can be fraud or not, the likelihood naturally follows a binomial distribution.
+
+- The prior captures your belief about the underlying fraud probability before looking at this dataset. Since that probability can only be between 0 and 1, a beta distribution makes a natural choice.
+
+Bayes’ theorem ties these two together into the posterior distribution—your updated belief about the fraud probability after seeing the data:
+
+$$
+\pi(p | y) \propto f(y | p)\pi(p)
+$$
+
+This posterior is powerful because it tells you directly the range of likely values for $p$, the probability of fraud. Even better: once you have a posterior for Group A and Group B, you can simulate from both and simply count how often $A > B$. In other words, you can compute the actual probability that fraud risk is higher in one group than the other. No careful dance around p-values, just a straight answer to the question decision-makers care about.
+
+The catch? Bayesian A/B testing is computationally heavier than the frequentist plug-and-play tests. Instead of one function call, you usually rely on MCMC simulations (Markov Chain Monte Carlo) to approximate those posteriors. But thanks to modern tools like PyMC, Stan, and `brms`, running these analyses is becoming far easier.
 
 
 ## Example 2: BMI and Medical Costs
