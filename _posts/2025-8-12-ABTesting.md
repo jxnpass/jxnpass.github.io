@@ -2,7 +2,13 @@
 title: A/B Testing Holy War
 description: As I have progressed in to my education and career in statistical inference, I have heard from various professionals, strategy leaders, and peers about how frustrating interpreting statistics results can be. Here I unpack how both classical and Bayesian statisticians understand uncertainty, handle evidence, and guide decision-making. I'll also provide for R enthusiasts the right playground to perform their own hypothesis tests.
 layout: post
-tags: [R, Inference, Math]
+
+github:
+    is_project_page: true
+    repository_name: ABTesting
+    repository_url: https://github.com/jxnpass/ABTesting
+
+tags: [Data Science, R, Inference, Math]
 date: 2025-8-12 17:50:00
 ---
 
@@ -199,12 +205,14 @@ prop.test(x = c(gA$Sum, gB$Sum), n = c(gA$N, gB$N),
           alternative = "two.sided", correct = F)
 ```
 
-*Method 3: tidymodels `prop_test()`*
+*Method 3: `tidymodels::prop_test()`*
 ```r
 data %>% 
   prop_test(Y ~ X, order = c("TRUE", "FALSE"), 
             correct = F, z = TRUE)
 ```
+
+**Step 5. Conclusion**
 
 These methods are consistent in their result: given that the p-value is 8.5e-49 (very very really small) and is less than 0.05, we reject the null hypothesis and conclude that the risk for fraud is significantly higher when multiple-item purchases are made. This p-value also suggests that the probability that there is truly no difference between single-item and multi-item purchases is this low, given the data we had observed. 
 
@@ -226,15 +234,212 @@ $$
 
 This posterior is powerful because it tells you directly the range of likely values for $p$, the probability of fraud. Even better: once you have a posterior for Group A and Group B, you can simulate from both and simply count how often $A > B$. In other words, you can compute the actual probability that fraud risk is higher in one group than the other. No careful dance around p-values, just a straight answer to the question decision-makers care about.
 
-The catch? Bayesian A/B testing is computationally heavier than the frequentist plug-and-play tests. Instead of one function call, you usually rely on MCMC simulations (Markov Chain Monte Carlo) to approximate those posteriors. But thanks to modern tools like PyMC, Stan, and `brms`, running these analyses is becoming far easier.
+The catch? Bayesian A/B testing is computationally heavier than the frequentist plug-and-play tests. Instead of one function call, you usually rely on MCMC simulations (Markov Chain Monte Carlo) to approximate those posteriors. But thanks to modern tools like nimble, Stan, and `bayesAB`, running these analyses is becoming far easier. Let's run this in R:
 
+**Step 1. Prior Distributions**
 
-## Example 2: BMI and Medical Costs
+To begin a Bayesian A/B analysis, we first define our prior beliefs. Since fraud is rare but non-zero, I want my priors to reflect this. I also expect that multi-item purchases are more likely to be fraudulent than single-item purchases. With this in mind, I set Beta priors for each group:
 
-- dataset from https://www.kaggle.com/datasets/waqi786/medical-costs
-![fig3.1](/assets/ABTest/mean_eda.png)
+- Group A (multi-item, treatment): $\Beta(\alpha = 10, \beta = 90)$, reflecting a ~10% fraud rate.
 
+- Group B (single-item, control): $\Beta(\alpha = 5, \beta = 95)$, reflecting a ~5% fraud rate.
+
+If strong priors feel uncomfortable, you can use a “non-informative” prior like $\Beta(1, 1)$, which places equal weight across all possible fraud rates (uniform over 0–1).
+
+```r
+# Group = FALSE (~5% are y = TRUE)
+f_a_hp <- 05
+f_b_hp <- 95
+
+# GROUP = TRUE (~10% are y = TRUE)
+t_a_hp <- 10
+t_b_hp <- 90
+
+# note hp stands for historical prior, use a=1 and b=1 for "non-informative" prior
+
+# Plot distributions
+curve(dbeta(x, f_a_hp, f_b_hp), from = 0, to = 1, 
+      col = "blue", lwd = 2, 
+      xlab = "Probability of Fraud",
+      ylab = "Density",
+      main = "Historical prior distributions of fraud",
+      )
+
+curve(dbeta(x, t_a_hp, t_b_hp), from = 0, to = 1, 
+      col = "red", lwd = 2, add = TRUE)
+
+legend("topright", 
+       legend = c("X = 1 Purchase", 
+                  "X = 2+ Purchases"),
+       col = c("blue", "red"), lwd = 2, bty = "n")
+```
+
+![fig2.2](/assets/ABTest/prior_dist_props.png)
+
+**Step 2. Deriving the Poseterior**
+
+Our data are Bernoulli outcomes (fraud vs. no fraud), which means the total number of fraud cases follows a Binomial distribution. Combining the Binomial likelihood with the Beta prior gives a Beta posterior. To prove this:
+
+1. Assume a Beta prior for $p$:
+$$
+p \sim \mathrm{Beta}(\alpha,\beta),
+\qquad
+\pi(p) = \frac{1}{\mathrm{B}(\alpha,\beta)} \, p^{\,\alpha-1} (1-p)^{\,\beta-1},
+$$
+
+2. Then, let $y \in \{0,1,\dots,n\}$ denote the number of successes in $n$ Bernoulli trials with success probability $p$.
+$$
+y \mid p \sim \mathrm{Binomial}(n,p),
+\qquad 
+f(y \mid p) = \binom{n}{y}\, p^{\,y} (1-p)^{\,n-y}.
+$$
+
+3. The unnormalized posterior (by Bayes’ rule) is
+$$
+\pi(p \mid y) \;\propto\; f(y \mid p)\,\pi(p)
+\;\propto\; 
+\Big[ \binom{n}{y}\, p^{\,y} (1-p)^{\,n-y} \Big]
+\cdot
+\Big[ p^{\,\alpha-1} (1-p)^{\,\beta-1} \Big].
+$$
+$$
+\dots \;\propto\; p^{\,(\alpha + y - 1)} \, (1-p)^{\,(\beta + n - y - 1)}.
+$$
+
+4. We can identify the kernel (Beta) and normalize.
+$$
+\pi(p \mid y) 
+= \frac{1}{\mathrm{B}(\alpha + y,\, \beta + n - y)}
+\, p^{\,\alpha + y - 1} (1-p)^{\,\beta + n - y - 1}.
+$$
+
+5. Yielding a Beta distribution with new parameters $\alpha^*$ and $\beta^*$ as
+$$
+p \mid y \;\sim\; \mathrm{Beta}\big(\,\alpha + y,\; \beta + n - y\,\big).
+$$
+
+This is a classic example of a conjugate prior, where the posterior is in the same family as the prior. The beauty of conjugacy is that updating beliefs is as simple as plugging in the observed counts. For fraud risk, that means our updated posterior for each group is just a Beta distribution with parameters adjusted by the data.
+
+**Step 3. Testing Treatment Differences**
+
+Having separate distributions for each group is helpful, but we need a distribution that models the *difference* in fraud rates. Unfortunately, no closed form exists for a difference in proportions. To create this, we use simulation.
+
+This can be done directly via random sampling (Method 1), or with MCMC approaches like Metropolis–Hastings (Method 2), which are useful when posteriors don’t have closed-form solutions. For convenience, you can also use packages like bayesAB (Method 3), which handle the computation and visualization.
+
+*Method 1: Direct Sampling*
+
+```r
+# create Group A poseterior parameters
+t_s <-  sum(data$Y[data$X == T])
+t_astar_hp <- t_a_hp + t_s # historical
+t_n <- length(data$Y[data$X == T])
+t_bstar_hp <- t_b_hp + t_n - t_s #historical
+
+# create Group B posterior parameters
+f_s <- sum(data$Y[data$X == F])
+f_astar_hp <- f_a_hp + f_s # historical
+f_n <- length(data$Y[data$X == F])
+f_bstar_hp <- f_b_hp + f_n - f_s
+
+# distribution of differences
+gA <- rbeta(10000, t_astar_hp, t_bstar_hp)
+gB <- rbeta(10000, f_astar_hp, f_bstar_hp)
+hist(gA - gB, main = "Group A - Group B Proportions",
+     xlab = "Proportion Differences")
+
+```
+
+![fig2.3](/assets/ABTest/prop_diff.png)
+
+*Method 2: Metropolis Hastings - Gibbs Sampling*
+
+For more on this process, I recommend [this article](https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm). But using Metropolis Hastings or Gibbs sampling is useful in the Bayesian setting when one, the posterior distribution is not a closed form solution, and two, you want good exploration of the parameter space. I won't explore it further here, but the code snippet below reveals how a Metropolis Hastings framework functions in the proportions test:
+
+```r
+n_iters <- 1000
+x <- c(t_s, f_s)             # successes
+a_prior <- c(t_a_hp, f_a_hp) # Beta prior alpha
+b_prior <- c(t_b_hp, f_b_hp) # Beta prior beta
+n <- c(t_n, f_n)             # total trials
+J <- length(x)
+
+theta_samples <- matrix(NA, nrow = n_iters, ncol = J)
+theta_current <- rep(0.5, J)   # initialize at 0.5 for each group
+
+# MH proposal standard deviation (tune this!)
+proposal_sd <- 0.2
+
+# function to compute log-posterior density
+log_posterior <- function(theta, x, n, a, b) {
+  if (theta <= 0 || theta >= 1) return(-Inf) # invalid
+  log_lik <- dbinom(x, size = n, prob = theta, log = TRUE)
+  log_prior <- dbeta(theta, a, b, log = TRUE)
+  return(log_lik + log_prior)
+}
+
+for (i in 1:n_iters) {
+  for (j in 1:J) {
+    
+    # propose new theta via logit-normal random walk
+    logit_theta <- qlogis(theta_current[j])                  # current on logit scale
+    logit_theta_prop <- rnorm(1, mean = logit_theta, sd = proposal_sd)
+    theta_prop <- plogis(logit_theta_prop)                   # back-transform
+    
+    # log-posterior for current and proposed
+    log_post_current <- log_posterior(theta_current[j], x[j], n[j], a_prior[j], b_prior[j])
+    log_post_prop <- log_posterior(theta_prop, x[j], n[j], a_prior[j], b_prior[j])
+    
+    # symmetric proposal, so acceptance ratio simplifies
+    log_accept_ratio <- log_post_prop - log_post_current
+    
+    if (log(runif(1)) < log_accept_ratio) {
+      theta_current[j] <- theta_prop  # accept
+    }
+    
+    theta_samples[i, j] <- theta_current[j]
+  }
+}
+```
+
+*Method 3: Use bayesTest() from* `bayesAB`
+
+```r
+library(bayesAB)
+t_data <- as.numeric(data$Y[data$X == T])
+f_data <- as.numeric(data$Y[data$X == F])
+
+abtest <- bayesTest(t_data, f_data,
+          priors = c('alpha' = f_a_hp, 'beta' = f_b_hp),
+          distribution = 'bernoulli')
+
+summary(abtest)
+```
+
+**Step 4. Conclusion**
+
+To get your "Bayesian p-value", you do the following (assuming you used method 1):
+
+```r
+my_test <- mean(gA > gB)
+print(paste("Probability that group A > group B in TRUE cases:", my_test))
+ci <- quantile(gA - gB, probs = c(.025, .975))
+paste("[", ci[1], ", ", ci[2], "]", sep = "")
+```
+
+To summarize the results, we calculate:
+
+- $P(p_A > p_B)$, the probability that multi-item purchases have higher fraud risk.
+
+- A 95% credible interval for the difference $p_A - p_B$.
+
+In our case, the probability that Group A exceeds Group B is essentially 100%, with the credible interval for the difference around 3.8% to 5.9%. This aligns closely with frequentist confidence intervals, but the interpretation is far more intuitive.
+
+Instead of saying “if we repeated this experiment infinitely, 95% of the intervals would contain the true difference”, we can directly say “given our data and prior, there is a 95% probability that the true difference lies within this interval.”
+
+That’s the real advantage of the Bayesian framework: it allows us to make probabilistic statements about the parameters we care about, in the exact way we want to think about them.
 
 ## Conclusion
+
+At the heart of this article was the challenge of interpreting significance tests—something that often feels abstract or even misleading when framed in the frequentist hypothesis testing paradigm. By contrasting this with the Bayesian approach, which lets us talk directly about the probability of one group being riskier than another, we saw how interpretation can become much more intuitive. Using a fraud detection dataset, we walked through how both frameworks address the same question—whether multi-item purchases carry higher fraud risk—and found consistent answers, despite the different philosophies. The key takeaway is that neither framework is inherently “better”; Bayesian methods may offer more natural interpretations while frequentist methods remain computationally simpler and widely used. Ultimately, whichever approach you choose, both can provide valid, actionable insights if applied carefully.
 
 
