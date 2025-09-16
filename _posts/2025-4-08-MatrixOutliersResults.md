@@ -15,7 +15,6 @@ date: 2025-4-08 7:50:00
 ## Table of Contents
 - [Introduction](#introduction)
 - [Results](#results)
-- [Discussion](#discussion)
 - [Conclusion](#conclusion)
 - [Awards](#awards)
 
@@ -177,12 +176,12 @@ The line charts for this case had very unique trends. We see under growing effec
   </figure>
 </div>
 
-
-### Computation Time
-
-## Discussion
-
 ## Conclusion
+
+The following post presents that MaMa, while perhaps not the best method across all types of situations, proves very versatile in many of them. This is a critical aspect for those having no prior knowledge about their data, wishing to review potential outliers or typos in the data, and wanting the most efficient way to find them. 
+
+This is the first of many simulations that I perform. To see the next simulation style, I recommend reading [part 5!]()
+
 
 ## Awards
 
