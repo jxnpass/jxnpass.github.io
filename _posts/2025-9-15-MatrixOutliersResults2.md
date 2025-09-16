@@ -165,17 +165,17 @@ Next steps for this project include:
 I had the privilege to present this research to an audience of statisticians in Nashville, TN for the [2025 Joint Statistical Meeting](https://ww2.amstat.org/meetings/jsm/2025/). I was grateful for presenting for 15 minutes to this audience, as well as hold a few conversations with working professionals about my work afterwards. 
 
 <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-  <figure style="width: 90%; text-align: center;">
+  <figure style="width: 50%; text-align: center;">
     <img src="/assets/MO5/IMG_4304.jpeg" alt="selfie" style="width: 100%;">
   </figure>
-  <figure style="width: 90%; text-align: center;">
+  <figure style="width: 50%; text-align: center;">
     <img src="/assets/MO5/IMG_2897.jpeg" alt="presentation" style="width: 100%;">
   </figure>
 </div>
 
-In addition, I was recognized by my department chair starting off this semester as the top contributor in the department: a mixture of my research and development!
+In addition, I was recognized by my department chair starting off this semester as the top contributor in the department. This was due to providing a mixture of lots of research, networking efforts, and developing commraderie within the cohort!
 
-![award](/assets/MO5/IMG_6193.jpg)
+<img src="/assets/MO5/IMG_6193.jpg" width="500" alt="award">
 
 I am grateful for the BYU Statistics Department for the sponsoring me in my trip to JSM, funding the research developed within this project, and creating the environment for me to learn, grow, and achieve amazing accomplishments within my statistics career!
 
