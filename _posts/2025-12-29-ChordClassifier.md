@@ -50,7 +50,7 @@ For this project, we only focus on detecting three-note chords. The components o
 **Inversion** - alters the order of the notes played. In other words, your base note changes. 
 
 <audio controls>
-  <source src="/assets/chord-class/C-4-min-chord-1.wav" type="audio/wav">
+  <source src="/assets/chord-class/C-4-maj-chord-1.wav" type="audio/wav">
   Your browser does not support the audio element.
 </audio>
 
@@ -64,7 +64,7 @@ The dataset used in this project was sourced from the publicly available [JazzNe
 
 To address the limited variability of the original recordings, each chord was augmented with multiple noise-altered versions using white, pink, and brown noise, increasing the dataset from 510 to 2,040 samples. This augmentation strategy encourages the model to focus on chord-relevant harmonic structure rather than recording-specific artifacts, improving robustness to noisier and more realistic audio conditions. 
 
-**White Noise** - broad spread of low-to-high frequencies 
+**White Noise** - broad spread of low-to-high frequencies **(loud noise warning)**
 
 <audio controls>
   <source src="/assets/chord-class/C-maj-white.wav" type="audio/wav">
@@ -93,15 +93,21 @@ To capture musically meaningful structure, three complementary harmonic feature 
 
 - Tonnetz features encode tonal relationships between pitches based on interval structure, emphasizing harmonic distance and making them well-suited for distinguishing chord quality. 
 
-<img src="/assets/chord-class/tonnetz.png" width="500" alt="tonnetz">
+<div class="img-center">
+    <img src="/assets/chord-class/tonnetz.png" width="800" alt="tonnetz">
+</div>
 
 - Chromagrams collapse spectral information into 12 pitch-class bins independent of octave, providing strong cues for detecting key signatures and major/minor tonality. 
 
-<img src="/assets/chord-class/chroma.png" width="500" alt="chroma">
+<div class="img-center">
+    <img src="/assets/chord-class/chroma.png" width="800" alt="chroma">
+</div>
 
 - CQTs represent frequency content on a logarithmic scale aligned with musical pitch classes, making them particularly effective for identifying the lowest pitch present and therefore the chord inversion. This audio-data transformation induces a little more noise than the other transformations, making detection of the inversion more ambiguous than the other clear-cut transformations.
 
-<img src="/assets/chord-class/cqt.png" width="500" alt="chroma">
+<div class="img-center">
+    <img src="/assets/chord-class/cqt.png" width="800" alt="chroma">
+</div>
 
 ## Methods
 
@@ -123,7 +129,9 @@ All variants of the audio transformations (tonnetz, CQTs, chromagrams) were test
 
 **Pitch Class Profiles and Uncertainty:** Softmax outputs revealed a clear pattern: prediction certainty decreases sharply as pitch increases, especially for high-register chords where harmonic structure becomes harder to distinguish (even for humans). This diagnostic motivated the training to filter pitches, which substantially boosted model performance.
 
-<img src="/assets/chord-class/conf.png" width="500" alt="conf">
+<div class="img-center">
+    <img src="/assets/chord-class/conf.png" width="500" alt="conf">
+</div>
 
 **Predicting Tonality, Key Signature, and Inversion:** Removing high-pitch samples (C6 and above) dramatically improved accuracy for all deep learning models. The final results were 
 
@@ -135,9 +143,11 @@ All variants of the audio transformations (tonnetz, CQTs, chromagrams) were test
 
 When predicting all chords sampled by JazzNet, the ensemble achieved 94% exact chord accuracy, with the error driven mainly by InversionNet. Tonality and key were nearly perfect (99.3% and 100%).
 
-**External Validation Exercise with Trained Musicians**: To determine how the ensemble network does at (1) predicting chords from new audio sources, and (2) if it can do better than the average musician, I asked three friends who have 15+ years of experience in piano to see how accurately they can classify seven chords I played and recorded on a piano in my home. To the right is a table that summarizes the results of this exercise. All subjects predicted tonality almost perfectly. The key signature and inversion were very difficult to predict for Evan and Brigg, which the model clearly does better with. However, Ty has absolute (perfect) pitch and predicted each chord with 100% confidence, completely outshining the ensemble.
+**External Validation Exercise with Trained Musicians**: To determine how the ensemble network does at (1) predicting chords from new audio sources, and (2) if it can do better than the average musician, I asked three friends who have 15+ years of experience in piano to see how accurately they can classify seven chords I played and recorded on a piano in my home. Below is a table that summarizes the results of this exercise. All subjects predicted tonality almost perfectly. The key signature and inversion were very difficult to predict for Evan and Brigg, which the model clearly does better with. However, Ty has absolute (perfect) pitch and predicted each chord with 100% confidence, completely outshining the ensemble.
 
-<img src="/assets/chord-class/valex.png" width="500" alt="conf">
+<div class="img-center">
+    <img src="/assets/chord-class/valex.png" width="800" alt="conf">
+</div>
 
 ## Conclusion
 
