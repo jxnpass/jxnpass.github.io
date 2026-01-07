@@ -28,7 +28,7 @@ This project investigates the factors influencing lap times in Mario Kart 8 Delu
 
 ## Introduction
 
-Music is the art of organizing sound through melody, rhythm, harmony, and timbre to create structure, emotion, and meaning. Most Western music follows a tonal system, which is a shared set of rules that governs how pitches relate, how tension and resolution emerge, and how musical ideas evolve over time. At the heart of this system are chords: collections of notes built from specific intervals that form the harmonic foundation of melodies and chord progressions. While trained musicians can often identify chord qualities by ear, distinguishing between dozens of triadic variants across keys, inversions, and pitch ranges is a challenging task. This project explores whether a deep learning model can learn to identify key chord characteristics, including tonality (major or minor), key signature, and inversion, using audio-derived harmonic features. By applying neural networks to this fundamental rule system of tonal music, the project sits at the intersection of music theory, signal processing, and machine learning, with potential applications in chord transcription, music analysis, and creative audio tools.
+Mario Kart, first released in 1992, has become one of the most popular racing games worldwide. The game features various characters, karts, and tracks, each with unique attributes that affect the game-play. Despite its underlying complexity, the goal is simple: Finish the fastest. This project aims to analyze the factors that influence lap times in Mario Kart 8 Deluxe using multivariate statistical techniques. Specifically, we want to know how much the kart attributes affect performance, whether the learning curves differ between courses and speeds, and if there are distinct skill groups among players after accounting for other factors. By applying methods such as MANOVA, canonical discriminant analysis, PCA, multivariate regression, and clustering, we hope to uncover the intricate relationships between these factors and their impact on each lap. Our analysis will provide insight into the dynamics of Mario Kart 8 Deluxe and inform strategies for optimizing lap times at various skill levels
 
 ## Methodology
 
@@ -128,7 +128,6 @@ Even though the speed effect interacts with subject skill ($p=0.0017$), it is st
 One possible explanation for the Lap 2 dominance is that some subjects require a lap to adjust to 200cc, especially on volatile courses such as RRW, leading to large improvements (or large mistakes) specifically in Lap 2. Others remain stable across laps. Figure 1 illustrates these findings. The 200cc group not only shows higher mean CV1 values, but also a noticeably broader distribution, reflecting the wide range of subject adaptability at high speed.
 
 #### Course
-
 
 The course effect reveals meaningful structure in how subjects progress across laps. Because raw speed is used instead of time, the analysis accounts (to the extent possible) for course length while still reflecting course-specific difficulty.
 
