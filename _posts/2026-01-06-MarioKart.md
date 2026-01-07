@@ -169,7 +169,7 @@ Clustering, following the procedure outlined in the methods section, produced gr
 Most of the separation across clusters occurs along the x-axis, which appears to correspond to overall speed or general skill level. Ranking players by their mean speed across all tracks produces an ordering that is consistent with the cluster assignments, with only minor disagreements (see bottom figure and Table 1).
 
 <div class="img-center">
-    <img src="/assets/MarioKart/clustergraph.png" width="800" alt="fig-cluster">
+    <img src="/assets/MarioKart/clustergraph.jpeg" width="800" alt="fig-cluster">
 </div>
 
 The y-axis reflects consistency in lap speeds. Players with lower values, such as Patric, exhibit relatively stable lap times, whereas players with higher values, such as Connor, tend to display larger variability across laps. This secondary dimension helps refine the cluster structure by distinguishing players who may be similarly fast on average but differ in their reliability.
