@@ -70,17 +70,14 @@ $$
 \boldsymbol{Z} = \boldsymbol{X} \boldsymbol{\text{eig}(E^{-1}H)},
 $$
 
-where $X$ is the identity matrix with the experimented variables and $\text{eig}(E^{-1}H)$ is the eigen decomposition from using a specific $H$ matrix (\textit{between-group} variation for the factor being tested). $\boldsymbol{Z}$ was then standardized to aid in interpretability, as followed in \cite{syp}.
+where $X$ is the identity matrix with the experimented variables and $\text{eig}(E^{-1}H)$ is the eigen decomposition from using a specific $H$ matrix (*between-group* variation for the factor being tested). $\boldsymbol{Z}$ was then standardized to aid in interpretability, as followed in my [Strong Youth Project](/_posts/2024-10-26-StrongYouthProject.md).
 
-We note that the original intention was to utilize a \textit{random effects and repeated measures} MANOVA for this analysis, which was meant to isolate the influence of subject-by-subject skils, but due to some discovered limitations within the SAS language, subject could not be included as a random effect. Despite this setback, a \textit{subject} fixed-effect ended up providing unique and novel ideas to our research. 
+We note that the original intention was to utilize a *random effects and repeated measures* MANOVA for this analysis, which was meant to isolate the influence of subject-by-subject skils, but due to some discovered limitations within the SAS language, subject could not be included as a random effect. Despite this setback, a *subject* fixed-effect ended up providing unique and novel ideas to our research. 
 
 #### Multivariate Multiple Regression
 
 Multivariate Multiple Regression (MMR) is an extension of multiple regression analysis that allows for the 
-simultaneous prediction of multiple dependent variables using one or more independent variables \cite{rencher2002methods}. In MMR, we 
-model the relationship between lap speeds and multiple response variables, capturing the 
-interdependencies among the responses. The general form of the MMR model can be expressed by the following 
-equation:
+simultaneous prediction of multiple dependent variables using one or more independent variables. In MMR, we model the relationship between lap speeds and multiple response variables, capturing the interdependencies among the responses. The general form of the MMR model can be expressed by the following equation:
 
 $$
 \mathbf{Y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\Xi}
@@ -118,7 +115,7 @@ Across factors, the three lap speeds are highly correlated. Thus, many effects a
 
 #### Speed (CC)
 
-Even though the speed effect interacts with subject skill ($p=0.0017$), it is strongly significant overall ($p<0.0001$). Table \ref{tab:speed_tb} shows that the single discriminant variate (CV1) loads heavily on all three laps, with particularly strong contribution from Lap 2. Canonical correlations above 0.96 indicate that the multivariate speed profile shifts consistently across laps.
+Even though the speed effect interacts with subject skill ($p=0.0017$), it is strongly significant overall ($p<0.0001$). Table 4 shows that the single discriminant variate (CV1) loads heavily on all three laps, with particularly strong contribution from Lap 2. Canonical correlations above 0.96 indicate that the multivariate speed profile shifts consistently across laps.
 
 <div class="img-center">
     <img src="/assets/MarioKart/table4.png" width="800" alt="table4">
@@ -137,8 +134,9 @@ The course effect reveals meaningful structure in how subjects progress across l
 
 From Table 5, two meaningful axes stood out in the discriminant analysis. We note that:
 
-- CV1 (80\% of variance) contrasts Lap 1 and Lap 2 performance against Lap 3. Higher CV1 values correspond to faster early laps; this is where MKS and EBA cluster in Figure 2, consistent with their lower difficulty and shorter learning curves.
-- CV2 (18\% of variance) highlights Lap 2 versus Lap 3 behavior. Difficult courses such as RRW and SR tend to show substantial improvement from Lap 1 to Lap 2, but little or negative improvement from Lap 2 to Lap 3. This results in their separation along the vertical (CV2) direction.
+- CV1 (80% of variance) contrasts Lap 1 and Lap 2 performance against Lap 3. Higher CV1 values correspond to faster early laps; this is where MKS and EBA cluster in Figure 2, consistent with their lower difficulty and shorter learning curves.
+
+- CV2 (18% of variance) highlights Lap 2 versus Lap 3 behavior. Difficult courses such as RRW and SR tend to show substantial improvement from Lap 1 to Lap 2, but little or negative improvement from Lap 2 to Lap 3. This results in their separation along the vertical (CV2) direction.
 
 <div class="img-center">
     <img src="/assets/MarioKart/table5.png" width="800" alt="table5">
@@ -152,7 +150,7 @@ Overall, the course effect captures meaningful lap-specific dynamics, with MKS a
 
 #### Subjects
 
-Subject effects contain some of the richest structure in the multivariate analysis, even though subjects are not traditionally treated as fixed effects in ANOVA. As shown in Table \ref{tab:subject_tb}, CV1 alone explains 96\% of the subject variation, with all three laps contributing positively. This is clearly indexing overall skill. CV2 and CV3 (each about 2\%) capture subtler differences in how subjects progress across laps.
+Subject effects contain some of the richest structure in the multivariate analysis, even though subjects are not traditionally treated as fixed effects in ANOVA. As shown in Table 6, CV1 alone explains 96% of the subject variation, with all three laps contributing positively. This is clearly indexing overall skill. CV2 and CV3 (each about 2%) capture subtler differences in how subjects progress across laps.
 
 <div class="img-center">
     <img src="/assets/MarioKart/table6.png" width="800" alt="table6">
@@ -161,12 +159,12 @@ Subject effects contain some of the richest structure in the multivariate analys
 Figure 5 displays the subject effect restricted to 200cc, where between-subject skill differences are most pronounced compared to 150cc (and is evident by the significant subject $\times$ speed interaction). High CV1 values identify the strongest racers (e.g., Jackson 🏆, Ty, Brigg, Paul), who also show stable lap profiles (CV2, CV3 near zero). Low CV1 values identify the weaker racers (e.g. Ali, Brianne), who show consistent under-performance relative to the rest of the sample. Mid-tier racers show moderate CV1 but more variation in CV2 and CV3, indicating inconsistent laps. For example, Patric exhibited strong Lap 1 and Lap 3 speeds but an unusually slow Lap 2 on MKS, which is placing him high on CV2 for one of his observations. Conversely, Gavin had a very poor Lap 3 on SR, placing him extremely low on both CV2 and CV3. 
 
 <div class="img-center">
-    <img src="/assets/MarioKart/fig_subject.png" width="800" alt="fig-subject">
+    <img src="/assets/MarioKart/fig_subject.png" width="1200" alt="fig-subject">
 </div>
 
 ### Are there distinct skill groups among players?
 
-Clustering, following the procedure outlined in the methods section, produced groupings that largely support the conclusions from the MANOVA. An elbow plot had shown that a clear reduction in within-cluster sum of squares recommends three to four, after which the marginal improvement begins to plateau. Although a three-cluster solution is defensible, we ultimately selected four clusters because it provides a more meaningful separation of player skill levels. Under a three-cluster configuration, the \textit{elite} group became disproportionately large (over half the field) which did not align with observed performance differences.
+Clustering, following the procedure outlined in the methods section, produced groupings that largely support the conclusions from the MANOVA. An elbow plot had shown that a clear reduction in within-cluster sum of squares recommends three to four, after which the marginal improvement begins to plateau. Although a three-cluster solution is defensible, we ultimately selected four clusters because it provides a more meaningful separation of player skill levels. Under a three-cluster configuration, the *elite* group became disproportionately large (over half the field) which did not align with observed performance differences.
 
 Most of the separation across clusters occurs along the x-axis, which appears to correspond to overall speed or general skill level. Ranking players by their mean speed across all tracks produces an ordering that is consistent with the cluster assignments, with only minor disagreements (see bottom figure and Table 1).
 
@@ -176,14 +174,14 @@ Most of the separation across clusters occurs along the x-axis, which appears to
 
 The y-axis reflects consistency in lap speeds. Players with lower values, such as Patric, exhibit relatively stable lap times, whereas players with higher values, such as Connor, tend to display larger variability across laps. This secondary dimension helps refine the cluster structure by distinguishing players who may be similarly fast on average but differ in their reliability.
 
-Combining evidence from MANOVA and Ward’s hierarchical clustering, four qualitatively distinct skill groups emerge: an \textit{elite} group of highly experienced players (Jackson, Ty, Paul, and Brigg); a \textit{good} group familiar with the game but less dominant (Patric, Gavin, Grant, and Talmage); an \textit{average} group that likely has broader video game experience but less Mario Kart–specific expertise (Connor, Evan, Sam, and Daisy); and a \textit{poor} group consisting of Ali and Brianne. These clusters are visually apparent in Figure 7. The canonical axes from the MANOVA reinforce this separation, with one notable exception: Patric appears closer to the elite group on the canonical plot than in the clustering solution. This discrepancy may be attributable to his unusually low lap-time variance, which influences the MANOVA space more heavily than the distance metric used in clustering.
+Combining evidence from MANOVA and Ward’s hierarchical clustering, four qualitatively distinct skill groups emerge: an *elite* group of highly experienced players (Jackson, Ty, Paul, and Brigg); a *good* group familiar with the game but less dominant (Patric, Gavin, Grant, and Talmage); an *average* group that likely has broader video game experience but less Mario Kart–specific expertise (Connor, Evan, Sam, and Daisy); and a *poor* group consisting of Ali and Brianne. These clusters are visually apparent in Figure 7. The canonical axes from the MANOVA reinforce this separation, with one notable exception: Patric appears closer to the elite group on the canonical plot than in the clustering solution. This discrepancy may be attributable to his unusually low lap-time variance, which influences the MANOVA space more heavily than the distance metric used in clustering.
 
 ### How much do kart attributes affect performance?
 
 As expected, the kart attributes exhibit substantial correlation structure. To reduce dimensionality and identify the major underlying dimensions driving performance, we conducted a Principal Component Analysis (PCA) on the six kart attributes. The first principal component (PC1) explained approximately 76% of the total variance—indicating that most of the information in the attribute set can be summarized along a single dominant axis. Table 7 presents the loadings and the proportion of variance explained for the first three components.
 
 <div class="img-center">
-    <img src="/assets/MarioKart/fig_corrplot.png" width="800" alt="fig-corrplot">
+    <img src="/assets/MarioKart/fig_corrplot.png" width="500" alt="fig-corrplot">
 </div>
 
 <div class="img-center">
