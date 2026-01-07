@@ -6,7 +6,7 @@ layout: post
 github:
     is_project_page: false
 
-tags: [Data Science, R, Models, Inference]
+tags: [Data Science, R, Models, Inference, SAS, Math]
 date: 2026-01-06 7:50:00
 ---
 
