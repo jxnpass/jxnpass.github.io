@@ -98,4 +98,4 @@ We explored the general experimental process for this BYU Nutritional Science st
 
 I am proud to have made this my first exposure to academic research and learned a lot about effective research strategies and conveying results to broader audiences. The study also became a great introduction for the field of psychology and behavior, which I have tremendous interest in. 
 
-As of this moment, this paper has undergone months of peer-review from multiple academic journals. I will link the DOI once it is published.
+To access the paper yourself, visit [SAGE Journals Perception and Motor Skills](https://journals.sagepub.com/doi/10.1177/00315125251410466).
