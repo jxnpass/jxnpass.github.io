@@ -29,9 +29,9 @@ Amazon review text can be noisy, emotional, yet surprisingly informative. A one-
 
 For this project, I analyzed Amazon reviews for the textbook Statistical Inference by Casella and Berger using ordinal regression methods. Because star ratings naturally form ordered categories (1 through 5 stars), ordinal GLMs provide a more appropriate framework than standard linear regression.
 
-<figure>
-  <img src="https://pbs.twimg.com/media/HBM6I3RbsAAOtSP.jpg" width="450" position="center" alt="c-and-b">
-</figure>
+<div class="img-center">
+  <img src="https://pbs.twimg.com/media/HBM6I3RbsAAOtSP.jpg" width="450" alt="c-and-b">
+</div>
 
 The primary goals of the analysis were:
 
@@ -111,9 +111,9 @@ The continuation ratio model treats categories sequentially. It models the proba
 
 Model performance was evaluated using 5-fold cross validation:
 
-<figure>
+<div class="img-center">
   <img src="/assets/AmazonRatings/k_fold.png" width="300" alt="summary-table">
-</figure>
+</div>
 
 Because the model predicts stars at a continuous value between 1-5, we can choose to analyze our predictive accuracy in two differing ways. When rounding the prediction to the nearest star/integer (`MSE_Top`), the model achieved an average mean squared error of roughly 1.3 stars. Not rounding the star (`MSE_ExpVal`) had an average MSE of 1.2. Both suggest that predicted ratings were typically about one star off from the observed rating. The model performed particularly well at identifying highly positive reviews, though it was somewhat less sensitive to lower ratings. 
 
@@ -140,9 +140,9 @@ $$
 $$
 -->
 
-<figure>
+<div class="img-center">
   <img src="/assets/AmazonRatings/summary.png" alt="summary-table">
-</figure>
+<div>
 
 Several variables emerged as especially important predictors of review ratings.
 
