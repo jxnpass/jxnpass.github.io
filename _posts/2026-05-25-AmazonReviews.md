@@ -162,8 +162,8 @@ Ordinal regression models provide a powerful and interpretable framework for mod
 
 The analysis suggests that Amazon ratings for statistics textbooks are influenced heavily by:
 
-Sentiment
-Book condition
-Positive discussion of educational content
+- Sentiment
+- Book condition
+- Positive discussion of educational content
 
 Despite using relatively simple engineered text features, the model produced reasonably accurate predictions while remaining easy to interpret. More broadly, this project demonstrates how statistical modeling and natural language processing can work together to extract meaningful structure from messy textual reviews.
