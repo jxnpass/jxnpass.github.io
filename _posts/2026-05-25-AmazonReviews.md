@@ -1,6 +1,6 @@
 ---
 title: "Can a GLM Predict if Math Nerds Hate Your Textbook?"
-description: Amazon reviews are more than just star ratings — they contain detailed clues about what readers actually liked or hated about a textbook. In this project, I analyzed reviews for my graduate program textbook Statistical Inference by Casella and Berger to investigate how review sentiment, discussion of textbook content, and complaints about physical condition relate to the final Amazon rating. Using ordinal generalized linear models (GLMs), text mining, and feature engineering techniques, I transformed raw review text into quantitative predictors and modeled which words, topics, and review characteristics most strongly contributed to higher or lower star ratings.
+description: Amazon reviews contain more than just star ratings — they reveal what readers actually liked or disliked about a textbook. In this project, I analyzed reviews for Statistical Inference by Casella and Berger using text mining and ordinal generalized linear models (GLMs) to determine which words, topics, and review characteristics most strongly influenced Amazon star ratings.
 layout: post
 
 github:
@@ -112,7 +112,7 @@ The continuation ratio model treats categories sequentially. It models the proba
 Model performance was evaluated using 5-fold cross validation:
 
 <figure>
-  <img src="/assets/AmazonRatings/summary.png" width="800" alt="summary-table">
+  <img src="/assets/AmazonRatings/k_fold.png" width="800" alt="summary-table">
 </figure>
 
 Because the model predicts stars at a continuous value between 1-5, we can choose to analyze our predictive accuracy in two differing ways. When rounding the prediction to the nearest star/integer (`MSE_Top`), the model achieved an average mean squared error of roughly 1.3 stars. Not rounding the star (`MSE_ExpVal`) had an average MSE of 1.2. Both suggest that predicted ratings were typically about one star off from the observed rating. The model performed particularly well at identifying highly positive reviews, though it was somewhat less sensitive to lower ratings. 
