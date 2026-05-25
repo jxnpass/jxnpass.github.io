@@ -2,6 +2,7 @@
 title: "UtahStats Survey Report"
 description: I partnered with the Instagram account UtahStats to learn about young adult culture in Provo/Orem. Here I share what I learned from the data regarding young adult lifestyle, college, dating, relationships, and other interesting topics, and how the analysis turned into my first distributable product.  
 layout: post
+report_link: /assets/UtahStats/UtahStatsSurvey-Report.pdf
 
 github:
     is_project_page: true

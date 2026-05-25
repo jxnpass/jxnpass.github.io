@@ -2,6 +2,7 @@
 title: "Sugars and Synapses: A Statistical Examination of Cognitive Functionality and Beverage Consumption"
 description: As a research assistant at Brigham Young University, I was tasked with evaluating the data from a lab study evaluating nutrition and cognition. Here I explain my methods of analysis and the final results.  
 layout: post
+publication_link: https://journals.sagepub.com/doi/10.1177/00315125251410466
 
 github:
     is_project_page: true
