@@ -112,7 +112,7 @@ The continuation ratio model treats categories sequentially. It models the proba
 Model performance was evaluated using 5-fold cross validation:
 
 <figure>
-  <img src="/assets/AmazonRatings/k_fold.png" width="800" alt="summary-table">
+  <img src="/assets/AmazonRatings/k_fold.png" width="300" alt="summary-table">
 </figure>
 
 Because the model predicts stars at a continuous value between 1-5, we can choose to analyze our predictive accuracy in two differing ways. When rounding the prediction to the nearest star/integer (`MSE_Top`), the model achieved an average mean squared error of roughly 1.3 stars. Not rounding the star (`MSE_ExpVal`) had an average MSE of 1.2. Both suggest that predicted ratings were typically about one star off from the observed rating. The model performed particularly well at identifying highly positive reviews, though it was somewhat less sensitive to lower ratings. 
