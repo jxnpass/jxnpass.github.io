@@ -2,6 +2,7 @@
 title: "Love At First Height"
 description: In the dating world, women generally consider the height of their ideal male partner to be a key contributor to first-impression attraction. Using 2023 data from the UtahStats Instagram page, I explored what features influence this preference, and where a particular threshold may be. 
 layout: post
+report_link: /assets/LoveAtFirstHeight/HeightPreferenceReport.pdf
 
 github:
     is_project_page: false
@@ -57,7 +58,7 @@ Key predictors included:
 Several count-based variables were log-transformed and standardized prior to modeling to improve interpretability and statistical stability.
 
 <div class="img-center">
-    <img src="/assets/LoveAtFirstHeight/table1.png" width="800" alt="table1">
+    <img src="/assets/LoveAtFirstHeight/table1.png" width="400" alt="table1">
 </div>
 
 <div class="img-center">
@@ -69,8 +70,6 @@ Several count-based variables were log-transformed and standardized prior to mod
 One challenge with modeling height preferences is that survey responses are recorded as integers, even though actual preferences are likely continuous. For example, if someone reports preferring a partner “3 inches taller,” their true preference may realistically be anywhere near that value rather than exactly 3.000 inches.
 
 To account for this, I used a Bayesian latent Gaussian model.
-
-## Latent Gaussian Model
 
 Let $Y_i$ denote the observed integer-valued response for respondent $i$, representing the minimum acceptable male height difference relative to the respondent’s own height.
 
@@ -111,9 +110,8 @@ Rather than predicting an exact outcome, the model estimates the probability mas
 This figure below shows the simulated curves of each variable and their influence on the preferred height gap. In this case, any distribution highlighted red has a significant negative impact, while those highlighted blue are positively influential.
 
 <div class="img-center">
-    <img src="/assets/LoveAtFirstHeight/fig3b.png" width="800" alt="fig1">
+    <img src="/assets/LoveAtFirstHeight/fig4.png" width="800" alt="fig1">
 </div>
-
 
 The strongest predictor by far was the respondent’s own height. Taller women tended to prefer partners closer to their own height, while shorter women preferred larger height differences: numerically, every one-inch increase in a girl’s height lead to over half-inch decrease in this gap Respondent height alone explained roughly 82% of the explainable variation in relative height-gap preferences.
 
@@ -133,14 +131,14 @@ Ultimately, these factors have a significant impact on a girl's preferred male h
 This next figure a guess on the preferred male height for two of our subjects. Essentially, the left figure represents the unobservable normal curve for each person, and where on the probability scale a given height preference may exist. The right figures are discretized/rounded to the nearest inch. 
 
 <div class="img-center">
-    <img src="/assets/LoveAtFirstHeight/fig4.png" width="800" alt="fig2">
+    <img src="/assets/LoveAtFirstHeight/fig3b.png" width="800" alt="fig2">
 </div>
 
 These examples are based on out-of-sample predictions. We highlight two individuals to illustrate different scenarios.
 
-- For subject 1, a married individual of height 5'7", the red point represents the observed height difference with their partner ($Y_1 = 5$ inches). Under the model, the probability that the latent preference falls within the corresponding interval is $P(Z_i \in [4.5, 5.5))=$ 12.43\%. Overall, the probability that her partner would satisfy the preference threshold (i.e., $Z_i < 5.5$) is approximately 86.61\%. This suggests that the observed partner height is consistent with a relatively high-probability region of the individual’s inferred preference distribution.
+- For subject 1, a married individual of height 5'7", the red point represents the observed height difference with their partner ($Y_1 = 5$ inches). Under the model, the probability that the latent preference falls within the corresponding interval is $P(Z_i \in [4.5, 5.5))=$ 12.43%. Overall, the probability that her partner would satisfy the preference threshold (i.e., $Z_i < 5.5$) is approximately 86.61%. This suggests that the observed partner height is consistent with a relatively high-probability region of the individual’s inferred preference distribution.
 
-- For subject 5, a 5'9" individual, the red point represents their stated preferred height difference. The posterior mean $\mu_i \approx 0$ (blue dashed line) aligns closely with the observed value, indicating that the model assigns relatively high probability mass to this outcome, which is $P(Z_i \in [-0.5, 0.5))=$ 17.15\%. But like for subject one, the model allows us to evaluate the probability that a given partner height satisfies the individual’s preference. For this case, a partner of equal height corresponds to approximately a 53.33\% probability of meeting the preference threshold, while a partner who is 3 inches taller will meet the threshold with a probability of approximately 92.45\%.
+- For subject 5, a 5'9" individual, the red point represents their stated preferred height difference. The posterior mean $\mu_i \approx 0$ (blue dashed line) aligns closely with the observed value, indicating that the model assigns relatively high probability mass to this outcome, which is $P(Z_i \in [-0.5, 0.5))=$ 17.15%. Just like for subject one, the model allows us to evaluate the probability that a given partner height satisfies the individual’s preference. For this case, a partner of equal height corresponds to approximately a 53.33\% probability of meeting the preference threshold, while a partner who is 3 inches taller will meet the threshold with a probability of approximately 92.45%.
 
 These predictive summaries highlight how the model can be used to translate estimated latent preferences into interpretable probabilities of observable values.
 
